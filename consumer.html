@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--
+		 作者：张元涛
+		 功能：客户管理页面
+		 -->
+		<meta charset="utf-8">
+		<title>小型家装管理系统</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+		<meta name="format-detection" content="telephone=no">
+		<meta name="description" content="Violate Responsive consumer Template">
+		<meta name="keywords" content="Super consumer, consumer, Template, Bootstrap">
+
+		<!-- 导入CSS文件开始 -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/animate.min.css" rel="stylesheet">
+		<link href="css/font-awesome.min.css" rel="stylesheet">
+		<link href="css/form.css" rel="stylesheet">
+		<link href="css/calendar.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<link href="css/icons.css" rel="stylesheet">
+		<link href="css/generics.css" rel="stylesheet">
+		<!-- 导入CSS文件结束 -->
+		<!-- 导入自定义CSS文件开始 -->
+		<link rel="stylesheet" type="text/css" href="css/gmd-style.css" />
+		<!-- 导入自定义CSS文件结束 -->
+		<!-- 设置站点图标 -->
+		<link href="img/favicon.ico" rel="icon" />
+	</head>
+	<body id="skin-tectile">
+
+		<!-- 页面顶部开始 -->
+		<header id="header" class="media">
+			<!-- 显示/隐藏菜单 -->
+			<a href="" id="menu-toggle"></a>
+			<!-- LOGO标题 -->
+			<a class="logo pull-left" href="scheme.html">小型家装管理系统 1.0</a>
+
+			<div class="media-body">
+				<div class="media" id="top-menu">
+					<div id="time" class="pull-right">
+						<span id="hours"></span>
+						:
+						<span id="min"></span>
+						:
+						<span id="sec"></span>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- 页面顶部结束 -->
+		<div class="clearfix"></div>
+
+		<!-- 页面中部开始 -->
+		<section id="main" class="p-relative" role="main">
+			<!-- 页面左侧开始 -->
+			<aside id="sidebar">
+
+			</aside>
+			<!-- 页面左侧结束 -->
+
+			<!-- 页面右侧开始 -->
+			<section id="content" class="container">
+				<!-- 路径导航开始 -->
+				<ol class="breadcrumb hidden-xs">
+					<li class="active">客户信息</li>
+				</ol>
+				<!-- 路径导航结束 -->
+
+				<!-- 页面子标题 -->
+				<h4 class="page-title">客户信息</h4>
+
+				<!-- 查询条件开始 -->
+				<div class="block-area" id="text-input">
+					<h3 class="block-title">查询条件</h3>
+					<div class="row">
+						<div class="col-lg-3">
+							<input type="text" class="form-control input-sm" id="selectConsumer"
+								placeholder="编号/姓名/标签/备注" />
+						</div>
+						<div class="col-lg-3">
+							<select class="form-control input-sm" id="selectConsumerSex">
+								<option value="-1">请选择性别</option>
+								<option value="0">男</option>
+								<option value="1">女</option>
+							</select>
+						</div>
+						<div class="col-lg-3">
+							<button type="button" class="btn m-r-5 btn-sm" id="selectBtn">查询</button>
+							<button type="button" class="btn m-r-5 btn-sm" id="insertBtn">添加</button>
+							<!-- <button type="button" href="5" class="btn m-r-5 btn-sm updateConsumerStatusHref">移除</button> -->
+						</div>
+					</div>
+				</div>
+				<!-- 查询条件结束 -->
+
+				<!-- 查询结果开始 -->
+				<div class="block-area" id="text-input">
+					<h3 class="block-title">查询结果</h3>
+					<button style="float: right;" type="button" class="btn m-r-5 btn-sm" id="blackListBtn">黑名单</button>
+					<table class="table table-bordered table-hover tile">
+						<thead>
+							<tr>
+								<th style="width:3%;">序号</th>
+								<th style="width:3%;">编号</th>
+								<th style="width:5%;">姓名</th>
+								<th style="width:3%;">性别</th>
+								<th style="width:5%;">电话</th>
+								<th style="width:10%;">邮箱</th>
+								<th>地址</th>
+								<th style="width:10%;">生日</th>
+								<th style="width:10%;">标签</th>
+								<th class="status" style="width:7%;">状态</th>
+								<th style="width:10%;">备注</th>
+							</tr>
+						</thead>
+						<tbody id="consumerSelectBody">
+							<tr class="text-center">
+								<td colspan="13">没有满足条件的客户信息！！！</td>
+							</tr>
+							<!-- <tr>
+								<td>1</td>
+								<td>001</td>
+								<td>小鹤</td>
+								<td>男</td>
+								<td>13855556666</td>
+								<td>0123456789@qq.com</td>
+								<td>北京市海淀区双榆树数码大厦A座北京市海淀区双榆树数码大厦A座</td>
+								<td>2021年1月20日</td>
+								<td>潜在客户</td>
+								<td>拉黑/删除</td>
+								<td></td>
+							</tr> -->
+						</tbody>
+					</table>
+				</div>
+				<!-- 查询结果结束 -->
+
+				<!-- 分页按钮开始 -->
+				<div class="col-lg-12 text-center">
+					<ul class="pagination" id="pagination">
+						<!-- <li><a href="#" style="color: #FFFFFF;"><i class="fa fa-angle-left" style="color: #FFFFFF;"></i></a></li>
+						<li><a href="#" style="color: #FFFFFF;">1</a></li>
+						<li><a href="#" style="color: #FFFFFF;">2</a></li>
+						<li><a href="#" style="color: #FFFFFF;">3</a></li>
+						<li><a href="#" style="color: #FFFFFF;">4</a></li>
+						<li><a href="#" style="color: #FFFFFF;">5</a></li>
+						<li><a href="#" style="color: #FFFFFF;"><i class="fa fa-angle-right"></i></a></li> -->
+					</ul>
+				</div>
+				<!-- 分页按钮结束 -->
+			</section>
+			<!-- 页面右侧结束 -->
+		</section>
+		<!-- 页面中部结束 -->
+
+		<!-- 用于保存当前页码的隐藏表单域 -->
+		<input type="hidden" id="pageNumber" value="1" />
+
+		<!-- 客户信息模态框的开始 -->
+		<div class="modal fade" id="consumerMessageModal" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<!-- 模态框顶部开始 -->
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="consumerMessageModalTitle">编辑客户信息</h4>
+					</div>
+					<!-- 模态框顶部结束 -->
+
+					<!-- 模态框中部开始 -->
+					<div class="modal-body">
+						<!-- 用户保存将要修改的客户编号 -->
+						<input type="hidden" id="consumerId" />
+						<div class="row">
+							<div class="col-lg-2 text-right" style="padding-top: 6px;">客户姓名：</div>
+							<div class="col-lg-6">
+								<input type="text" id="consumerName" class="form-control input-sm" placeholder="客户姓名" />
+							</div>
+							<div class="error1 col-lg-4">
+							</div>
+						</div>
+
+						<div class="row" style="margin-top: 10px;">
+							<div class="col-lg-2 text-right" style="padding-top: 6px;">客户性别：</div>
+							<div class="col-lg-6">
+								<select class="form-control input-sm" id="consumerSex">
+									<option value="0">男</option>
+									<option value="1">女</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="row" style="margin-top: 10px;">
+							<div class="col-lg-2 text-right" style="padding-top: 6px;">客户电话：</div>
+							<div class="col-lg-6">
+								<input type="text" id="consumerPhone" class="form-control input-sm"
+									placeholder="客户电话" />
+							</div>
+							<div class="error2 col-lg-4">
+							</div>
+						</div>
+
+						<div class="row" style="margin-top: 10px;">
+							<div class="col-lg-2 text-right" style="padding-top: 6px;">客户邮箱：</div>
+							<div class="col-lg-6">
+								<input type="email" id="consumerEmail" class="form-control input-sm email-input"
+									placeholder="客户邮箱" list="emailList" />
+								<datalist id="emailList"></datalist>
+							</div>
+							<div class="error3 col-lg-4">
+							</div>
+						</div>
+
+						<div class="row" style="margin-top: 10px;">
+							<div class="col-lg-2 text-right" style="padding-top: 6px;">客户住址：</div>
+							<div class="col-lg-6">
+								<input type="text" id="consumerAddress" class="form-control input-sm"
+									placeholder="客户住址" />
+							</div>
+							<div class="error4 col-lg-4">
+							</div>
+						</div>
+
+						<div class="row" style="margin-top: 10px;">
+							<div class="col-lg-2 text-right" style="padding-top: 6px;">客户生日：</div>
+							<div class="col-lg-6">
+								<div class="input-icon datetime-pick date-only">
+									<input data-format="yyyy-MM-dd" type="text" class="form-control input-sm"
+										id="consumerBirthday" placeholder="客户生日" />
+									<span class="add-on">
+										<i class="sa-plus"></i>
+									</span>
+								</div>
+							</div>
+							<div class="error5 col-lg-4">
+							</div>
+						</div>
+
+						<div class="row" style="margin-top: 10px;">
+							<div class="col-lg-2 text-right" style="padding-top: 6px;">客户标签：</div>
+							<div class="col-lg-6">
+								<input type="text" id="consumerLabel" class="form-control input-sm"
+									placeholder="客户标签" />
+							</div>
+							<div class="error6 col-lg-4">
+							</div>
+						</div>
+
+						<div class="row" style="margin-top: 10px;">
+							<div class="col-lg-2 text-right" style="padding-top: 6px;">
+								备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注：</div>
+							<div class="col-lg-6">
+								<input type="text" id="consumerRemark" class="form-control input-sm" placeholder="备注" />
+							</div>
+						</div>
+					</div>
+					<!-- 模态框中部结束 -->
+
+					<!-- 模态框底部开始 -->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-sm" id="updateLoginConsumerMessageBtn">保存</button>
+						<button type="button" class="btn btn-sm" data-dismiss="modal"
+							id="closeConsumerMessageBtn">关闭</button>
+					</div>
+					<!-- 模态框底部结束 -->
+				</div>
+			</div>
+		</div>
+		<!-- 客户信息模态框的结束 -->
+
+		<!-- 客户黑名单模态框的开始 -->
+		<div class="modal fade" id="consumerBlackListModal" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<!-- 模态框顶部开始 -->
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title">黑名单</h4>
+					</div>
+					<!-- 模态框顶部结束 -->
+
+					<!-- 模态框中部开始 -->
+					<div class="modal-body">
+						<!-- 用于保存黑名单当前页数的隐藏表单域 -->
+						<input type="hidden" id="blackListPageNumber" value="1" />
+						<table class="table table-bordered table-hover tile">
+							<thead>
+								<tr>
+									<th style="width:5%;">序号</th>
+									<th style="width:5%;">编号</th>
+									<th style="width:5%;">姓名</th>
+									<th style="width:5%;">性别</th>
+									<th style="width:5%;">电话</th>
+									<th style="width:10%;">邮箱</th>
+									<th>地址</th>
+									<th style="width:10%;">生日</th>
+									<th style="width:10%;">标签</th>
+									<th style="width:5%;">状态</th>
+									<th style="width:15%;">备注</th>
+								</tr>
+							</thead>
+							<tbody id="blackListSelectBody">
+								<tr class="text-center">
+									<td colspan="13">没有满足条件的客户信息！！！</td>
+								</tr>
+								<!-- <tr>
+									<td>1</td>
+									<td>001</td>
+									<td>小鹤</td>
+									<td>男</td>
+									<td>13855556666</td>
+									<td>0123456789@qq.com</td>
+									<td>北京市海淀区双榆树数码大厦A座北京市海淀区双榆树数码大厦A座</td>
+									<td>2021年1月20日</td>
+									<td>潜在客户</td>
+									<td>拉黑/删除</td>
+									<td></td>
+								</tr> -->
+							</tbody>
+						</table>
+					</div>
+					<!-- 模态框中部结束 -->
+
+					<!-- 模态框底部开始 -->
+					<div class="modal-footer">
+						<!-- 分页按钮开始 -->
+						<div class="col-lg-12 text-center">
+							<ul class="pagination" id="blackListPagination">
+								<!-- <li><a href="#" style="color: #FFFFFF;"><i class="fa fa-angle-left" style="color: #FFFFFF;"></i></a></li>
+								<li><a href="#" style="color: #FFFFFF;">1</a></li>
+								<li><a href="#" style="color: #FFFFFF;">2</a></li>
+								<li><a href="#" style="color: #FFFFFF;">3</a></li>
+								<li><a href="#" style="color: #FFFFFF;">4</a></li>
+								<li><a href="#" style="color: #FFFFFF;">5</a></li>
+								<li><a href="#" style="color: #FFFFFF;"><i class="fa fa-angle-right"></i></a></li> -->
+							</ul>
+						</div>
+						<!-- 分页按钮结束 -->
+					</div>
+					<!-- 模态框底部结束 -->
+
+				</div>
+			</div>
+		</div>
+		<!-- 客户黑名单模态框的结束 -->
+
+		<!-- 导入JS文件开始 -->
+		<script src="js/jquery.min.js"></script> <!-- jQuery Library -->
+		<script src="js/jquery-ui.min.js"></script> <!-- jQuery UI -->
+		<script src="js/jquery.easing.1.3.js"></script> <!-- jQuery Easing - Requirred for Lightbox + Pie Charts-->
+
+		<script src="js/bootstrap.min.js"></script>
+
+		<script src="js/scroll.min.js"></script> <!-- Custom Scrollbar -->
+		<script src="js/datetimepicker.min.js"></script> <!-- Date & Time Picker -->
+
+		<script src="js/calendar.min.js"></script> <!-- Calendar -->
+		<script src="js/feeds.min.js"></script> <!-- News Feeds -->
+		<script src="js/functions.js"></script>
+		<!-- 导入JS文件开始 -->
+
+		<!-- 导入自定义JS文件开始 -->
+		<script src="js/common/email-component.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/common/check-data.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/content/url.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/common/format.js" type="text/javascript" charset="utf-8"></script>
+		<!-- 导入自定义JS文件结束 -->
+
+		<!-- 自定义JS代码开始 -->
+		<script type="text/javascript">
+			// 加载左侧菜单页面
+			$("#sidebar").load("left-menu.html");
+
+			$(function() {
+				// 激活菜单
+				$("#consumerMenu").addClass("active");
+				
+				window.onload = function(){
+					var loginGrade = JSON.parse(sessionStorage.getItem("loginEmployee")).employeeGrade;
+					
+					if(loginGrade < 2){
+						$(".delete").attr("hidden","hidden");
+						if(loginGrade < 1){
+							$("#insertBtn").hide();
+							$("#blackListBtn").hide();
+							$(".status").attr("hidden","hidden");
+						}
+					}
+				}
+				
+				showTable(1);
+
+				/* 模态框中保存按钮单击事件(id属性为updateLoginConsumerMessageBtn) */
+				$("#updateLoginConsumerMessageBtn").click(function() {
+					$(".error1").text("");
+					$(".error2").text("");
+					$(".error3").text("");
+					$(".error4").text("");
+					$(".error5").text("");
+					$(".error6").text("");
+
+					var consumerName = $("#consumerName");
+					if (consumerName.val() == "") {
+						$(".error1").text("客户姓名不能为空！！！");
+						consumerName.focus();
+						return false;
+					}
+
+					var consumerPhone = $("#consumerPhone");
+					if (consumerPhone.val() == "") {
+						$(".error2").text("客户电话不能为空！！！");
+						consumerPhone.focus();
+						return false;
+					}
+
+					if (!checkPhone(consumerPhone.val())) {
+						$(".error2").text("客户电话格式不正确！！！");
+						consumerPhone.focus();
+						return false;
+					}
+
+					var consumerEmail = $("#consumerEmail");
+					if (consumerEmail.val() == "") {
+						$(".error3").text("客户邮箱不能为空！！！");
+						consumerEmail.focus();
+						return false;
+					}
+
+					if (!checkMail(consumerEmail.val())) {
+						$(".error3").text("客户邮箱格式不正确！！！");
+						consumerEmail.select();
+						return false;
+					}
+
+					var consumerAddress = $("#consumerAddress");
+					if (consumerAddress.val() == "") {
+						$(".error4").text("家庭地址不能为空！！！");
+						consumerAddress.focus();
+						return false;
+					}
+
+					var consumerBirthday = $("#consumerBirthday");
+					if (consumerBirthday.val() == "") {
+						$(".error5").text("客户生日不能为空！！！");
+						consumerBirthday.focus();
+						return false;
+					}
+
+					var consumerLabel = $("#consumerLabel");
+					if (consumerLabel.val() == "") {
+						$(".error6").text("客户标签不能为空！！！");
+						consumerLabel.focus();
+						return false;
+					}
+
+					// 获得被点击超链接上的文本
+					var btnText = $(this).text();
+
+					var url = url_prefix_consumer;
+
+					if (btnText == "新建") {
+						url = url + "insert";
+						var consumerId = "";
+					} else {
+						url = url + "update";
+						var consumerId = $("#consumerId").val();
+					}
+
+					var args = {
+						"consumerId": consumerId,
+						"consumerName": consumerName.val(),
+						"consumerSex": $("#consumerSex").val(),
+						"consumerPhone": consumerPhone.val(),
+						"consumerEmail": consumerEmail.val(),
+						"consumerBirthday": $("#consumerBirthday").val().substring(0, 10),
+						"consumerAddress": consumerAddress.val(),
+						"consumerLabel": consumerLabel.val(),
+						"consumerRemark": $("#consumerRemark").val()
+					};
+
+					$.post(url, args, function(result) {
+						if (result.code == 0) {
+							// 手动关闭指定ID的模态框
+							$("#consumerMessageModal").modal("hide");
+							// 调用showTable()方法查询满足条件的客户信息
+							showTable($("#pageNumber").val());
+						} else {
+							alert(result.message);
+						}
+					});
+				});
+
+				/* 查询按钮的单机事件(id属性为selectBtn) */
+				$("#selectBtn").click(function() {
+					//显示满足条件第一页的客户信息
+					showTable(1);
+				});
+
+				/* 显示满足条件的第N页的客户信息 */
+				function showTable(pageNumber) {
+					// 将页码保存到ID位pageNumber的隐藏表单域中
+					$("#pageNumber").val(pageNumber);
+					//alert(pageNumber);
+					var url = url_prefix_consumer + "selectPages";
+
+					var selectConsumer = $("#selectConsumer").val();
+
+					if (checkInt(selectConsumer)) {
+						var selectConsumerId = selectConsumer;
+					} else {
+						var selectConsumerName = selectConsumer;
+						var selectConsumerLabel = selectConsumer;
+						var selectConsumerRemark = selectConsumer;
+					}
+
+					var args = {
+						"consumerName": selectConsumerName,
+						"consumerId": selectConsumerId,
+						"consumerLabel": selectConsumerLabel,
+						"consumerRemark": selectConsumerRemark,
+						"consumerStatus": 0,
+						"consumerSex": $("#selectConsumerSex").val(),
+						"pageNumber": pageNumber
+					};
+
+					$.get(url, args, function(result) {
+						// 获得tbody
+						var tbody = $("#consumerSelectBody");
+						// 移除tbody中所有的tr
+						tbody.find("tr").remove();
+
+						//alert(result.code);
+						if (result.code == 0) {
+							// 查询成功，将客户的信息显示在页面的表格中
+							// 获得分页信息
+							var pages = result.resultData.pages;
+							// 在分页信息中获得客户信息
+							var list = pages.list;
+
+							// 获得当前页面起始行的行号
+							var startRow = pages.startRow;
+
+							// 使用循环将客户信息显示在表格中
+							for (var i = 0; i < list.length; i++) {
+								// 获得数组中的客户信息
+								var consumer = list[i];
+								// 创建tr
+								var tr = $("<tr></tr>");
+								// 创建td
+								var td = $("<td></td>");
+
+								// 向tr中添加td
+								tr.append($("<td>" + (startRow++) + "</td>"));
+								tr.append($("<td>" + consumer.consumerId + "</td>"));
+								tr.append($("<td><a href='" + consumer.consumerId +
+									"' class='updateConsumerHref'>" + consumer.consumerName +
+									"</a></td>"));
+								tr.append($("<td>" + (consumer.consumerSex == 0 ? "男" : "女") + "</td>"));
+								tr.append($("<td>" + consumer.consumerPhone + "</td>"));
+								tr.append($("<td><p class='text-hidden' title='" + consumer.consumerEmail +
+									"'>" + consumer
+									.consumerEmail + "</td>"));
+								tr.append($("<td><p class='text-hidden' title='" + consumer.consumerAddress +
+									"'>" +
+									consumer.consumerAddress + "</p></td>"));
+								tr.append($("<td>" + consumer.consumerBirthday.substring(0, 10) + "</td>"));
+								tr.append($("<td>" + consumer.consumerLabel + "</td>"));
+								// 客户状态
+								tr.append($("<td " + gradeDetermination(1) + "><a href='" + consumer.consumerId +
+									"' class='updateConsumerStatusHref'>拉黑</a><span " + gradeDetermination(2) + "> | <a href='" +
+									consumer.consumerId +
+									"' class='deleteConsumer' style='color:red;'>删除</a></span></td>"));
+								//tr.append($("<td>" + consumer.consumerStatus + "</td>"));
+								tr.append($("<td><p class='text-hidden' title='" + consumer.consumerRemark +
+									"'>" + consumer
+									.consumerRemark + "</p></td>"));
+								// 将tr添加到tbody中
+								tbody.append(tr);
+							}
+
+							/* 为修改客户状态超链接绑定单击事件 */
+							$(".updateConsumerStatusHref").on("click", function() {
+								if (confirm("确定要拉黑该客户吗？")) {
+									// 获得被点击超链接href属性的值
+									var consumerId = $(this).attr("href");
+									//alert(consumerId);
+
+									var url = url_prefix_consumer + "update";
+
+									var args = {
+										"consumerId": consumerId,
+										"consumerStatus": 1
+									};
+
+									$.post(url, args, function(result) {
+										if (result.code == 0) {
+											showTable(pageNumber);
+										} else {
+											alert(result.message);
+										}
+									});
+								}
+								return false;
+							});
+
+							/* 为删除客户超链接绑定单击事件 */
+							$(".deleteConsumer").on("click", function() {
+								if (confirm("确定要删除当前客户吗？\n此操作不可逆！！！")) {
+									// 获得被点击超链接href属性的值
+									var consumerId = $(this).attr("href");
+									//alert(consumerId);
+
+									var url = url_prefix_consumer + "delete";
+
+									var args = {
+										"consumerId": consumerId
+									};
+
+									$.get(url, args, function(result) {
+										if (result.code == 0) {
+											showTable(pageNumber);
+										} else {
+											alert(result.message);
+										}
+									});
+								}
+								return false;
+							});
+
+							/* 为修改客户超链接绑定单击事件 */
+							$(".updateConsumerHref").on("click", function() {
+								if(loginGrade < 1){
+									return false;
+								}
+								$("#consumerMessageModalTitle").text("修改客户信息");
+								$("#updateLoginConsumerMessageBtn").text("保存");
+								// 获得被点击超链接href属性的值
+								var consumerId = $(this).attr("href");
+								// 创建url
+								var url = url_prefix_consumer + "selectById";
+								// 创建需要传递的参数
+								var args = {
+									"consumerId": consumerId
+								};
+								// 想服务器发出get模式的请求，并获得响应的结果
+								$.get(url, args, function(result) {
+									if (result.code == 0) {
+										// 手动打开指定ID的模态框
+										$("#consumerMessageModal").modal("show");
+										$(".error1").text("");
+										$(".error2").text("");
+										$(".error3").text("");
+										$(".error4").text("");
+										$(".error5").text("");
+										$(".error6").text("");
+										// 将客户信息显示在模态框中
+										var consumer = result.resultData.consumerMessage;
+										$("#consumerName").val(consumer.consumerName);
+										$("#consumerSex").val(consumer.consumerSex);
+										$("#consumerPhone").val(consumer.consumerPhone);
+										$("#consumerEmail").val(consumer.consumerEmail);
+										$("#consumerBirthday").val(consumer.consumerBirthday
+											.substring(0, 10));
+										$("#consumerAddress").val(consumer.consumerAddress);
+										$("#consumerLabel").val(consumer.consumerLabel);
+										$("#consumerRemark").val(consumer.consumerRemark);
+										$("#consumerId").val(consumer.consumerId);
+									} else {
+										alert(result.message);
+									}
+								});
+								return false;
+							});
+
+							//------------------------------分页按钮--------------------------------
+							// 获得显示分页按钮的容器(ul)
+							var pagination = $("#pagination");
+							// 在显示分页按钮的容器中查找所有的li，并移除
+							pagination.find("li").remove();
+
+							// 是否需要显示分页按钮
+							if (pages.pages > 1) {
+								/* 上一页 */
+								/* 如果当前为第一页，则上一页按钮无效 */
+								if (pages.isFirstPage) {
+									pagination.append($(
+										'<li><a><i class="fa fa-angle-left" style="color: #FFFFFF;"></i></a></li>'
+									));
+								} else {
+									pagination.append($(
+										'<li><a href="' + pages.prePage +
+										'" class="pageButtonHref"><i class="fa fa-angle-left" style="color: #FFFFFF;"></i></a></li>'
+									));
+								}
+								/* 普通分页按钮 */
+								// 获得分页按钮的数组
+								var navigatepageNums = pages.navigatepageNums;
+								for (var i = 0; i < navigatepageNums.length; i++) {
+									// 当前页的分页按钮无效
+									if (navigatepageNums[i] == pageNumber) {
+										pagination.append($('<li class="active"><a style="color: #FFFFFF;">' +
+											navigatepageNums[i] +
+											'</a></li>'));
+									} else {
+										pagination.append($('<li><a href="' + navigatepageNums[i] +
+											'" class="pageButtonHref" style="color: #FFFFFF;">' +
+											navigatepageNums[
+												i] + '</a></li>'));
+									}
+								}
+
+								/* 下一页 */
+								/* 如果当前为最后一页，则下一页按钮无效 */
+								if (pages.isLastPage) {
+									pagination.append($(
+										'<li><a><i class="fa fa-angle-right" style="color: #FFFFFF;"></i></a></li>'
+									));
+								} else {
+									pagination.append($(
+										'<li><a href="' + pages.nextPage +
+										'" class="pageButtonHref"><i class="fa fa-angle-right" style="color: #FFFFFF;"></i></a></li>'
+									));
+								}
+
+								/* 为动态创建的分页按钮绑定单击事件 */
+								$(".pageButtonHref").on("click", function() {
+									// 获得被点击超链接href属性的值
+									var num = $(this).attr("href");
+									// 查询满足条件的第N页的客户信息
+									showTable(num);
+									// 阻止超链接发出请求
+									return false;
+								});
+
+							}
+						} else {
+							// 查询失败，没有查询到客户信息
+							// 1、创建tr
+							var tr = $("<tr class='text-center'></tr>");
+							// 2、创建td
+							var td = $("<td colspan='13'>" + result.message + "</td>");
+							// 3、将td添加到tr中
+							tr.append(td);
+							// 4、将tr添加到tbody中
+							tbody.append(tr);
+						}
+					});
+				}
+
+				/* 添加按钮的单击事件(id属性为insertBtn) */
+				$("#insertBtn").click(function() {
+					// 手动打开指定ID的模态框
+					$("#consumerMessageModal").modal("show");
+					$("#consumerMessageModalTitle").text("新建客户信息");
+					$("#updateLoginConsumerMessageBtn").text("新建");
+					$("#consumerName").val("");
+					$("#consumerSex").prop('selectedIndex', 0);
+					$("#consumerPhone").val("");
+					$("#consumerEmail").val("");
+					$("#consumerAddress").val("");
+					$("#consumerBirthday").val("");
+					$("#consumerLabel").val("");
+					$("#consumerRemark").val("");
+					$(".error1").text("");
+					$(".error2").text("");
+					$(".error3").text("");
+					$(".error4").text("");
+					$(".error5").text("");
+					$(".error6").text("");
+				})
+
+				/* 黑名单按钮的单击事件(id属性为blackListBtn) */
+				$("#blackListBtn").click(function() {
+					// 手动打开指定ID的模态框
+					$("#consumerBlackListModal").modal("show");
+					showBlackListTable(1);
+				})
+
+				function showBlackListTable(blackListPageNumber) {
+					// 将页码保存到ID为blackListPageNumber的隐藏表单域中
+					$("#blackListPageNumber").val(blackListPageNumber);
+					//alert(blackListPageNumber);
+					var url = url_prefix_consumer + "selectPages";
+
+					var args = {
+						"consumerStatus": 1,
+						"consumerSex": -1,
+						"pageNumber": blackListPageNumber
+					};
+
+					$.get(url, args, function(result) {
+						// 获得tbody
+						var tbody = $("#blackListSelectBody");
+						// 移除tbody中所有的tr
+						tbody.find("tr").remove();
+
+						//alert(result.code);
+						if (result.code == 0) {
+							// 查询成功，将客户的信息显示在页面的表格中
+							// 获得分页信息
+							var pages = result.resultData.pages;
+							// 在分页信息中获得客户信息
+							var list = pages.list;
+
+							// 获得当前页面起始行的行号
+							var startRow = pages.startRow;
+
+							// 使用循环将客户信息显示在表格中
+							for (var i = 0; i < list.length; i++) {
+								// 获得数组中的客户信息
+								var consumer = list[i];
+								// 创建tr
+								var tr = $("<tr></tr>");
+								// 创建td
+								var td = $("<td></td>");
+
+								// 向tr中添加td
+								tr.append($("<td>" + (startRow++) + "</td>"));
+								tr.append($("<td>" + consumer.consumerId + "</td>"));
+								tr.append($("<td>" + consumer.consumerName + "</td>"));
+								tr.append($("<td>" + (consumer.consumerSex == 0 ? "男" : "女") + "</td>"));
+								tr.append($("<td>" + consumer.consumerPhone + "</td>"));
+								tr.append($("<td><p class='text-hidden' title='" + consumer.consumerEmail +
+									"'>" + consumer.consumerEmail + "</p></td>"));
+								tr.append($("<td><p class='text-hidden' title='" + consumer.consumerAddress +
+									"'>" + consumer.consumerAddress + "</p></td>"));
+								tr.append($("<td>" + consumer.consumerBirthday.substring(0, 10) + "</td>"));
+								tr.append($("<td>" + consumer.consumerLabel + "</td>"));
+								// 客户状态
+								tr.append($("<td><a href='" + consumer.consumerId +
+									"' class='updateConsumerBlackListBHref'>移除</a></td>"));
+								//tr.append($("<td>" + consumer.consumerStatus + "</td>"));
+								tr.append($("<td><p class='text-hidden' title='" + consumer.consumerRemark +
+									"'>" + consumer.consumerRemark + "</p></td>"));
+								// 将tr添加到tbody中
+								tbody.append(tr);
+							}
+
+							/* 为修改客户状态超链接绑定单击事件 */
+							$(".updateConsumerBlackListBHref").on("click", function() {
+								// 获得被点击超链接href属性的值
+								var consumerId = $(this).attr("href");
+								//alert(consumerId);
+
+								var url = url_prefix_consumer + "update";
+
+								var args = {
+									"consumerId": consumerId,
+									"consumerStatus": 0
+								};
+
+								$.post(url, args, function(result) {
+									if (result.code == 0) {
+										showBlackListTable(blackListPageNumber);
+										showTable($("#pageNumber").val())
+									} else {
+										alert(result.message);
+									}
+								});
+								return false;
+							});
+
+							//------------------------------分页按钮--------------------------------
+							// 获得显示分页按钮的容器(ul)
+							var pagination = $("#blackListPagination");
+							// 在显示分页按钮的容器中查找所有的li，并移除
+							pagination.find("li").remove();
+
+							// 是否需要显示分页按钮
+							if (pages.pages > 1) {
+								/* 上一页 */
+								/* 如果当前为第一页，则上一页按钮无效 */
+								if (pages.isFirstPage) {
+									pagination.append($(
+										'<li><a><i class="fa fa-angle-left" style="color: #FFFFFF;"></i></a></li>'
+									));
+								} else {
+									pagination.append($(
+										'<li><a href="' + pages.prePage +
+										'" class="pageButtonHref"><i class="fa fa-angle-left" style="color: #FFFFFF;"></i></a></li>'
+									));
+								}
+								/* 普通分页按钮 */
+								// 获得分页按钮的数组
+								var navigatepageNums = pages.navigatepageNums;
+								for (var i = 0; i < navigatepageNums.length; i++) {
+									// 当前页的分页按钮无效
+									if (navigatepageNums[i] == blackListPageNumber) {
+										pagination.append($('<li class="active"><a style="color: #FFFFFF;">' +
+											navigatepageNums[i] + '</a></li>'));
+									} else {
+										pagination.append($('<li><a href="' + navigatepageNums[i] +
+											'" class="pageButtonHref" style="color: #FFFFFF;">' +
+											navigatepageNums[
+												i] + '</a></li>'));
+									}
+								}
+
+								/* 下一页 */
+								/* 如果当前为最后一页，则下一页按钮无效 */
+								if (pages.isLastPage) {
+									pagination.append($(
+										'<li><a><i class="fa fa-angle-right" style="color: #FFFFFF;"></i></a></li>'
+									));
+								} else {
+									pagination.append($(
+										'<li><a href="' + pages.nextPage +
+										'" class="pageButtonHref"><i class="fa fa-angle-right" style="color: #FFFFFF;"></i></a></li>'
+									));
+								}
+
+								/* 为动态创建的分页按钮绑定单击事件 */
+								$(".pageButtonHref").on("click", function() {
+									// 获得被点击超链接href属性的值
+									var num = $(this).attr("href");
+									// 查询满足条件的第N页的客户信息
+									showBlackListTable(num);
+									// 阻止超链接发出请求
+									return false;
+								});
+							}
+						} else {
+							// 查询失败，没有查询到客户信息
+							// 1、创建tr
+							var tr = $("<tr class='text-center'></tr>");
+							// 2、创建td
+							var td = $("<td colspan='13'>" + result.message + "</td>");
+							// 3、将td添加到tr中
+							tr.append(td);
+							// 4、将tr添加到tbody中
+							tbody.append(tr);
+						}
+					});
+				}
+			});
+		</script>
+		<!-- 自定义JS代码结束 -->
+	</body>
+</html>

@@ -1,0 +1,1854 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- 
+		 作者：张元涛
+		 功能：方案查询页面
+		 -->
+		<meta charset="utf-8">
+		<title>小型家装管理系统</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+		<meta name="format-detection" content="telephone=no">
+		<meta name="description" content="Violate Responsive Admin Template">
+		<meta name="keywords" content="Super Admin, Admin, Template, Bootstrap">
+
+		<!-- 导入CSS文件开始 -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/animate.min.css" rel="stylesheet">
+		<link href="css/font-awesome.min.css" rel="stylesheet">
+		<link href="css/form.css" rel="stylesheet">
+		<link href="css/calendar.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<link href="css/icons.css" rel="stylesheet">
+		<link href="css/generics.css" rel="stylesheet">
+		<link href="css/lightbox.css" rel="stylesheet">
+		<!-- 导入CSS文件结束 -->
+		<!-- 导入自定义CSS文件开始 -->
+		<link rel="stylesheet" type="text/css" href="css/gmd-style.css" />
+		<!-- 导入自定义CSS文件结束 -->
+		<!-- 设置站点图标 -->
+		<link href="img/favicon.ico" rel="icon" />
+	</head>
+	<body id="skin-tectile">
+
+		<!-- 页面顶部开始 -->
+		<header id="header" class="media">
+			<!-- 显示/隐藏菜单 -->
+			<a href="" id="menu-toggle"></a>
+			<!-- LOGO标题 -->
+			<a class="logo pull-left" href="scheme.html">小型家装管理系统 1.0</a>
+
+			<div class="media-body">
+				<div class="media" id="top-menu">
+					<div id="time" class="pull-right">
+						<span id="hours"></span>
+						:
+						<span id="min"></span>
+						:
+						<span id="sec"></span>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- 页面顶部结束 -->
+		<div class="clearfix"></div>
+
+		<!-- 页面中部开始 -->
+		<section id="main" class="p-relative" role="main">
+			<!-- 页面左侧开始 -->
+			<aside id="sidebar">
+
+			</aside>
+			<!-- 页面左侧结束 -->
+
+			<!-- 页面右侧开始 -->
+			<section id="content" class="container">
+				<!-- 路径导航开始 -->
+				<ol class="breadcrumb hidden-xs">
+					<li><a href="#">方案信息</a></li>
+					<li class="active">查询方案</li>
+				</ol>
+				<!-- 路径导航结束 -->
+
+				<!-- 页面子标题 -->
+				<h4 class="page-title">查询方案</h4>
+
+				<!-- 页面主体开始 -->
+				<div class="block-area" id="text-input">
+
+					<!-- 查询条件开始 -->
+					<h3 class="block-title">查询条件</h3>
+
+					<div class="row">
+						<div class="col-lg-2">
+							<input type="text" class="form-control input-sm" placeholder="方案名称/方案备注"
+								id="selectSchemeName" autofocus="autofocus" />
+						</div>
+						<div class="col-lg-3">
+							<button type="button" class="btn btn-sm" id="selectBtn">查询</button>
+							<button type="button" data-toggle="modal" class="btn btn-sm" href="#insertSchemeModal"
+								id="insertBtn">添加方案</button>
+							<button type="button" class="btn btn-sm" data-toggle="modal" href="#insertSchemeModal"
+								id="orderBtn">自选下单</button>
+						</div>
+					</div>
+					<!-- 查询条件结束 -->
+
+					<!-- 查询结果开始 -->
+					<div class="row m-t-10" id="schemeMessageBody">
+						<!-- 方案信息开始 -->
+						<!-- <div class="col-sm-6 col-md-2">
+							<div class="thumbnail tile"> -->
+						<!-- 方案图片开始 -->
+						<!-- <a href="../images/猫咪.jpg" data-rel="gallery" class="pirobox_gall img-popup m-5" title="方案名称">
+									<img src="../images/猫咪.jpg" style="width: 95%;" />
+								</a> -->
+						<!-- 方案图片结束 -->
+						<!-- 方案其它信息开始 -->
+						<!-- <div class="p-10"> -->
+						<!-- 方案名称开始 -->
+						<!-- <p class="text-center">
+										<a href="#updateSchemeMessageModal" data-toggle="modal">
+											<strong>XXXX XXXX XXXX 方案名称 XXXX XXXX XXXX</strong>
+										</a>
+									</p> -->
+						<!-- 方案名称结束 -->
+
+						<!-- 方案价格与进价开始 -->
+						<!-- <p class="text-center">
+										售价：<span>￥1,999.00</span>
+										进价<span>￥999.00</span>
+									</p> -->
+						<!-- 方案价格与进价结束 -->
+						<!-- 方案信息开始 -->
+						<!-- <p class="text-center">
+										方案信息:<span>XXXX XXXX XXXX</span>
+									</p> -->
+						<!-- 方案信息结束 -->
+						<!-- </div> -->
+						<!-- 方案其它信息结束 -->
+						<!-- </div> -->
+						<!-- </div> -->
+						<!-- 方案信息结束 -->
+					</div>
+					<!-- 查询结果结束 -->
+
+					<!-- 分页按钮开始 -->
+					<div class="col-lg-12 text-center">
+						<ul class="pagination" id="schemePagination">
+							<!-- <li><a href="#" style="color: #FFFFFF;"><i class="fa fa-angle-left" style="color: #FFFFFF;"></i></a></li>
+							<li><a href="#" style="color: #FFFFFF;">1</a></li>
+							<li><a href="#" style="color: #FFFFFF;">2</a></li>
+							<li><a href="#" style="color: #FFFFFF;">3</a></li>
+							<li><a href="#" style="color: #FFFFFF;">4</a></li>
+							<li><a href="#" style="color: #FFFFFF;">5</a></li>
+							<li><a href="#" style="color: #FFFFFF;"><i class="fa fa-angle-right"></i></a></li> -->
+						</ul>
+					</div>
+					<!-- 分页按钮结束 -->
+				</div>
+				<!-- 页面主体结束 -->
+			</section>
+			<!-- 页面右侧结束 -->
+		</section>
+		<!-- 页面中部结束 -->
+
+		<!-- 保存页码的隐藏表单域 -->
+		<input type="hidden" id="pageNumber" />
+
+		<!-- 修改方案信息模态框的开始 -->
+		<div class="modal fade" id="updateSchemeMessageModal" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<!-- 模态框顶部开始 -->
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="modalTitle">编辑方案信息</h4>
+					</div>
+					<!-- 模态框顶部结束 -->
+
+					<!-- 模态框中部开始 -->
+					<div class="modal-body">
+						<!-- 用于保存修改方案编号的隐藏表单域 -->
+						<input type="hidden" id="updateSchemeId" />
+						<div class="row">
+							<div class="col-lg-2 text-right" style="padding-top: 6px;">方案名称：</div>
+							<div class="col-lg-8">
+								<input type="text" class="form-control input-sm" id="schemeName" />
+								<div class="error1">
+								</div>
+							</div>
+						</div>
+
+						<div class="row m-t-5">
+							<div class="col-lg-2 text-right" style="padding-top: 6px;">方案价格：</div>
+							<div class="col-lg-8">
+								<input type="text" readonly="readonly" class="form-control input-sm" id="schemePrice" />
+								<div class="error2">
+								</div>
+							</div>
+						</div>
+
+						<div class="row m-t-5">
+							<div class="col-lg-2 text-right" style="padding-top: 6px;">优惠价：</div>
+							<div class="col-lg-8">
+								<input type="text" class="form-control input-sm" id="schemeDiscount" />
+								<div class="error3">
+								</div>
+							</div>
+						</div>
+
+						<div class="row m-t-5">
+							<div class="col-lg-2 text-right" style="padding-top: 6px;">房屋面积：</div>
+							<div class="col-lg-8">
+								<input type="text" class="form-control input-sm" id="schemeSquare" />
+								<div class="error4">
+								</div>
+							</div>
+						</div>
+
+						<div class="row m-t-5">
+							<div class="col-lg-2 text-right" style="padding-top: 6px;">方案备注：</div>
+							<div class="col-lg-8">
+								<textarea rows="5" class="form-control input-sm" id="schemeRemark"></textarea>
+							</div>
+						</div>
+					</div>
+					<!-- 模态框中部结束 -->
+
+					<!-- 模态框底部开始 -->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-sm" id="updateSchemeMessageBtn">保存</button>
+						<button type="button" class="btn btn-sm" data-dismiss="modal">关闭</button>
+					</div>
+					<!-- 模态框底部结束 -->
+				</div>
+			</div>
+		</div>
+		<!-- 修改方案信息模态框的结束 -->
+
+		<!-- 修改方案图片模态框开始 -->
+		<div class="modal fade" id="updateSchemeImageModal" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<!-- 模态框顶部开始 -->
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title">编辑方案图片</h4>
+					</div>
+					<!-- 模态框顶部结束 -->
+
+					<!-- 模态框中部开始 -->
+					<div class="modal-body">
+						<!-- 保存方案编号的隐藏表单域 -->
+						<input type="hidden" id="updateSchemePhotoId" />
+						<!-- 保存原图片名称的隐藏表单域 -->
+						<input type="hidden" id="updateSchemeOldPhoto" />
+						<form method="post" id="updateSchemePhotoForm" enctype="multipart/form-data">
+							<div class="fileupload fileupload-exists" data-provides="fileupload">
+								<div id="updateSchemePhoto" class="fileupload-preview thumbnail form-control"
+									style="width: 100%;">
+									<img src="img/猫咪.jpg" />
+								</div>
+								<div>
+									<span class="btn btn-file btn-alt btn-sm">
+										<span class="fileupload-new">选择图片</span>
+										<span class="fileupload-exists">替换</span>
+										<input type="file" name="schemePhoto" accept="image/*" />
+									</span>
+									<a href="#" class="btn fileupload-exists btn-sm" data-dismiss="fileupload">移除</a>
+								</div>
+							</div>
+						</form>
+					</div>
+					<!-- 模态框中部结束 -->
+
+					<!-- 模态框底部开始 -->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-sm" id="updateSchemePhotoBtn">保存</button>
+						<button type="button" class="btn btn-sm" data-dismiss="modal">关闭</button>
+					</div>
+					<!-- 模态框底部结束 -->
+				</div>
+			</div>
+		</div>
+		<!-- 修改方案图片模态框结束 -->
+
+		<!-- 显示方案明细模态框开始 -->
+		<div class="modal fade" id="showSchemeDetailsModal" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<!-- 保存对应方案编号的隐藏表单域 -->
+					<input type="hidden" id="assignSchemeId" value="" />
+					<!-- 模态框顶部开始 -->
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title">方案明细信息</h4>
+					</div>
+					<!-- 模态框顶部结束 -->
+
+					<!-- 模态框中部开始 -->
+					<div class="modal-body m-b-25">
+						<table class="table tile table-hover table-bschemeed">
+							<thead>
+								<tr>
+									<th width="5%">序号</th>
+									<th width="8%">方案明细编号</th>
+									<th width="8%">方案材料种类</th>
+									<th width="8%">分方案金额</th>
+									<th width="8%">工人姓名</th>
+									<th width="6%">工人时长(日)</th>
+									<th width="8%">工人总价</th>
+									<th width="8%">材料总价</th>
+									<th>分方案备注</th>
+									<th class="operation">操作</th>
+								</tr>
+							</thead>
+							<tbody id="schemeDetailsTbody">
+								<!-- <tr>
+									<td>序号</td>
+									<td>方案明细编号</td>
+									<td>方案材料种类</td>
+									<td>分方案金额</td>
+									<td工人姓名</td>
+									<td工人时长</td>
+									<td>工人总价</td>
+									<td>材料总价</td>
+									<td>分方案备注</td>
+									<td>操作</td>
+								</tr> -->
+								<tr class="text-center">
+									<td colspan="13">没有查询到方案明细信息！！！</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<!-- 分页按钮开始 -->
+						<div class="col-lg-12 text-center">
+							<ul class="pagination" id="schemeDetailsPageButtonBody">
+								<!-- <li><a href="#" style="color: #FFFFFF;"><i class="fa fa-angle-left" style="color: #FFFFFF;"></i></a></li>
+								<li><a href="#" style="color: #FFFFFF;">1</a></li>
+								<li><a href="#" style="color: #FFFFFF;">2</a></li>
+								<li><a href="#" style="color: #FFFFFF;">3</a></li>
+								<li><a href="#" style="color: #FFFFFF;">4</a></li>
+								<li><a href="#" style="color: #FFFFFF;">5</a></li>
+								<li><a href="#" style="color: #FFFFFF;"><i class="fa fa-angle-right"></i></a></li> -->
+							</ul>
+						</div>
+						<!-- 分页按钮结束 -->
+
+					</div>
+					<!-- 模态框中部结束 -->
+
+					<!-- 模态框底部开始 -->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-sm" data-dismiss="modal">关闭</button>
+						<button type="button" class="btn btn-sm" data-toggle="modal" href="#insertSchemeModal"
+							id="placeOrder">去下单</button>
+					</div>
+					<!-- 模态框底部结束 -->
+				</div>
+			</div>
+		</div>
+		<!-- 显示方案明细模态框结束 -->
+
+		<!-- 显示方案明细材料模态框开始 -->
+		<div class="modal fade" id="showSchemeDetailsMaterialsModal" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog" style="width: 1000px;">
+				<div class="modal-content">
+					<!-- 保存对应方案编号的隐藏表单域 -->
+					<input type="hidden" id="assignSchemeDetailsId" value="" />
+					<!-- 模态框顶部开始 -->
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title">方案明细材料信息</h4>
+					</div>
+					<!-- 模态框顶部结束 -->
+
+					<!-- 模态框中部开始 -->
+					<div class="modal-body m-b-25">
+						<table class="table tile table-hover table-bschemeed">
+							<thead>
+								<tr>
+									<th width="5%">序号</th>
+									<th width="10%">明细材料编号</th>
+									<th width="10%">材料名称</th>
+									<th width="10%">材料数量</th>
+									<th>备注</th>
+									<th class="operation" width="10%">操作</th>
+								</tr>
+							</thead>
+							<tbody id="schemeDetailsMaterialsTbody">
+								<!-- <tr>
+									<td>序号</td>
+									<td>明细材料编号</td>
+									<td>材料名称</td>
+									<td>材料数量</td>
+									<td>备注</td>
+									<td>修改/删除</td>
+								</tr> -->
+								<tr class="text-center">
+									<td colspan="13">没有查询到方案明细材料信息！！！</td>
+								</tr>
+							</tbody>
+						</table>
+
+					</div>
+					<!-- 模态框中部结束 -->
+
+					<!-- 模态框底部开始 -->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-sm" id="updateSchemeMaterials">修改</button>
+						<button type="button" class="btn btn-sm" data-dismiss="modal">关闭</button>
+					</div>
+					<!-- 模态框底部结束 -->
+				</div>
+			</div>
+		</div>
+		<!-- 显示方案明细材料模态框结束 -->
+
+		<!-- 创建新方案模态框的开始 -->
+		<div class="modal fade" id="insertSchemeModal" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<!-- 模态框顶部开始 -->
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="insertSchemeModalTitle">添加新的方案</h4>
+					</div>
+					<!-- 模态框顶部结束 -->
+
+					<!-- 模态框中部开始 -->
+					<div class="modal-body m-b-25">
+						<div id="newSchemeMessages">
+							<div id="schemeNameDiv">
+								方案名称：<input class="form-control input-sm" type="text" id="insertSchemeName"
+									placeholder="方案名称" />
+							</div>
+							<div id="consumerNameDiv">
+								<select class="form-control input-sm" id="consumerNameSelect">
+									<option value="-1">选择客户</option>
+								</select>
+							</div>
+							<div>
+								<span class="spanTab">方案</span>价格：<input class="form-control input-sm" type="text"
+									readonly="readonly" id="insertSchemePrice" placeholder="方案价格" />
+							</div>
+							<div>
+								优惠价：<input class="form-control input-sm" type="text" id="insertSchemeDiscount"
+									placeholder="优惠价" />
+							</div>
+							<div>
+								房屋大小：<input class="form-control input-sm" type="text" id="insertSchemeSquare"
+									placeholder="房屋大小" />
+							</div>
+							<div>
+								<select class="form-control input-sm" id="materialsKind">
+									<option value="-1">明细材料种类</option>
+								</select>
+							</div>
+							<div>
+								<button type="button" data-toggle="modal" href="#insertSchemeDetailsMaterialsModal"
+									class="btn btn-sm" id="insertSchemeDetailsBtn">添加明细</button>
+							</div>
+						</div>
+						<table class="table tile table-hover table-bschemeed">
+							<thead>
+								<tr>
+									<th width="5%">序号</th>
+									<th width="8%"><span class="spanTab">方案</span>材料种类</th>
+									<th width="8%">分<span class="spanTab">方案</span>金额</th>
+									<th width="8%">工人姓名</th>
+									<th width="6%">工人时长(日)</th>
+									<th width="8%">工人总价</th>
+									<th width="8%">材料总价</th>
+									<th>分<span class="spanTab">方案</span>备注</th>
+									<th width="8%">操作</th>
+								</tr>
+							</thead>
+							<tbody id="insertSchemeDetailsTbody">
+								<!-- <tr>
+									<td>序号</td>
+									<td>方案明细编号</td>
+									<td>方案材料种类</td>
+									<td>分方案金额</td>
+									<td工人姓名</td>
+									<td工人时长</td>
+									<td>工人总价</td>
+									<td>材料总价</td>
+									<td>分方案备注</td>
+									<td>操作</td>
+								</tr> -->
+								<tr class="text-center" id="detailsTip">
+									<td colspan="13">没有添加明细信息！！！</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!-- 模态框中部结束 -->
+
+					<!-- 模态框底部开始 -->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-sm" id="insertSchemeBtn">新建</button>
+						<button type="button" class="btn btn-sm" data-dismiss="modal">关闭</button>
+						<button type="button" class="btn btn-sm" id="calculatePriceBtn">计算价格</button>
+					</div>
+					<!-- 模态框底部结束 -->
+				</div>
+			</div>
+		</div>
+		<!-- 创建新方案模态框的结束 -->
+
+		<!-- 创建方案明细材料模态框开始 -->
+		<div class="modal fade" id="insertSchemeDetailsMaterialsModal" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog" style="width: 1000px;">
+				<div class="modal-content">
+					<!-- 保存对应方案明细序号的隐藏表单域 -->
+					<input type="hidden" id="schemeDetailsNumber" value="" />
+					<!-- 模态框顶部开始 -->
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title">明细材料信息</h4>
+					</div>
+					<!-- 模态框顶部结束 -->
+
+					<!-- 模态框中部开始 -->
+					<div class="modal-body m-b-25">
+						<!-- 保存对应方案明细材料种类 -->
+						<input readonly="readonly" id="schemeDetailsKind" class="form-control input-sm"
+							placeholder="材料种类" />
+						<button type="button" class="btn btn-sm" id="insertMaterials">添加材料</button>
+						<table class="table tile table-hover table-bordered">
+							<thead>
+								<tr>
+									<th width="5%">序号</th>
+									<th width="15%">材料名称</th>
+									<th width="10%">材料数量</th>
+									<th>备注</th>
+									<th width="10%">操作</th>
+								</tr>
+							</thead>
+							<tbody id="insertSchemeDetailsMaterialsTbody">
+								<!-- <tr>
+									<td>序号</td>
+									<td>明细材料编号</td>
+									<td>材料名称</td>
+									<td>材料数量</td>
+									<td>备注</td>
+									<td>修改/删除</td>
+								</tr> -->
+								<tr class="text-center" id="materialTip">
+									<td colspan="13">没有添加明细材料信息！！！</td>
+								</tr>
+							</tbody>
+						</table>
+
+					</div>
+					<!-- 模态框中部结束 -->
+
+					<!-- 模态框底部开始 -->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-sm" id="insertSchemeMaterials">完成</button>
+						<button type="button" class="btn btn-sm" data-dismiss="modal">关闭</button>
+					</div>
+					<!-- 模态框底部结束 -->
+				</div>
+			</div>
+		</div>
+		<!-- 创建方案明细材料模态框结束 -->
+
+		<!-- 导入JS文件开始 -->
+		<script src="js/jquery.min.js"></script> <!-- jQuery Library -->
+		<script src="js/jquery-ui.min.js"></script> <!-- jQuery UI -->
+		<script src="js/jquery.easing.1.3.js"></script> <!-- jQuery Easing - Requirred for Lightbox + Pie Charts-->
+
+		<script src="js/bootstrap.min.js"></script>
+
+		<script src="js/scroll.min.js"></script> <!-- Custom Scrollbar -->
+
+		<script src="js/fileupload.min.js"></script> <!-- File Upload -->
+		<script src="js/pirobox.min.js"></script> <!-- Lightbox -->
+		<script src="js/calendar.min.js"></script> <!-- Calendar -->
+		<script src="js/feeds.min.js"></script> <!-- News Feeds -->
+		<script src="js/functions.js"></script>
+		<!-- 导入JS文件开始 -->
+
+		<!-- 导入自定义JS文件开始 -->
+		<script src="js/common/check-data.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/content/url.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/content/providerAndKind.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/common/format.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/content/pageButtonUtil.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/content/employeeMessages.js" type="text/javascript" charset="utf-8"></script>
+		<!-- 导入自定义JS文件结束 -->
+
+		<!-- 自定义JS代码开始 -->
+		<script type="text/javascript">
+			// 加载左侧菜单页面
+			$("#sidebar").load("left-menu.html");
+
+			$(function() {
+				// 激活菜单
+				$("#schemeMenu").addClass("active");
+
+				showSchemeMessage(1);
+				kindInit($("#materialsKind"));
+				
+				window.onload = function(){
+					var loginGrade = JSON.parse(sessionStorage.getItem("loginEmployee")).employeeGrade;
+					
+					if(loginGrade < 1){
+						$("#insertBtn").hide();
+						$("#updateSchemeMaterials").hide();
+						$(".operation").attr("hidden","hidden");
+					}
+				}
+				
+				// --------------------------设置查询按钮单击事件开始--------------------------
+				$("#selectBtn").click(function() {
+					// 显示满足条件第1页的方案信息
+					showSchemeMessage(1);
+				});
+				// --------------------------设置查询按钮单击事件结束--------------------------
+
+				// --------------------------设置添加方案按钮单击事件开始--------------------------
+				$("#insertBtn").click(function() {
+					$("#insertSchemeName").val("");
+					$("#insertSchemePrice").val("");
+					$("#insertSchemeDiscount").val("");
+					$("#insertSchemeSquare").val("");
+					$("#materialsKind").val(-1);
+					$("#insertSchemeBtn").text("新建");
+					$("#insertSchemeModalTitle").text("添加新的方案");
+					$(".spanTab").text("方案");
+					$("#insertSchemePrice").attr("placeholder", "方案价格");
+					$("#schemeNameDiv").css("display", "");
+					$("#consumerNameDiv").css("display", "none");
+					var tbody = $("#insertSchemeDetailsTbody");
+					tbody.find("tr").remove();
+					tbody.append(
+						'<tr class="text-center" id="detailsTip"><td colspan="13">没有添加明细信息！！！</td></tr>');
+				});
+				// --------------------------设置添加方案按钮单击事件结束--------------------------
+
+				// --------------------------设置自选下单按钮单击事件开始--------------------------
+				$("#orderBtn").click(function() {
+					$("#insertSchemeBtn").text("下单");
+					$("#insertSchemeModalTitle").text("自选下单");
+					$("#schemeNameDiv").css("display", "none");
+					$("#consumerNameDiv").css("display", "");
+					$("#insertSchemeName").val("");
+					$("#insertSchemePrice").val("");
+					$("#insertSchemeDiscount").val("");
+					$("#insertSchemeSquare").val("");
+					$("#materialsKind").val(-1);
+					consumerInit($("#consumerNameSelect"));
+					$(".spanTab").text("订单");
+					$("#insertSchemePrice").attr("placeholder", "订单价格");
+					var tbody = $("#insertSchemeDetailsTbody");
+					tbody.find("tr").remove();
+					tbody.append(
+						'<tr class="text-center" id="detailsTip"><td colspan="13">没有添加明细信息！！！</td></tr>');
+				});
+				// --------------------------设置自选下单按钮单击事件结束--------------------------
+
+				// --------------------------设置方案详情中的去下单按钮单击事件开始--------------------------
+				$("#placeOrder").click(function() {
+					$("#insertSchemeBtn").text("下单");
+					$("#insertSchemeModalTitle").text("方案生成订单");
+					$("#schemeNameDiv").css("display", "none");
+					$("#consumerNameDiv").css("display", "");
+					$("#insertSchemeName").val("");
+					$("#insertSchemePrice").val("");
+					$("#insertSchemeDiscount").val("");
+					$("#insertSchemeSquare").val("");
+					$("#materialsKind").val(-1);
+					consumerInit($("#consumerNameSelect"));
+					$(".spanTab").text("订单");
+					$("#insertSchemePrice").attr("placeholder", "订单价格");
+					var tbody = $("#insertSchemeDetailsTbody");
+					tbody.find("tr").remove();
+					tbody.append(
+						'<tr class="text-center" id="detailsTip"><td colspan="13">没有添加明细信息！！！</td></tr>');
+					// 创建url
+					var url = url_prefix_scheme + "addOrderByScheme";
+					// 创建传递的参数
+					var args = {
+						"schemeId": $("#assignSchemeId").val(),
+						"pageNumber": 1
+					}
+					// 向服务器发出的请求，并获得响应的结果
+					$.get(url, args, function(result) {
+						if (result.code == 0) {
+							$("#detailsTip").remove();
+							// 获得查询结果中的方案明细信息
+							var scheme = result.resultData.pages[0];
+							for (var i = 0; i < scheme.schemeDetails.length; i++) {
+								var detailsNumber = i + 1;
+								var schemeDetails = scheme.schemeDetails[i];
+								var tr = $("<tr name=\'" + JSON.stringify(schemeDetails) +
+									"\' id='number" + detailsNumber +
+									"' ></tr>");
+								tr.append("<td style='padding:14px;'>" + detailsNumber + "</td>");
+								for (var j = 0; j < kindList.length; j++) {
+									if (kindList[j].kindId == schemeDetails.kindId) {
+										var kindName = kindList[j].kindName;
+									}
+								}
+								tr.append("<td detailsNumber='" + detailsNumber +
+									"' class = 'materialsKindName'" +
+									" style='padding:14px;'data-toggle='modal' href='#insertSchemeDetailsMaterialsModal' kindId = '" +
+									schemeDetails.kindId + "'>" + kindName + "</td>");
+								tr.append("<td style='padding:14px;'>￥" + formatNumberToCurrency(
+									schemeDetails
+									.schemeDetailsTotal) + "</td>");
+								tr.append(
+									"<td><select class='form-control input-sm' id='insertEmployeeName" +
+									detailsNumber + "'></select></td>");
+								tr.append(
+									"<td><input type='number' class='form-control input-sm' value='" +
+									schemeDetails.schemeDetailsEmployeeTime + "'/></td>"
+								);
+								tr.append("<td style='padding:14px;' id = 'schemeDetailsEmployeePrice" +
+									detailsNumber +
+									"'>￥" + formatNumberToCurrency(schemeDetails
+										.schemeDetailsEmployeePrice) + "</td>");
+								tr.append("<td style='padding:14px;'>￥" + formatNumberToCurrency(
+									schemeDetails
+									.schemeDetailsPrice) + "</td>");
+								tr.append(
+									"<td><input type='text' class='form-control input-sm text-hidden' value='" +
+									schemeDetails.schemeDetailsRemark + "'></td>"
+								);
+								tr.append("<td style='padding:14px;'><a class='detailsRemove' href ='" +
+									detailsNumber +
+									"' style='color:red;'>移除</a></td>");
+								$("#insertSchemeDetailsTbody").append(tr);
+								showEmployeeMessages($("#insertEmployeeName" + detailsNumber),
+									schemeDetails.employeeId);
+							}
+							$("#insertSchemePrice").val(scheme.schemePrice);
+							$("#insertSchemeDiscount").val(scheme.schemeDiscount);
+							$("#insertSchemeSquare").val(scheme.schemeSquare);
+							$("#showSchemeDetailsModal").modal("hide");
+
+							// 解除绑定的点击事件，防止重复绑定
+							$(".materialsKindName").off("click");
+
+							// 为明细材料种类名绑定单击事件
+							$(".materialsKindName").on("click", function() {
+								var detailsNumber = $(this).attr("detailsNumber");
+								$("#schemeDetailsNumber").val(detailsNumber);
+								var trNumber = $("#number" + detailsNumber);
+								var td = trNumber.find("td");
+								var kindId = td.eq(1).attr("kindId");
+								var schemeDetails = JSON.parse(trNumber.attr("name"));
+								$("#schemeDetailsKind").attr("materialsKind", kindId);
+								$("#schemeDetailsKind").val(td.eq(1).text());
+								var tbody = $("#insertSchemeDetailsMaterialsTbody");
+								tbody.find("tr").remove();
+								for (var i = 0; i < schemeDetails.schemeDetailsMaterialsList
+									.length; i++) {
+									var materialsList = schemeDetails.schemeDetailsMaterialsList[
+										i];
+									var column = i + 1;
+									var tr = $("<tr id='column" + column + "' ></tr>");
+									tr.append("<td style='padding:14px;'>" + column + "</td>");
+									tr.append("<td>" +
+										"<select class='form-control input-sm' id='insertMaterialsName" +
+										column + "'></select></td>");
+									tr.append(
+										"<td><input type='number' class='form-control input-sm'value='" +
+										materialsList.schemeDetailsMaterialsNumber +
+										"'/></td>");
+									tr.append(
+										"<td><input type='text' class='form-control input-sm text-hidden' value='" +
+										materialsList.schemeDetailsMaterialsRemark +
+										"'></td>");
+									tr.append(
+										"<td style='padding:14px;'><a class='column' href ='" +
+										column +
+										"' style='color:red;'>移除</a></td>");
+									tbody.append(tr);
+									materialsNameInit1($("#insertMaterialsName" + column),
+										materialsList
+										.materialsId, kindId);
+								}
+							})
+						}
+					})
+				})
+				// --------------------------设置方案详情中的去下单按钮单击事件结束--------------------------
+
+				// 初始化客户下拉列表
+				function consumerInit(body) {
+					var args = {
+						"consumerStatus": 0,
+						"consumerSex": -1,
+						"pageNumber": -1
+					};
+
+					var url = url_prefix_consumer + "selectPages";
+
+					$.get(url, args, function(result) {
+						if (result.code == 0) {
+							var consumerList = result.resultData.pages.list;
+							body.find("option").remove();
+							body.append("<option value='-1'>选择客户</option>");
+							for (var i = 0; i < consumerList.length; i++) {
+								var option = $("<option></option>");
+								option.attr("value", consumerList[i].consumerId);
+								option.text(consumerList[i].consumerName);
+								body.append(option);
+							}
+						}
+					})
+				}
+
+				// -----------------------显示满足条件的第N页方案信息开始-----------------------
+				function showSchemeMessage(pageNumber) {
+					// 将页码保存到id属性为pageNumber的隐藏表单域中
+					$("#pageNumber").val(pageNumber);
+
+					// 获得显示方案信息的容器
+					var schemeMessageBody = $("#schemeMessageBody");
+					// 在显示方案容器中查找所有的div，并移除
+					schemeMessageBody.find("div").remove();
+					$(".pagination").find("li").remove();
+
+					var selectScheme = $("#selectSchemeName").val();
+
+					// 创建url
+					var url = url_prefix_scheme + "selectScheme";
+					// 创建传递参数
+					var args = {
+						"schemeName": selectScheme,
+						"schemeRemark": selectScheme,
+						"pageNumber": pageNumber
+					}
+					// 向服务器发出POST模式的请求，并获得响应的结果
+					$.post(url, args, function(result) {
+						if (result.code == 0) {
+							// 获得查询出的方案信息
+							var schemeList = result.resultData.pages.list;
+
+							// 使用循环将方案的信息添加到页面中
+							for (var i = 0; i < schemeList.length; i++) {
+								var scheme = schemeList[i];
+
+								// 创建方案信息的节点
+								var msg = $('<div class="col-sm-6 col-md-2">' +
+									'<div schemeId="' + scheme.schemeId +
+									'" class="thumbnail tile">' +
+									// 方案图片
+									'<a name="' + (scheme.schemeId + '#' + scheme.schemePhoto) +
+									'" href="#updateSchemeImageModal" data-toggle="modal" class="pirobox_gall img-popup m-5 schemePhotoHref" title="' +
+									scheme.schemeName + '">' +
+									'<img src="' + (url_prefix_image + scheme.schemePhoto) +
+									'" style="width: 95%;" />' +
+									'</a>' +
+									// 方案其它信息
+									'<div style="height:118px" class="p-10">' +
+									// 方案名称
+									'<p class="text-center text-hidden">' +
+									'<a data-toggle="modal" href="' + scheme.schemeId +
+									'" class="schemeMessage" title="' + scheme.schemeName + '">' +
+									'<strong>' + scheme.schemeName + '</strong>' +
+									'</a>' +
+									'</p>' +
+									// 方案价格
+									'<p style="height : 34px" class="text-center">' +
+									'方案价格：￥' + formatNumberToCurrency(scheme.schemePrice) + '<br>' +
+									(scheme.schemeDiscount == scheme.schemePrice ? "" : ('优惠价：￥' +
+										formatNumberToCurrency(scheme.schemeDiscount))) +
+									'</p>' +
+									// 方案信息
+									'<p class="text-center">' +
+									'面积：' + scheme.schemeSquare +
+									'&nbsp;&nbsp;<span ' + gradeDetermination(1) + ' ><a data-toggle="modal" href="#updateSchemeMessageModal" name=\'' +
+									JSON.stringify(scheme) +
+									'\' class="updateSchemeMessageHref">修改</a>/<a style="color:red;" href="' +
+									scheme.schemeId + '" schemePhoto="' + scheme.schemePhoto +
+									'" class="deleteSchemeHref">删除</a></span>' +
+									'</p>' +
+									'</div>' +
+									'</div>' +
+									'</div>'
+								);
+								// 将方案信息添加到显示方案信息的容器中
+								schemeMessageBody.append(msg);
+							}
+
+							$(".schemeMessage").on("click", function() {
+								var schemeId = $(this).attr("href");
+								showSchemeDetailsMessage(schemeId, 1)
+								return false;
+							})
+
+							// 设置删除商品超链接单机事件开始deleteSchemeHref
+							$(".deleteSchemeHref").on("click", function() {
+
+								if (confirm("确定要删除当前方案吗？\n此操作不可逆！！！")) {
+									// 获得被点击超链接href属性的值
+									var schemeId = $(this).attr("href");
+									var schemePhoto = $(this).attr("schemePhoto");
+
+									var url = url_prefix_scheme + "deleteScheme";
+
+									var args = {
+										"schemeId": schemeId
+									};
+
+									$.get(url, args, function(result) {
+										if (result.code == 0) {
+
+											var url = url_prefix_file + "delete/3";
+
+											var args = {
+												"fileName": schemePhoto
+											}
+
+											$.get(url, args, function(result) {
+												if (result.code == 0) {
+													showSchemeMessage(
+														pageNumber);
+												} else {
+													alert(result.message);
+												}
+											});
+										} else {
+											alert(result.message);
+										}
+									});
+								}
+								return false;
+							});
+							// 设置删除方案超链接单机事件结束
+
+							// 设置图片超链接单击事件开始
+							$(".schemePhotoHref").click(function() {
+								var loginGrade = JSON.parse(sessionStorage.getItem("loginEmployee")).employeeGrade;
+								if(loginGrade < 1){
+									return false;
+								}
+								// 获得被点击超链接name属性的值
+								var href = $(this).attr("name");
+
+								// 以#为标记分隔href变量中的值，获得方案编号与方案原图片的名称
+								var index = href.indexOf("#");
+								var schemeId = href.substring(0, index);
+								var schemeOldPhoto = href.substring(index + 1);
+
+								// 将方案编号添加到修改方案图片模态框的隐藏表单域中
+								$("#updateSchemePhotoId").val(schemeId);
+								// 移除修改方案模态框中的图片
+								$("#updateSchemePhoto").find("img").remove();
+								// 重新向修改方案图片模态框中添加图片
+								$("#updateSchemePhoto").append("<img src='" + (url_prefix_image +
+									schemeOldPhoto) + "'/>");
+								//$("#updateSchemePhoto").find("img").attr("src", url_prefix_image + schemeOldPhoto);
+								$("input[name='schemePhoto']").val("");
+
+								// 将方案原图片名称设置到修改方案图片模态框的隐藏表单域中
+								$("#updateSchemeOldPhoto").val(schemeOldPhoto);
+							});
+							// 设置图片超链接单击事件结束
+
+							// 设置修改方案超链接的单击事件开始
+							$(".updateSchemeMessageHref").on("click", function() {
+								$(".error1").text("");
+								$(".error3").text("");
+								// 获得被点击超链接name属性的值
+								var scheme = JSON.parse($(this).attr("name"));
+								// 将方案信息的数据设置到模态框中对应的控件内
+								$("#schemeName").val(scheme.schemeName);
+								$("#schemePrice").val(scheme.schemePrice);
+								$("#schemeDiscount").val(scheme.schemeDiscount);
+								$("#schemeSquare").val(scheme.schemeSquare);
+								$("#schemeRemark").val(scheme.schemeRemark);
+								$("#updateSchemeId").val(scheme.schemeId);
+							});
+							// 设置方案名称超链接的单击事件结束
+
+							// 获得显示分页按钮的容器
+							var pageButtonBody = $("#schemePagination");
+							// 获得分页信息
+							var pages = result.resultData.pages;
+							// 显示分页按钮
+							showPageButton(pageButtonBody, pages, showSchemeMessage);
+						} else {
+							alert(result.message);
+						};
+					})
+				}
+				// -----------------------显示满足条件的第N页方案信息结束-----------------------
+
+				// -----------------------修改方案信息共通的方法开始-----------------------
+				// args：修改方案的信息
+				// pageNumber：页码
+				function updateSchemeCommon(args, pageNumber) {
+					var url = url_prefix_scheme + "updateScheme";
+
+					$.post(url, args, function(result) {
+						if (result.code == 0) {
+							alert(result.message);
+							showSchemeMessage(pageNumber);
+							// 手动关闭修改方案信息模态框
+							$("#updateSchemeMessageModal").modal("hide");
+							// 手动关闭修改图片信息模态框
+							$("#updateSchemeImageModal").modal("hide");
+						} else {
+							alert(result.message);
+						}
+					});
+				}
+				// -----------------------修改方案信息共通的方法结束-----------------------
+
+				/* 方案信息模态框中保存按钮单击事件(id属性为updateSchemeMessageBtn) */
+				$("#updateSchemeMessageBtn").click(function() {
+					$(".error1").text("");
+					$(".error3").text("");
+					
+					var schemeName = $("#schemeName");
+					if (schemeName.val() == "") {
+						$(".error1").text("方案名称不能为空！！！");
+						schemeName.focus();
+						return false;
+					}
+
+					var schemeDiscount = $("#schemeDiscount");
+					if (!checkNumber(schemeDiscount.val())) {
+						$(".error3").text("方案优惠价只能为正数！！！");
+						schemeDiscount.select();
+						return false;
+					}
+
+					var schemePrice = $("#schemePrice");
+					if (parseFloat(schemePrice.val()) < parseFloat(schemeDiscount.val())) {
+						$(".error3").text("方案优惠价必须小于方案价格！！！");
+						schemeDiscount.select();
+						return false;
+					}
+
+					var args = {
+						"schemeId": $("#updateSchemeId").val(),
+						"schemeName": schemeName.val(),
+						"schemeDiscount": schemeDiscount.val(),
+						"schemePrice": schemePrice.val(),
+						"schemeSquare": $("#schemeSquare").val(),
+						"schemeRemark": $("#schemeRemark").val()
+					};
+
+					// 调用修改方案信息的共通方法
+					updateSchemeCommon(args, $("#pageNumber").val());
+				});
+
+				// ---------------------修改图片模态框保存按钮单击事件的方法开始---------------------
+				$("#updateSchemePhotoBtn").click(function() {
+					// 判断用户是否修改了图片
+					if ($("input[name='schemePhoto']").val() == "") {
+						alert("没有修改图片！！！");
+						return;
+					}
+					// 上传新的图片
+					$.ajax({
+						url: url_prefix_file + "schemeUpload",
+						type: "POST",
+						dataType: "json",
+						cache: false,
+						data: new FormData($("#updateSchemePhotoForm")[0]),
+						processData: false,
+						contentType: false,
+						success: function(result) {
+							//alert(result.code);
+							if (result.code == 0) {
+								// 文件上传成功，根据方案原图片的名称删除服务器的图片文件
+								// 获得方案新图片的名字
+								var schemeNewPhoto = result.resultData.fileName + result
+									.resultData.extendedName;
+								// 获得方案原图片的名字
+								var schemeOldPhoto = $("#updateSchemeOldPhoto").val();
+
+								var url = url_prefix_file + "delete/3";
+
+								var args = {
+									"fileName": schemeOldPhoto
+								}
+
+								// 向服务器发出get模式的请求，并获得响应的结果
+								$.get(url, args, function(result) {
+									if (result.code == 0) {
+										// 删除文件成功，修改指定编号的方案图片信息
+										// 获得需要修改方案的编号
+										var schemeId = $("#updateSchemePhotoId").val();
+
+										var args = {
+											"schemeId": schemeId,
+											"schemePhoto": schemeNewPhoto
+										};
+										updateSchemeCommon(args, $("#pageNumber").val());
+									} else {
+										// 删除文件失败
+										alert(result.message);
+									}
+								});
+							} else {
+								// 上传文件失败
+								alert(result.message);
+							}
+						}
+					});
+				});
+				// ---------------------修改图片模态框保存按钮单击事件的方法结束---------------------
+
+				//-------------------------查询第N页方案明细的开始-------------------------
+				/**
+				 * @param {Object} schemeId 方案编号
+				 * @param {Object} pageNumber 页码
+				 */
+				function showSchemeDetailsMessage(schemeId, pageNumber) {
+					// 创建url
+					var url = url_prefix_scheme + "selectSchemeDetails";
+					// 创建传递的参数
+					var args = {
+						"schemeId": schemeId,
+						"pageNumber": pageNumber
+					}
+					// 向服务器发出的请求，并获得响应的结果
+					$.get(url, args, function(result) {
+						if (result.code == 0) {
+							$("#showSchemeDetailsModal").modal("show");
+							$("#assignSchemeId").val(schemeId);
+							// 获得显示方案明细信息的tbody
+							var tbody = $("#schemeDetailsTbody");
+							// 在tbody中查找所有的tr，并移除
+							tbody.find("tr").remove();
+							tbody.find("span").remove();
+							// 获得查询结果中的方案明细信息
+							var schemeDetailsList = result.resultData.pages.list;
+							tbody.append("<span id='schemeDetailsListSpan' type='hidden' name=\'" + JSON
+								.stringify(
+									schemeDetailsList) + "\'></span>")
+							// 获得当前页中起始行的行号
+							var startRow = result.resultData.pages.startRow;
+							var kindList = JSON.parse(sessionStorage.getItem("kindList"));
+							// 使用循环将方案明细信息显示在tbody中
+							for (var i = 0; i < schemeDetailsList.length; i++) {
+								var schemeDetails = schemeDetailsList[i];
+								var tr = $("<tr></tr>");
+								tr.append("<td>" + (startRow + i) + "</td>");
+								tr.append(
+									"<td><a href='#' class='schemeDetailsMaterialsModalHref'>" +
+									(schemeDetails.schemeDetailsId) + "</a></td>");
+								for (var j = 0; j < kindList.length; j++) {
+									if (schemeDetails.kindId == kindList[j].kindId) {
+										var kindName = kindList[j].kindName;
+									}
+								}
+								tr.append("<td>" + kindName + "</td>");
+								tr.append("<td>" + formatNumberToCurrency(schemeDetails
+										.schemeDetailsTotal) +
+									"元</td>");
+								tr.append(
+									"<td><select class='form-control input-sm' id='employeeMessage" +
+									(
+										startRow + i) +
+									"'></select></td>");
+								tr.append("<td><input type='number' id='employeeTime" + (startRow + i) +
+									"' class='form-control input-sm' value='" +
+									schemeDetails.schemeDetailsEmployeeTime + "' /></td>");
+								tr.append("<td>" + formatNumberToCurrency(schemeDetails
+										.schemeDetailsEmployeePrice) +
+									"元</td>");
+								tr.append("<td>" + formatNumberToCurrency(schemeDetails
+										.schemeDetailsPrice) +
+									"元</td>");
+								tr.append(
+									"<td><input type='text' class='form-control input-sm text-hidden' title='" +
+									schemeDetails.schemeDetailsRemark + "' id='schemeDetailsRemark" +
+									(
+										startRow + i) +
+									"' value='" + schemeDetails.schemeDetailsRemark + "'/></td>");
+								tr.append("<td " + gradeDetermination(1) + "><a href='" + schemeDetails.schemeDetailsId +
+									"' startRow='" + (startRow + i) +
+									"' class='updateDetails'>修改</a>/<a class='deleteDetails' style='color:red;' href='" +
+									schemeDetails
+									.schemeDetailsId +
+									"'>删除</a></td>");
+								tbody.append(tr);
+								showEmployeeMessages($("#employeeMessage" + (startRow + i)),
+									schemeDetails
+									.employeeId);
+							}
+
+							$(".updateDetails").on("click", function() {
+								var schemeDetailsId = $(this).attr("href");
+								var startRow = $(this).attr("startRow");
+								var schemeDetailsListSpan = JSON.parse($(
+									"#schemeDetailsListSpan").attr(
+									"name"));
+
+								var schemePrice = 0;
+								var schemeDetailsTotal = 0;
+								var schemeDetailsEmployeePrice = 0;
+
+								for (var x = 0; x < schemeDetailsListSpan.length; x++) {
+									var schemeDetails = schemeDetailsListSpan[x];
+									if (schemeDetailsId == schemeDetails.schemeDetailsId) {
+										for (var z = 0; z < employeeList.length; z++) {
+											if ($("#employeeMessage" + startRow).val() ==
+												employeeList[z]
+												.employeeId) {
+												var employeeSalary = employeeList[z]
+													.employeeSalary;
+												break;
+											}
+										}
+										schemeDetailsEmployeePrice = employeeSalary * ($(
+												"#employeeTime" + startRow)
+											.val());
+										schemeDetailsTotal = schemeDetailsEmployeePrice +
+											schemeDetails
+											.schemeDetailsPrice
+										schemeDetails.schemeDetailsTotal = schemeDetailsTotal;
+									}
+									schemePrice = schemePrice + schemeDetails.schemeDetailsTotal;
+								}
+
+								var args = {
+									"schemeId": $("#assignSchemeId").val(),
+									"schemePrice": schemePrice,
+									"schemeDetailsId": schemeDetailsId,
+									"employeeId": $("#employeeMessage" + startRow).val(),
+									"schemeDetailsEmployeeTime": $("#employeeTime" +
+										startRow).val(),
+									"schemeDetailsStatus": $("#schemeDetailsStatus" +
+											startRow)
+										.val(),
+									"schemeDetailsRemark": $("#schemeDetailsRemark" +
+											startRow)
+										.val(),
+									"schemeDetailsTotal": schemeDetailsTotal,
+									"schemeDetailsEmployeePrice": schemeDetailsEmployeePrice
+								}
+
+								var url = url_prefix_scheme + "updateSchemeDetails";
+
+								$.post(url, args, function(result) {
+									if (result.code == 0) {
+										alert(result.message);
+										showSchemeMessage($("#pageNumber").val());
+										showSchemeDetailsMessage($("#assignSchemeId")
+											.val(), 1);
+									} else {
+										alert(result.message);
+									}
+								})
+								return false;
+							})
+
+							$(".deleteDetails").on("click", function() {
+								if (confirm("确定要删除该条明细信息吗？\n此操作不可逆！！！")) {
+									var schemeDetailsId = $(this).attr("href");
+
+									var args = {
+										"schemeId": $("#assignSchemeId").val(),
+										"schemeDetailsId": schemeDetailsId
+									}
+
+									var url = url_prefix_scheme + "deleteSchemeDetails";
+
+									$.get(url, args, function(result) {
+										if (result.code == 0) {
+											alert(result.message);
+											showSchemeMessage($("#pageNumber").val());
+											showSchemeDetailsMessage($("#assignSchemeId")
+												.val(),
+												1);
+										} else {
+											alert(result.message);
+										}
+									})
+								}
+								return false;
+							})
+
+							// 获得显示方案明细分页按钮的容器
+							var schemeDetailsPageButtonBody = $("#schemeDetailsPageButtonBody");
+							// 获得分页信息
+							var pages = result.resultData.pages;
+							//显示分页按钮
+							showPageButton1(schemeDetailsPageButtonBody, pages, showSchemeDetailsMessage,
+								schemeId);
+
+							// 设置方案明细超链接单机事件的开始
+							$(".schemeDetailsMaterialsModalHref").on("click", function() {
+								// 获得被点击超链接name属性的值
+								var schemeDetailsId = $(this).text();
+								// 查询第一页的方案明细材料信息
+								showSchemeDetailsMaterialsMessage($("#assignSchemeId").val(),
+									schemeDetailsId, 1);
+								return false;
+							});
+							// 设置方案明细超链接单机事件的结束
+						} else {
+							alert(result.message);
+						}
+					});
+				}
+				//-------------------------查询第N页方案明细的结束-------------------------
+
+				//-------------------------查询第N页方案明细材料的开始-------------------------
+				/**
+				 * @param {Object} schemeId		  方案编号
+				 * @param {Object} schemeDetailsId 方案明细编号
+				 * @param {Object} pageNumber	  页码
+				 */
+				function showSchemeDetailsMaterialsMessage(schemeId, schemeDetailsId, pageNumber) {
+					// 创建url
+					var url = url_prefix_scheme + "selectSchemeDetailsMaterials";
+					// 创建传递的参数
+					var args = {
+						"schemeId": schemeId,
+						"schemeDetailsId": schemeDetailsId,
+						"pageNumber": pageNumber
+					}
+					// 向服务器发出的请求，并获得响应的结果
+					$.get(url, args, function(result) {
+						if (result.code == 0) {
+							$("#showSchemeDetailsMaterialsModal").modal("show");
+							$("#assignSchemeDetailsId").val(schemeDetailsId);
+							// 获得显示方案明细信息的tbody
+							var tbody = $("#schemeDetailsMaterialsTbody");
+							// 在tbody中查找所有的tr，并移除
+							tbody.find("tr").remove();
+							// 获得查询结果中的方案明细信息
+							var schemeDetailsMaterialsList = result.resultData.pages.list;
+							tbody.append("<span id='materialsListSpan' name=\'" + JSON.stringify(
+									schemeDetailsMaterialsList) +
+								"\'>");
+							// 获得当前页中起始行的行号
+							var startRow = result.resultData.pages.startRow;
+							// 使用循环将方案明细材料信息显示在tbody中
+							for (var i = 0; i < schemeDetailsMaterialsList.length; i++) {
+								var schemeDetailsMaterials = schemeDetailsMaterialsList[i];
+								var tr = $("<tr id='startRow" + (startRow + i) + "' ></tr>");
+								tr.append("<td style='padding:14px;'>" + (startRow + i) + "</td>");
+								tr.append("<td style='padding:14px;' id='materialsId" + (startRow + i) +
+									"'>" +
+									schemeDetailsMaterials.schemeDetailsMaterialsId +
+									"</td>");
+								tr.append("<td class='text-hidden' style='padding:14px 0 0 0;'>" +
+									schemeDetailsMaterials
+									.materials.materialsName + "</td>");
+								tr.append("<td><input type='number' id='materialsNumber" + (startRow +
+										i) +
+									"' class='form-control input-sm' value='" +
+									schemeDetailsMaterials.schemeDetailsMaterialsNumber + "' /></td>"
+								);
+								tr.append("<td><input type='text'id='materialsRemark" + (startRow + i) +
+									"' class='form-control input-sm text-hidden' title='" +
+									schemeDetailsMaterials
+									.schemeDetailsMaterialsRemark + "' value='" +
+									schemeDetailsMaterials.schemeDetailsMaterialsRemark + "'></td>");
+								tr.append("<td " + gradeDetermination(1) + " style='padding:14px;'><a class='startRow' startRow ='" + (
+										startRow + i) +
+									"' style='color:red;' href='" +
+									schemeDetailsMaterials.schemeDetailsMaterialsId +
+									"'>移除</a></td>");
+								tbody.append(tr);
+							}
+
+							$(".startRow").on("click", function() {
+								if (confirm("确定要删除该条材料信息吗？\n此操作不可逆！！！")) {
+									var schemeMaterialsId = $(this).attr("href");
+									var materialsStartRow = $(this).attr("startRow");
+
+									var args = {
+										"schemeId": $("#assignSchemeId").val(),
+										"schemeDetailsId": $("#assignSchemeDetailsId").val(),
+										"schemeDetailsMaterialsId": schemeMaterialsId
+									}
+
+									var url = url_prefix_scheme + "deleteSchemeDetailsMaterials";
+
+									$.post(url, args, function(result) {
+										if (result.code == 0) {
+											alert(result.message);
+											$("#startRow" + materialsStartRow).remove();
+											showSchemeMessage($("#pageNumber").val());
+											showSchemeDetailsMessage($("#assignSchemeId")
+												.val(),1);
+										} else {
+											
+											alert(result.message);
+										}
+									})
+								}
+								return false;
+							})
+						} else {
+							alert(result.message);
+						}
+					});
+				}
+				//-------------------------查询第N页方案明细材料的结束-------------------------
+
+				// 为修改材料信息创建单击事件
+				$("#updateSchemeMaterials").on("click", function() {
+					var materialsNumber = $("#schemeDetailsMaterialsTbody").find("tr").length;
+					var schemeTotal = 0;
+					var detailsTotal = 0;
+					var schemeDetailsPrice = 0;
+					var schemeDetailsMaterials = "";
+					var schemeDetailsList = JSON.parse($("#schemeDetailsListSpan").attr("name"));
+					var schemeDetailsMaterialsList = JSON.parse($("#materialsListSpan").attr("name"));
+					for (var y = 0; y < materialsNumber; y++) {
+						schemeDetailsPrice = schemeDetailsPrice + ((schemeDetailsMaterialsList[y].materials
+								.materialsPrice) *
+							$("#materialsNumber" + (y + 1)).val());
+						schemeDetailsMaterials = schemeDetailsMaterials +
+							"{\"schemeDetailsMaterialsId\" : " + $("#materialsId" + (y + 1))
+							.text() + ",";
+						schemeDetailsMaterials = schemeDetailsMaterials +
+							"\"schemeDetailsMaterialsNumber\" : " + $("#materialsNumber" + (y +
+								1)).val() + ",";
+						schemeDetailsMaterials = schemeDetailsMaterials +
+							"\"schemeDetailsMaterialsRemark\" : \"" + $("#materialsRemark" + (
+								y +
+								1)).val() + "\"},";
+					}
+					for (var x = 0; x < schemeDetailsList.length; x++) {
+						if ($("#assignSchemeDetailsId").val() == schemeDetailsList[x].schemeDetailsId) {
+							schemeDetailsList[x].schemeDetailsPrice = schemeDetailsPrice;
+							detailsTotal = schemeDetailsList[x].schemeDetailsEmployeePrice +
+								schemeDetailsPrice;
+							schemeDetailsList[x].schemeDetailsTotal = detailsTotal;
+						}
+						schemeTotal = schemeTotal + schemeDetailsList[x].schemeDetailsTotal;
+					}
+					var args = "{";
+					args = args + "\"schemeId\" : " + $("#assignSchemeId").val() + ",";
+					args = args + "\"schemePrice\" : " + schemeTotal + ",";
+					args = args + "\"schemeDetails\" : [{";
+					args = args + "\"schemeDetailsId\" : " + $("#assignSchemeDetailsId").val() + ",";
+					args = args + "\"schemeDetailsTotal\" : " + detailsTotal + ",";
+					args = args + "\"schemeDetailsPrice\" : " + schemeDetailsPrice + ",";
+					args = args + "\"schemeDetailsMaterialsList\" : [" + schemeDetailsMaterials;
+
+					args = args.substring(0, args.length - 1);
+					args = args + "]}]}";
+
+					var sendUrl = url_prefix_scheme + "updateSchemeDetailsMaterials";
+
+					$.ajax({
+						type: "post",
+						url: sendUrl,
+						async: true,
+						data: args,
+						dataType: "json",
+						contentType: "application/json",
+						success: function(result) {
+							if (result.code == 0) {
+								alert(result.message);
+								$("#schemeDetailsMaterialsModal").modal("hide");
+								showSchemeDetailsMessage($("#assignSchemeId").val(), 1);
+								showSchemeMessage($("#pageNumber").val());
+							} else {
+								alert(result.message);
+							}
+						}
+					})
+				})
+
+				// 新增方案明细按钮的单击事件
+				$("#insertSchemeDetailsBtn").click(function() {
+					var materialsKind = $("#materialsKind");
+					if (materialsKind.val() == -1) {
+						alert("请先选择添加的明细材料种类！！！");
+						return false;
+					}
+					getMaterialsByKind(materialsKind.val());
+					$("#schemeDetailsKind").attr("materialsKind", materialsKind.val());
+					$("#schemeDetailsKind").val($("#materialsKind option:selected").text());
+					var tbody = $("#insertSchemeDetailsMaterialsTbody");
+					tbody.find("tr").remove();
+					tbody.append('<tr class="text-center" id="materialTip">' +
+						'<td colspan="13">没有添加明细材料信息！！！</td></tr>');
+				})
+
+				// 新增材料信息按钮的单击事件
+				$("#insertMaterials").click(function() {
+					$("#schemeDetailsNumber").val("");
+					var tbody = $("#insertSchemeDetailsMaterialsTbody");
+					$("#materialTip").remove();
+					var column = $("#insertSchemeDetailsMaterialsTbody tr:last td:first").text();
+					if (column == "") {
+						column = 1;
+					} else {
+						column++;
+					}
+					var tr = $("<tr id='column" + column + "' ></tr>");
+					tr.append("<td style='padding:14px;'>" + column + "</td>");
+					tr.append("<td>" +
+						"<select class='form-control input-sm' id='insertMaterialsName" + column +
+						"'></select></td>");
+					tr.append("<td><input type='number' class='form-control input-sm'value='1'/></td>");
+					tr.append("<td><input type='text' class='form-control input-sm text-hidden'></td>");
+					tr.append("<td style='padding:14px;'><a class='column' href ='" + column +
+						"' style='color:red;'>移除</a></td>");
+					tbody.append(tr);
+					materialsNameInit($("#insertMaterialsName" + column), -1);
+
+					// 解除绑定的点击事件，防止重复绑定
+					$(".column").off("click");
+
+					$(".column").on("click", function() {
+						if (confirm("确定要移除该材料吗？\n此操作不可逆转！")) {
+							var column = $(this).attr("href");
+							$("#column" + column).remove();
+							if (tbody.find("tr").length == 0) {
+								tbody.append('<tr class="text-center" id="materialTip">' +
+									'<td colspan="13">没有添加明细材料信息！！！</td></tr>');
+							}
+						}
+						return false;
+					})
+				})
+
+				// 为添加方案材料按钮绑定单击事件
+				$("#insertSchemeMaterials").click(function() {
+					if ($("#materialTip").length == 1) {
+						alert("请添加材料后再点完成按钮！！！");
+						return false;
+					}
+
+					var tbody = $("#insertSchemeDetailsMaterialsTbody");
+					var size = tbody.find("tr").length;
+					var schemeDetailsMaterialsList = [size];
+					var trArr = tbody.children("tr");
+					for (var i = 0; i < size; i++) {
+						var tdArr = trArr.eq(i).find("td");
+						if(!checkInt(tdArr.eq(2).find("input").val())){
+							alert("材料数量只能为正整数！！！");
+							tdArr.eq(2).find("input").focus();
+							return false;
+						}
+						schemeDetailsMaterialsList[i] = {
+							"materialsId": tdArr.eq(1).find("select").val(),
+							"schemeDetailsMaterialsNumber": tdArr.eq(2).find("input").val(),
+							"schemeDetailsMaterialsRemark": tdArr.eq(3).find("input").val()
+						}
+					}
+					var schemeDetailsTbody = $("#insertSchemeDetailsTbody");
+					var schemeDetailsPrice = 0;
+					for (var j = 0; j < schemeDetailsMaterialsList.length; j++) {
+						var materials = schemeDetailsMaterialsList[j];
+						for (var x = 0; x < materialsByKind.length; x++) {
+							if (materials.materialsId == materialsByKind[x].materialsId) {
+								schemeDetailsPrice = schemeDetailsPrice + (materialsByKind[x]
+									.materialsPrice *
+									materials.schemeDetailsMaterialsNumber);
+							}
+						}
+					}
+					var schemeDetails = {
+						"kindId": $("#schemeDetailsKind").attr("materialsKind"),
+						"schemeDetailsTotal": schemeDetailsPrice,
+						"employeeId": null,
+						"schemeDetailsEmployeeTime": "",
+						"schemeDetailsEmployeePrice": 0,
+						"schemeDetailsPrice": schemeDetailsPrice,
+						"schemeDetailsRemark": "",
+						"schemeDetailsMaterialsList": schemeDetailsMaterialsList
+					}
+					$("#detailsTip").remove();
+					var schemeDetailsNumber = $("#schemeDetailsNumber").val();
+					if (schemeDetailsNumber == "") {
+						var detailsNumber = $("#insertSchemeDetailsTbody tr:last td:first").text();
+						if (detailsNumber == "") {
+							detailsNumber = 1;
+						} else {
+							detailsNumber++;
+						}
+						var tr = $("<tr name=\'" + JSON.stringify(schemeDetails) + "\' id='number" +
+							detailsNumber +
+							"' ></tr>");
+						tr.append("<td style='padding:14px;'>" + detailsNumber + "</td>");
+						tr.append("<td detailsNumber='" + detailsNumber + "' class = 'materialsKindName'" +
+							" style='padding:14px;'data-toggle='modal' href='#insertSchemeDetailsMaterialsModal' kindId = '" +
+							schemeDetails.kindId + "'>" + ($(
+								"#schemeDetailsKind").val()) + "</td>");
+						tr.append("<td style='padding:14px;'>￥" + formatNumberToCurrency(schemeDetails
+							.schemeDetailsTotal) + "</td>");
+						tr.append("<td><select class='form-control input-sm' id='insertEmployeeName" +
+							detailsNumber + "'></select></td>");
+						tr.append("<td><input type='number' class='form-control input-sm' value='1'/></td>");
+						tr.append("<td style='padding:14px;' id = 'schemeDetailsEmployeePrice" +
+							detailsNumber +
+							"'>￥0.00</td>");
+						tr.append("<td style='padding:14px;'>￥" + formatNumberToCurrency(schemeDetails
+							.schemeDetailsPrice) + "</td>");
+						tr.append("<td><input type='text' class='form-control input-sm text-hidden'></td>");
+						tr.append("<td style='padding:14px;'><a class='detailsRemove' href ='" +
+							detailsNumber +
+							"' style='color:red;'>移除</a></td>");
+						schemeDetailsTbody.append(tr);
+						showEmployeeMessages($("#insertEmployeeName" + detailsNumber), -1);
+					} else {
+						var trbody = $("#number" + schemeDetailsNumber);
+						trbody.attr("name", JSON.stringify(schemeDetails));
+						var tdbody = trbody.find("td");
+						tdbody.eq(2).text("￥" + formatNumberToCurrency(schemeDetails.schemeDetailsTotal));
+						tdbody.eq(6).text("￥" + formatNumberToCurrency(schemeDetails.schemeDetailsPrice));
+					}
+					// 手动关闭模态框
+					$("#insertSchemeDetailsMaterialsModal").modal("hide");
+
+					// 解除绑定的点击事件，防止重复绑定
+					$(".detailsRemove").off("click");
+
+					$(".detailsRemove").on("click", function() {
+						if (confirm("确定要移除该方案明细吗？\n此操作不可逆转！")) {
+							var numbers = $(this).attr("href");
+							$("#number" + numbers).remove();
+							if (schemeDetailsTbody.find("tr").length == 0) {
+								schemeDetailsTbody.append(
+									'<tr class="text-center" id="detailsTip">' +
+									'<td colspan="13">没有添加明细信息！！！</td></tr>');
+							}
+						}
+						return false;
+					})
+
+					// 解除绑定的点击事件，防止重复绑定
+					$(".materialsKindName").off("click");
+
+					// 为明细材料种类名绑定单击事件
+					$(".materialsKindName").on("click", function() {
+						var detailsNumber = $(this).attr("detailsNumber");
+						$("#schemeDetailsNumber").val(detailsNumber);
+						var trNumber = $("#number" + detailsNumber);
+						var td = trNumber.find("td");
+						var kindId = td.eq(1).attr("kindId");
+						var schemeDetails = JSON.parse(trNumber.attr("name"));
+						$("#schemeDetailsKind").attr("materialsKind", kindId);
+						$("#schemeDetailsKind").val(td.eq(1).text());
+						var tbody = $("#insertSchemeDetailsMaterialsTbody");
+						tbody.find("tr").remove();
+						for (var i = 0; i < schemeDetails.schemeDetailsMaterialsList.length; i++) {
+							var materialsList = schemeDetails.schemeDetailsMaterialsList[i];
+							var column = i + 1;
+							var tr = $("<tr id='column" + column + "' ></tr>");
+							tr.append("<td style='padding:14px;'>" + column + "</td>");
+							tr.append("<td>" +
+								"<select class='form-control input-sm' id='insertMaterialsName" +
+								column + "'></select></td>");
+							tr.append(
+								"<td><input type='number' class='form-control input-sm'value='" +
+								materialsList.schemeDetailsMaterialsNumber + "'/></td>");
+							tr.append(
+								"<td><input type='text' class='form-control input-sm text-hidden' value='" +
+								materialsList.schemeDetailsMaterialsRemark + "'></td>");
+							tr.append("<td style='padding:14px;'><a class='column' href ='" +
+								column +
+								"' style='color:red;'>移除</a></td>");
+							tbody.append(tr);
+							materialsNameInit1($("#insertMaterialsName" + column), materialsList
+								.materialsId, kindId);
+						}
+					})
+				})
+
+				function calculation(type) {
+					var tbody = $("#insertSchemeDetailsTbody");
+					var size = tbody.find("tr").length;
+					var schemeList = [size];
+					var trArr = tbody.children("tr");
+					var schemePrice = 0;
+					for (var i = 0; i < size; i++) {
+						var tdArr = trArr.eq(i).find("td");
+						if(!checkInt(tdArr.eq(4).find("input").val())){
+							alert("工人时长只能为正整数！！！");
+							tdArr.eq(4).find("input").focus();
+							return false;
+						}
+						var schemeDetails = JSON.parse((trArr.eq(i)).attr("name"));
+						var employee = tdArr.eq(3).find("select option:selected");
+						var schemeDetailsEmployeeTime = tdArr.eq(4).find("input").val();
+						var schemeDetailsEmployeePrice = (employee.attr("salary")) * schemeDetailsEmployeeTime;
+						var schemeDetailsTotal = schemeDetails.schemeDetailsPrice + schemeDetailsEmployeePrice;
+						schemeDetails.schemeDetailsTotal = schemeDetailsTotal;
+						schemeDetails.employeeId = employee.val();
+						schemeDetails.schemeDetailsEmployeeTime = schemeDetailsEmployeeTime;
+						schemeDetails.schemeDetailsEmployeePrice = schemeDetailsEmployeePrice;
+						schemeDetails.schemeDetailsRemark = tdArr.eq(7).find("input").val();
+						schemeList[i] = schemeDetails;
+						schemePrice = schemePrice + schemeDetailsTotal;
+					}
+					var scheme = {
+						"schemeName": $("#insertSchemeName").val(),
+						"schemePrice": schemePrice,
+						"schemeDiscount": ($("#insertSchemeDiscount").val() == "" ? schemePrice : $(
+							"#insertSchemeDiscount").val()),
+						"schemeSquare": $("#insertSchemeSquare").val(),
+						"schemePhoto": "schemeDefault.jpg",
+						"schemeRemark": "",
+						"schemeDetails": schemeList
+					}
+					if (type) {
+						var text = $("#insertSchemeBtn").text();
+						if (text == "新建") {
+							return scheme;
+						} else {
+							var schemeList = scheme.schemeDetails;
+							var orderList = [];
+							for (var i = 0; i < schemeList.length; i++) {
+								var schemeMaterials = scheme.schemeDetails[i].schemeDetailsMaterialsList;
+								var length = schemeMaterials.length;
+								var materialsList = [];
+								for (var j = 0; j < length; j++) {
+									materialsList[j] = {
+										"materialsId": schemeMaterials[j].materialsId,
+										"orderDetailsMaterialsNumber": schemeMaterials[j]
+											.schemeDetailsMaterialsNumber,
+										"orderDetailsMaterialsRemark": schemeMaterials[j]
+											.orderDetailsMaterialsRemark
+									}
+								}
+								orderList[i] = {
+									"employeeId": schemeList[i].employeeId,
+									"kindId": schemeList[i].kindId,
+									"orderDetailsEmployeePrice": schemeList[i].schemeDetailsEmployeePrice,
+									"orderDetailsEmployeeTime": schemeList[i].schemeDetailsEmployeeTime,
+									"orderDetailsPrice": schemeList[i].schemeDetailsPrice,
+									"orderDetailsRemark": schemeList[i].schemeDetailsRemark,
+									"orderDetailsTotal": schemeList[i].schemeDetailsTotal,
+									"orderDetailsMaterials": materialsList,
+									"order_details_status": "未开启"
+								};
+							}
+							var order = {
+								"consumerId": $("#consumerNameSelect").val(),
+								"employeeId": JSON.parse(sessionStorage.getItem("loginEmployee")).employeeId,
+								"orderTotal": scheme.schemeDiscount,
+								"orderStatus": "未开启",
+								"orderRemark": scheme.schemeRemark,
+								"orderDetailsList": orderList
+							}
+							return order;
+						}
+					}
+					$("#insertSchemePrice").val("￥" + formatNumberToCurrency(scheme.schemePrice));
+					for (var j = 0; j < scheme.schemeDetails.length; j++) {
+						tdArr = trArr.eq(j).find("td");
+						var list = scheme.schemeDetails[j];
+						tdArr.eq(2).val(list.schemeDetailsTotal);
+						tdArr.eq(2).text("￥" + formatNumberToCurrency(list.schemeDetailsTotal));
+						tdArr.eq(5).val(list.schemeDetailsEmployeePrice);
+						tdArr.eq(5).text("￥" + formatNumberToCurrency(list.schemeDetailsEmployeePrice));
+					}
+				}
+
+				// 为方案明细中的新建方案按钮绑定单击事件
+				$("#insertSchemeBtn").click(function() {
+					var text = $(this).text();
+					if ($("#detailsTip").length == 1) {
+						alert("请添加明细后再点" + text + "按钮！！！");
+						return false;
+					}
+					
+					var insertSchemeName = $("#insertSchemeName");
+					if(insertSchemeName.val() == "" && text == "新建"){
+						alert("请填写方案名称！！！");
+						insertSchemeName.focus();
+						return false;
+					}
+					
+					var consumerNameSelect = $("#consumerNameSelect");
+					if(consumerNameSelect.val() == -1 && text == "下单"){
+						alert("请选择客户！！！");
+						return false;
+					}
+					
+					var insertSchemeSquare = $("#insertSchemeSquare");
+					if(insertSchemeSquare.val() == ""){
+						alert("请填写房屋大小！！！");
+						insertSchemeSquare.focus();
+						return false;
+					}
+					
+					if (text == "新建") {
+						if (confirm("请确认方案创建信息无误后新建方案。")) {
+							var scheme = calculation(1);
+							if(!scheme){
+								return false;
+							}
+							var url = url_prefix_scheme + "insertScheme";
+							var args = JSON.stringify(scheme);
+
+							$.ajax({
+								type: "post",
+								url: url,
+								async: true,
+								data: args,
+								dataType: "json",
+								contentType: "application/json",
+								success: function(result) {
+									if (result.code == 0) {
+										alert(result.message);
+										$("#insertSchemeModal").modal("hide");
+										showSchemeMessage($("#pageNumber").val());
+									} else {
+										alert(result.message);
+									}
+								}
+							})
+						}
+					} else {
+						if (confirm("请确认订单信息无误后点击下单！！！")) {
+							if ($("#consumerNameSelect").val() == -1) {
+								alert("未选择客户！！！");
+								return false;
+							}
+							var order = calculation(1);
+							console.log(JSON.stringify(order));
+							var url = url_prefix_order + "insertOrder";
+							var args = JSON.stringify(order);
+
+							$.ajax({
+								type: "post",
+								url: url,
+								async: true,
+								data: args,
+								dataType: "json",
+								contentType: "application/json",
+								success: function(result) {
+									if (result.code == 0) {
+										alert(result.message);
+										$("#insertSchemeModal").modal("hide");
+										showSchemeMessage($("#pageNumber").val());
+									} else {
+										alert(result.message);
+									}
+								}
+							})
+						}
+					}
+
+				})
+
+				// 为方案明细中的计算价格按钮绑定单击事件
+				$("#calculatePriceBtn").click(function() {
+					if ($("#detailsTip").length == 1) {
+						alert("请添加明细后再计算价格！！！");
+						return false;
+					}
+					calculation(0);
+				})
+
+			});
+		</script>
+		<!-- 自定义JS代码结束 -->
+	</body>
+</html>

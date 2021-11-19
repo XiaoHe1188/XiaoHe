@@ -1,0 +1,500 @@
+<meta charset="utf-8">
+<div class="side-widgets overflow">
+	<!-- 显示登录用户信息及日历开始 -->
+	<div class="text-center s-widget m-b-25 dropdown" id="profile-menu">
+		<!-- 登录用户头像开始 -->
+		<a href="" data-toggle="dropdown">
+			<img class="profile-pic animated" id="loginEmployeePhoto" src="img/猫咪.jpg" alt="">
+		</a>
+		<!-- 登录用户头像结束 -->
+		<!-- 点击头像显示/隐藏菜单开始 -->
+		<ul class="dropdown-menu profile-menu">
+			<li><a data-toggle="modal" href="#updateEmployeePasswordModal">修改密码</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
+			<li><a data-toggle="modal" href="#updateEmployeePhotoModal" class="employeePhotoHref">修改头像</a> <i class="icon left">&#61903;</i><i
+				 class="icon right">&#61815;</i></li>
+			<li><a data-toggle="modal" href="#updateLoginEmployeeMessageModal" id="updateEmployeeMessage">个人信息</a> <i class="icon left">&#61903;</i><i
+				 class="icon right">&#61815;</i></li>
+			<li><a data-toggle="modal" href="#exitModal">退出登录</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
+		</ul>
+		<!-- 点击头像显示/隐藏菜单结束 -->
+		<!-- 登录用户的用户名开始 -->
+		<h4 class="m-0" id="loginEmployeeName">小鹤家装管理系统</h4>
+		<br />
+		<!-- 登录用户的用户名结束 -->
+		<!-- 日历开始 -->
+		<div class="s-widget m-b-25">
+			<div id="sidebar-calendar"></div>
+		</div>
+		<!-- 日历结束 -->
+	</div>
+	<!-- 显示登录用户信息及日历结束 -->
+</div>
+
+<!-- 左侧菜单开始 -->
+<ul class="list-unstyled side-menu">
+	<!-- 一级菜单（不包含二级菜单） -->
+	<li id="schemeMenu">
+		<a class="sa-side-home" href="scheme.html">
+			<span class="menu-item">家装方案管理</span>
+		</a>
+	</li>
+
+	<!-- 一级菜单（不包含二级菜单） -->
+	<li id="employeeMenu">
+		<a class="sa-side-ui" href="employee.html">
+			<span class="menu-item">员工信息</span>
+		</a>
+	</li>
+
+	<!-- 一级菜单（不包含二级菜单） -->
+	<li id="consumerMenu">
+		<a class="sa-side-folder" href="consumer.html">
+			<span class="menu-item">客户信息</span>
+		</a>
+	</li>
+
+	<!-- 一级菜单（不包含二级菜单） -->
+	<li id="materialsMenu">
+		<a class="sa-side-table" href="materials.html">
+			<span class="menu-item">材料信息</span>
+		</a>
+	</li>
+
+	<!-- 一级菜单（不包含二级菜单） -->
+	<li id="orderMenu">
+		<a class="sa-side-form" href="order.html">
+			<span class="menu-item">订单信息</span>
+		</a>
+	</li>
+	
+	<!-- 一级菜单（包含二级菜单） -->
+	<li class="dropdown" id="otherMenu">
+		<a class="sa-side-page" href="">
+			<span class="menu-item">其它</span>
+		</a>
+		<!-- 二级菜单 -->
+		<ul class="list-unstyled menu-item">
+			<li><a id="otherSubMenu1" href="announcement.html">公告信息</a></li>
+			<li><a id="otherSubMenu2" href="meeting.html">会议记录</a></li>
+		</ul>
+	</li>
+</ul>
+<!-- 左侧菜单结束 -->
+
+<!-- 修改登录员工密码模态框开始 -->
+<div class="modal fade" id="updateEmployeePasswordModal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<!-- 模态框顶部开始 -->
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">修改员工密码</h4>
+			</div>
+			<!-- 模态框顶部结束 -->
+
+			<!-- 模态框中部开始 -->
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-2 text-right" style="padding-top: 6px;">原密码</div>
+					<div class="col-lg-8">
+						<input type="password" id="oldPassword" class="form-control input-sm" />
+					</div>
+				</div>
+				<div class="row m-t-20">
+					<div class="col-lg-2 text-right" style="padding-top: 6px;">新密码</div>
+					<div class="col-lg-8">
+						<input type="password" id="newPassword" class="form-control input-sm" />
+					</div>
+				</div>
+				<div class="row m-t-20">
+					<div class="col-lg-2 text-right" style="padding-top: 6px;">确认密码</div>
+					<div class="col-lg-8">
+						<input type="password" id="confirmPassword" class="form-control input-sm" />
+					</div>
+				</div>
+			</div>
+			<!-- 模态框中部结束 -->
+
+			<!-- 模态框底部开始 -->
+			<div class="modal-footer">
+				<button type="button" class="btn btn-sm" id="updateEmployeePasswordBtn">保存</button>
+				<button type="button" class="btn btn-sm" data-dismiss="modal" id="passwordClearBtn">关闭</button>
+			</div>
+			<!-- 模态框底部结束 -->
+		</div>
+	</div>
+</div>
+<!-- 修改登录员工密码模态框结束 -->
+
+<!-- 修改登录员工头像模态框开始 -->
+<div class="modal fade" id="updateEmployeePhotoModal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<!-- 模态框顶部开始 -->
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">修改员工头像</h4>
+			</div>
+			<!-- 模态框顶部结束 -->
+
+			<!-- 模态框中部开始 -->
+			<div class="modal-body">
+				<!-- 保存员工编号的隐藏表单域 -->
+				<input type="hidden" id="updateEmployeePhotoId" />
+				<!-- 保存员工原头像名称的隐藏表单域 -->
+				<input type="hidden" id="updateEmployeeOldPhoto" />
+				<form method="post" id="updateEmployeePhotoForm" enctype="multipart/form-data">
+					<div class="fileupload fileupload-exists" data-provides="fileupload">
+						<div id="updateEmployeePhoto" class="fileupload-preview thumbnail form-control" style="width: 100%;">
+							<img src="img/profile-pic.jpg" />
+						</div>
+						<div>
+							<span class="btn btn-file btn-alt btn-sm">
+								<span class="fileupload-new">选择图片</span>
+								<span class="fileupload-exists">替换</span>
+								<input type="file" name="employeePhoto" accept="image/*" />
+							</span>
+							<a href="#" class="btn fileupload-exists btn-sm" data-dismiss="fileupload">移除</a>
+						</div>
+					</div>
+				</form>
+			</div>
+			<!-- 模态框中部结束 -->
+
+			<!-- 模态框底部开始 -->
+			<div class="modal-footer">
+				<button type="button" class="btn btn-sm" id="updateEmployeePhotoBtn">保存</button>
+				<button type="button" class="btn btn-sm" data-dismiss="modal">关闭</button>
+			</div>
+			<!-- 模态框底部结束 -->
+		</div>
+	</div>
+</div>
+<!-- 修改登录员工头像模态框结束 -->
+
+<!-- 修改员工信息模态框的开始 -->
+<div class="modal fade" id="updateLoginEmployeeMessageModal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<!-- 模态框顶部开始 -->
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">编辑员工信息</h4>
+			</div>
+			<!-- 模态框顶部结束 -->
+
+			<!-- 模态框中部开始 -->
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-2 text-right" style="padding-top: 6px;">员工姓名：</div>
+					<div class="col-lg-6">
+						<input type="text" id="updateEmployeeName" class="form-control input-sm" value="XXXXX" />
+					</div>
+				</div>
+
+				<div class="row" style="margin-top: 10px;">
+					<div class="col-lg-2 text-right" style="padding-top: 6px;">员工性别：</div>
+					<div class="col-lg-6">
+						<select class="form-control input-sm" id="updateEmployeeSex">
+							<option value="0">男</option>
+							<option value="1">女</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="row" style="margin-top: 10px;">
+					<div class="col-lg-2 text-right" style="padding-top: 6px;">员工电话：</div>
+					<div class="col-lg-6">
+						<input type="text" id="updateEmployeePhone" class="form-control input-sm" value="139XXXXXXXX" />
+					</div>
+				</div>
+
+				<div class="row" style="margin-top: 10px;">
+					<div class="col-lg-2 text-right" style="padding-top: 6px;">员工邮箱：</div>
+					<div class="col-lg-6">
+						<input type="text" id="updateEmployeeEmail" class="email-input form-control input-sm" value="XXXXX@XX.com" />
+					</div>
+				</div>
+
+			</div>
+			<!-- 模态框中部结束 -->
+
+			<!-- 模态框底部开始 -->
+			<div class="modal-footer">
+				<button type="button" class="btn btn-sm" id="updateEmployeeMessageBtn">保存</button>
+				<button type="button" class="btn btn-sm" data-dismiss="modal">关闭</button>
+			</div>
+			<!-- 模态框底部结束 -->
+		</div>
+	</div>
+</div>
+<!-- 修改员工信息模态框的结束 -->
+
+<!-- 退出登录模态框开始 -->
+<div class="modal fade" id="exitModal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<!-- 模态框顶部开始 -->
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">退出登录</h4>
+			</div>
+			<!-- 模态框顶部结束 -->
+
+			<!-- 模态框中部开始 -->
+			<div class="modal-body" style="padding-left: 30px;">
+				<p>确定要退出登录吗？？？</p>
+			</div>
+			<!-- 模态框中部结束 -->
+
+			<!-- 模态框底部开始 -->
+			<div class="modal-footer">
+				<button type="button" class="btn btn-sm" id="exitBtn">确定</button>
+				<button type="button" class="btn btn-sm" data-dismiss="modal">取消</button>
+			</div>
+			<!-- 模态框底部结束 -->
+		</div>
+	</div>
+</div>
+<!-- 退出登录模态框结束 -->
+
+<!-- 自定义JS的开始 -->
+<script type="text/javascript">
+	
+	$(function() {
+		// 获得登录员工的信息
+		var loginEmployee = JSON.parse(sessionStorage.getItem("loginEmployee"));
+
+		if (loginEmployee == null) {
+			// 没有获得登录员工的信息，跳转到login.html页面
+			location.href = "login.html";
+		} else {
+			// 显示登录员工的姓名
+			$("#loginEmployeeName").text(loginEmployee.employeeName);
+			// 显示登录员工的头像
+			var employeePhoto = loginEmployee.employeePhoto;
+
+			if (employeePhoto != null && employeePhoto != "") {
+				$("#loginEmployeePhoto").attr("src", url_prefix_image + employeePhoto);
+			}
+		}
+
+		// 设置员工修改头像超链接单击事件开始
+		$(".employeePhotoHref").click(function() {
+			var employeeId = loginEmployee.employeeId;
+			var employeeOldPhoto = loginEmployee.employeePhoto;
+
+			// 将员工编号添加到修改员工头像模态框的隐藏表单域中
+			$("#updateEmployeePhotoId").val(employeeId);
+			// 移除修改员工头像模态框中的图片
+			$("#updateEmployeePhoto").find("img").remove();
+			// 重新向修改员工头像模态框中添加图片
+			$("#updateEmployeePhoto").append("<img src='" + (url_prefix_image + employeeOldPhoto) + "'/>");
+			$("input[name='employeePhoto']").val("");
+
+			// 将员工原图片名称设置到修改员工图片模态框的隐藏表单域中
+			$("#updateEmployeeOldPhoto").val(employeeOldPhoto);
+		});
+		// 设置图片超链接单击事件结束
+
+		// ---------------------修改员工头像模态框保存按钮单击事件的方法开始---------------------
+		$("#updateEmployeePhotoBtn").click(function() {
+			// 判断用户是否修改了头像
+			if ($("input[name='employeePhoto']").val() == "") {
+				alert("没有修改头像！！！");
+				return;
+			}
+			// 上传新的图片
+			$.ajax({
+				url: url_prefix_file + "employeeUpload",
+				type: "POST",
+				dataType: "json",
+				cache: false,
+				data: new FormData($("#updateEmployeePhotoForm")[0]),
+				processData: false,
+				contentType: false,
+				success: function(result) {
+					//alert(result.code);
+					if (result.code == 0) {
+						// 文件上传成功，根据员工原头像的名称删除服务器的图片文件
+						// 获得员工新头像的名字
+						var employeeNewPhoto = result.resultData.fileName + result.resultData.extendedName;
+						// 获得员工原头像的名字
+						var employeeOldPhoto = loginEmployee.employeePhoto;
+
+						var url = url_prefix_file + "delete/1";
+
+						var args = {
+							"fileName": employeeOldPhoto
+						}
+
+						// 向服务器发出get模式的请求，并获得响应的结果
+						$.get(url, args, function(result) {
+							if (result.code == 0) {
+								var url = url_prefix_employee + "update";
+
+								var args = {
+									"employeeId": loginEmployee.employeeId,
+									"employeePhoto": employeeNewPhoto
+								};
+
+								$.post(url, args, function(result) {
+									if (result.code == 0) {
+										loginEmployee.employeePhoto = employeeNewPhoto;
+										sessionStorage.setItem("loginEmployee", JSON.stringify(loginEmployee));
+										$("#updateEmployeePhotoModal").modal("hide");
+										// 删除文件成功，加载左侧菜单页面
+										location.reload();
+									} else {
+										alert(result.message);
+									};
+								});
+							} else {
+								// 删除文件失败
+								alert(result.message);
+							}
+						});
+					} else {
+						// 上传文件失败
+						alert(result.message);
+					}
+				}
+			});
+		});
+		// ---------------------修改员工头像模态框保存按钮单击事件的方法结束---------------------
+
+		// ---------------------修改员工密码模态框保存按钮单击事件的方法开始---------------------
+		$("#updateEmployeePasswordBtn").click(function() {
+			var oldPassword = $("#oldPassword");
+			if (oldPassword.val() == "") {
+				alert("原密码不能为空！！！");
+				oldPassword.select();
+				return false;
+			}
+
+			var newPassword = $("#newPassword");
+			if (newPassword.val() == "") {
+				alert("新密码不能为空！！！");
+				newPassword.select();
+				return false;
+			}
+
+			var confirmPassword = $("#confirmPassword");
+			if (confirmPassword.val() == "") {
+				alert("确认密码不能为空！！！");
+				confirmPassword.select();
+				return false;
+			}
+
+			if (oldPassword.val() != loginEmployee.employeePassword) {
+				alert("原密码输入错误！！！");
+				oldPassword.select();
+				return false;
+			}
+
+			if (newPassword.val() != confirmPassword.val()) {
+				alert("确认密码与新密码不一致！！！");
+				confirmPassword.select();
+				return false;
+			}
+
+			var url = url_prefix_employee + "update";
+			var args = {
+				"employeeId": loginEmployee.employeeId,
+				"employeePassword": confirmPassword.val()
+			}
+			$.post(url, args, function(result) {
+				if (result.code == 0) {
+					localStorage.removeItem("loginMessage");
+					loginEmployee.employeePassword = confirmPassword.val();
+					sessionStorage.setItem("loginEmployee", JSON.stringify(loginEmployee));
+					$("#updateEmployeePasswordModal").modal("hide");
+					oldPassword.val("");
+					newPassword.val("");
+					confirmPassword.val("");
+				}
+				alert(result.message);
+			});
+		});
+		// ---------------------修改员工密码模态框保存按钮单击事件的方法结束---------------------
+
+		// ---------------------修改员工信息模态框保存按钮单击事件的方法开始---------------------
+		$("#updateEmployeeMessageBtn").click(function() {
+			// 判断输入的数据是否为空
+			var updateEmployeeName = $("#updateEmployeeName");
+			if (updateEmployeeName.val() == "") {
+				alert("员工姓名不能为空！！！");
+				updateEmployeeName.select();
+				return false;
+			}
+
+			var updateEmployeePhone = $("#updateEmployeePhone");
+			if (!checkNumber(updateEmployeePhone.val())) {
+				alert("员工电话格式不正确！！！");
+				updateEmployeePhone.select();
+				return false;
+			}
+
+			var updateEmployeeEmail = $("#updateEmployeeEmail");
+			if (!checkMail(updateEmployeeEmail.val())) {
+				alert("员工邮箱格式不正确！！！");
+				updateEmployeeEmail.select();
+				return false;
+			}
+
+			var url = url_prefix_employee + "update";
+			var args = {
+				"employeeId": loginEmployee.employeeId,
+				"employeeName": updateEmployeeName.val(),
+				"employeeSex": $("#updateEmployeeSex").val(),
+				"employeePhone": updateEmployeePhone.val(),
+				"employeeEmail": updateEmployeeEmail.val()
+			}
+			$.post(url, args, function(result) {
+				if (result.code == 0) {
+					// 修改sessionStorage中loginEmployee的值
+					loginEmployee.employeeName = updateEmployeeName.val();
+					loginEmployee.employeeSex = $("#updateEmployeeSex").val();
+					loginEmployee.employeePhone = updateEmployeePhone.val();
+					loginEmployee.employeeEmail = updateEmployeeEmail.val();
+					localStorage.setItem("loginMessage",JSON.stringify(loginEmployee));
+					sessionStorage.setItem("loginEmployee", JSON.stringify(loginEmployee));
+					$("#updateLoginEmployeeMessageModal").modal("hide");
+				}
+				alert(result.message);
+			});
+		});
+		// ---------------------修改员工信息模态框保存按钮单击事件的方法结束---------------------
+
+		/* 设置修改员工个人信息超链接单击按钮事件的开始 */
+		$("#updateEmployeeMessage").click(function() {
+			// 设置模态框中控件的值
+			$("#updateEmployeeName").val(loginEmployee.employeeName);
+			$("#updateEmployeeSex").val(loginEmployee.employeeSex);
+			$("#updateEmployeePhone").val(loginEmployee.employeePhone);
+			$("#updateEmployeeEmail").val(loginEmployee.employeeEmail);
+		});
+		/* 设置修改员工个人信息超链接单击按钮事件的结束 */
+
+		/* 设置修改员工密码模态框关闭按钮单击事件的方法开始 */
+		$("#passwordClearBtn").click(function() {
+			// 清空控件中的内容
+			$("#oldPassword").val("");
+			$("#newPassword").val("");
+			$("#confirmPassword").val("");
+		});
+		/* 设置修改员工密码模态框关闭按钮单击事件的方法结束 */
+
+		/* 设置退出登录模态框单击事件的开始 */
+		$("#exitBtn").click(function() {
+			// 移除localStorage中自动登录的员工信息
+			localStorage.removeItem("loginMessage");
+			sessionStorage.removeItem("loginEmployee");
+			// 跳转到登录页面
+			location.href = "login.html";
+		});
+		/* 设置退出登录模态框单击事件的结束 */
+	});
+	
+</script>
+<!-- 自定义JS的结束 -->

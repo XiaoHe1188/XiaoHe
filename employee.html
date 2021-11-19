@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--
+		 作者：张元涛
+		 功能：员工管理页面
+		 -->
+		<meta charset="utf-8">
+		<title>小型家装管理系统</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+		<meta name="format-detection" content="telephone=no">
+		<meta name="description" content="Violate Responsive employee Template">
+		<meta name="keywords" content="Super employee, employee, Template, Bootstrap">
+
+		<!-- 导入CSS文件开始 -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/animate.min.css" rel="stylesheet">
+		<link href="css/font-awesome.min.css" rel="stylesheet">
+		<link href="css/form.css" rel="stylesheet">
+		<link href="css/calendar.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<link href="css/icons.css" rel="stylesheet">
+		<link href="css/generics.css" rel="stylesheet">
+		<!-- 导入CSS文件结束 -->
+		<!-- 导入自定义CSS文件开始 -->
+		<link rel="stylesheet" type="text/css" href="css/gmd-style.css" />
+		<!-- 导入自定义CSS文件结束 -->
+		<!-- 设置站点图标 -->
+		<link href="img/favicon.ico" rel="icon" />
+	</head>
+	<body id="skin-tectile">
+
+		<!-- 页面顶部开始 -->
+		<header id="header" class="media">
+			<!-- 显示/隐藏菜单 -->
+			<a href="" id="menu-toggle"></a>
+			<!-- LOGO标题 -->
+			<a class="logo pull-left" href="scheme.html">小型家装管理系统 1.0</a>
+
+			<div class="media-body">
+				<div class="media" id="top-menu">
+					<div id="time" class="pull-right">
+						<span id="hours"></span>
+						:
+						<span id="min"></span>
+						:
+						<span id="sec"></span>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- 页面顶部结束 -->
+		<div class="clearfix"></div>
+
+		<!-- 页面中部开始 -->
+		<section id="main" class="p-relative" role="main">
+			<!-- 页面左侧开始 -->
+			<aside id="sidebar">
+
+			</aside>
+			<!-- 页面左侧结束 -->
+
+			<!-- 页面右侧开始 -->
+			<section id="content" class="container">
+				<!-- 路径导航开始 -->
+				<ol class="breadcrumb hidden-xs">
+					<li class="active">员工信息</li>
+				</ol>
+				<!-- 路径导航结束 -->
+
+				<!-- 页面子标题 -->
+				<h4 class="page-title">员工信息</h4>
+
+				<!-- 查询条件开始 -->
+				<div class="block-area" id="text-input">
+					<h3 class="block-title">查询条件</h3>
+					<div class="row">
+						<div class="col-lg-3">
+							<input type="text" class="form-control input-sm" id="selectEmployee" placeholder="编号/姓名" />
+						</div>
+						<div class="col-lg-3">
+							<select class="form-control input-sm" id="selectDepartmentId">
+								<option value="-1">请选择部门</option>
+							</select>
+						</div>
+						<div class="col-lg-3">
+							<button type="button" class="btn m-r-5 btn-sm" id="selectBtn">查询</button>
+							<button type="button" class="btn m-r-5 btn-sm" id="insertBtn">添加</button>
+						</div>
+					</div>
+				</div>
+				<!-- 查询条件结束 -->
+
+				<!-- 查询结果开始 -->
+				<div class="block-area" id="text-input">
+					<h3 class="block-title">查询结果</h3>
+					<table class="table table-bordered table-hover tile">
+						<thead>
+							<tr>
+								<th style="width:3%;">序号</th>
+								<th style="width:3%;">编号</th>
+								<th style="width:5%;">姓名</th>
+								<th style="width:3%;">性别</th>
+								<th style="width:5%;">部门</th>
+								<th style="width:5%;">电话</th>
+								<th style="width:10%;">邮箱</th>
+								<th style="width:5%;">职位</th>
+								<th style="width:6%;">入职时间</th>
+								<th>住址</th>
+								<th style="width:6%;">工资</th>
+								<th class="status" style="width:7%;">状态<span class="delete">|删除</span></th>
+								<th style="width:10%;">备注</th>
+							</tr>
+						</thead>
+						<tbody id="employeeSelectBody">
+							<tr class="text-center">
+								<td colspan="13">没有满足条件的员工信息！！！</td>
+							</tr>
+							<!-- <tr>
+								<td>1</td>
+								<td>001</td>
+								<td>小鹤</td>
+								<td>男</td>
+								<td>市场部</td>
+								<td>13855556666</td>
+								<td>0123456789@qq.com</td>
+								<td>员工</td>
+								<td>2021年1月20日</td>
+								<td>北京市海淀区双榆树数码大厦A座北京市海淀区双榆树数码大厦A座</td>
+								<td>150.00</td>
+								<td>禁用/删除</td>
+								<td></td>
+							</tr> -->
+						</tbody>
+					</table>
+				</div>
+				<!-- 查询结果结束 -->
+
+				<!-- 分页按钮开始 -->
+				<div class="col-lg-12 text-center">
+					<ul class="pagination">
+						<!-- <li><a href="#" style="color: #FFFFFF;"><i class="fa fa-angle-left" style="color: #FFFFFF;"></i></a></li>
+						<li><a href="#" style="color: #FFFFFF;">1</a></li>
+						<li><a href="#" style="color: #FFFFFF;">2</a></li>
+						<li><a href="#" style="color: #FFFFFF;">3</a></li>
+						<li><a href="#" style="color: #FFFFFF;">4</a></li>
+						<li><a href="#" style="color: #FFFFFF;">5</a></li>
+						<li><a href="#" style="color: #FFFFFF;"><i class="fa fa-angle-right"></i></a></li> -->
+					</ul>
+				</div>
+				<!-- 分页按钮结束 -->
+			</section>
+			<!-- 页面右侧结束 -->
+		</section>
+		<!-- 页面中部结束 -->
+
+		<!-- 用于保存当前页码的隐藏表单域 -->
+		<input type="hidden" id="pageNumber" value="1" />
+
+		<!-- 员工信息模态框的开始 -->
+		<div class="modal fade" id="employeeMessageModal" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<!-- 模态框顶部开始 -->
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="employeeMessageModalTitle">编辑员工信息</h4>
+					</div>
+					<!-- 模态框顶部结束 -->
+
+					<!-- 模态框中部开始 -->
+					<div class="modal-body">
+						<!-- 用户保存将要修改的员工编号 -->
+						<input type="hidden" id="employeeId" />
+						<div class="row">
+							<div class="col-lg-2 text-right" style="padding-top: 6px;">员工姓名：</div>
+							<div class="col-lg-6">
+								<input type="text" id="employeeName" class="form-control input-sm" placeholder="员工姓名" />
+							</div>
+							<div class="error1 col-lg-4">
+							</div>
+						</div>
+
+						<div class="row" style="margin-top: 10px;">
+							<div class="col-lg-2 text-right" style="padding-top: 6px;">员工性别：</div>
+							<div class="col-lg-6">
+								<select class="form-control input-sm" id="employeeSex">
+									<option value="0">男</option>
+									<option value="1">女</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="row" style="margin-top: 10px;">
+							<div class="col-lg-2 text-right" style="padding-top: 6px;">员工部门：</div>
+							<div class="col-lg-6">
+								<select class="form-control input-sm" id="departmentId">
+
+								</select>
+							</div>
+						</div>
+
+						<div class="row" style="margin-top: 10px;">
+							<div class="col-lg-2 text-right" style="padding-top: 6px;">员工电话：</div>
+							<div class="col-lg-6">
+								<input type="text" id="employeePhone" class="form-control input-sm" placeholder="员工电话" />
+							</div>
+							<div class="error2 col-lg-4">
+							</div>
+						</div>
+						
+						<div class="row" style="margin-top: 10px;">
+							<div class="col-lg-2 text-right" style="padding-top: 6px;">员工密码：</div>
+							<div class="col-lg-6">
+								<input type="text" id="employeePassword" class="form-control input-sm" placeholder="员工密码" />
+							</div>
+							<div class="error7 col-lg-4">
+							</div>
+						</div>
+
+						<div class="row" style="margin-top: 10px;">
+							<div class="col-lg-2 text-right" style="padding-top: 6px;">员工邮箱：</div>
+							<div class="col-lg-6">
+								<input type="text" id="employeeEmail" class="form-control input-sm email-input" placeholder="员工邮箱" list="emailList" />
+								<datalist id="emailList"></datalist>
+							</div>
+							<div class="error3 col-lg-4">
+							</div>
+						</div>
+
+						<div class="row" style="margin-top: 10px;">
+							<div class="col-lg-2 text-right" style="padding-top: 6px;">员工职位：</div>
+							<div class="col-lg-6">
+								<input type="text" id="employeePosition" class="form-control input-sm" placeholder="员工职位" />
+							</div>
+							<div class="error4 col-lg-4">
+							</div>
+						</div>
+
+						<div class="row" style="margin-top: 10px;">
+							<div class="col-lg-2 text-right" style="padding-top: 6px;">员工生日：</div>
+							<div class="col-lg-6">
+								<div class="input-icon datetime-pick date-only">
+									<input data-format="yyyy-MM-dd" type="text" class="form-control input-sm" id="employeeBirthday" placeholder="员工生日" />
+									<span class="add-on">
+										<i class="sa-plus"></i>
+									</span>
+								</div>
+							</div>
+							<div class="error8 col-lg-4">
+							</div>
+						</div>
+
+						<div class="row" style="margin-top: 10px;">
+							<div class="col-lg-2 text-right" style="padding-top: 6px;">家庭住址：</div>
+							<div class="col-lg-6">
+								<input type="text" id="employeeAddress" class="form-control input-sm" placeholder="家庭住址" />
+							</div>
+							<div class="error5 col-lg-4">
+							</div>
+						</div>
+
+						<div class="row" style="margin-top: 10px;">
+							<div class="col-lg-2 text-right" style="padding-top: 6px;">员工工资：</div>
+							<div class="col-lg-6">
+								<input type="text" id="employeeSalary" class="form-control input-sm" placeholder="员工工资" />
+							</div>
+							<div class="error6 col-lg-4">
+							</div>
+						</div>
+
+						<div class="row" style="margin-top: 10px;">
+							<div class="col-lg-2 text-right" style="padding-top: 6px;">员工等级：</div>
+							<div class="col-lg-6">
+								<select class="form-control input-sm" id="employeeGrade" placeholder="0">
+									<option value="0">普通员工</option>
+									<option value="1">管理员</option>
+									<option value="2">超级管理员</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="row" style="margin-top: 10px;">
+							<div class="col-lg-2 text-right" style="padding-top: 6px;">是否文职：</div>
+							<div class="col-lg-6">
+								<select class="form-control input-sm" id="employeeIsWorker" placeholder="0">
+									<option value="0">否</option>
+									<option value="1">是</option>
+								</select>
+							</div>
+						</div>
+						
+						<div class="row" style="margin-top: 10px;">
+							<div class="col-lg-2 text-right" style="padding-top: 6px;">备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注：</div>
+							<div class="col-lg-6">
+								<input type="text" id="employeeRemark" class="form-control input-sm" placeholder="备注" />
+							</div>
+						</div>
+					</div>
+					<!-- 模态框中部结束 -->
+
+					<!-- 模态框底部开始 -->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-sm" id="updateLoginEmployeeMessageBtn">保存</button>
+						<button type="button" class="btn btn-sm" data-dismiss="modal" id="closeEmployeeMessageBtn">关闭</button>
+					</div>
+					<!-- 模态框底部结束 -->
+				</div>
+			</div>
+		</div>
+		<!-- 员工信息模态框的结束 -->
+
+		<!-- 导入JS文件开始 -->
+		<script src="js/jquery.min.js"></script> <!-- jQuery Library -->
+		<script src="js/jquery-ui.min.js"></script> <!-- jQuery UI -->
+		<script src="js/jquery.easing.1.3.js"></script> <!-- jQuery Easing - Requirred for Lightbox + Pie Charts-->
+
+		<script src="js/bootstrap.min.js"></script>
+
+		<script src="js/scroll.min.js"></script> <!-- Custom Scrollbar -->
+		<script src="js/datetimepicker.min.js"></script> <!-- Date & Time Picker -->
+
+		<script src="js/calendar.min.js"></script> <!-- Calendar -->
+		<script src="js/feeds.min.js"></script> <!-- News Feeds -->
+		<script src="js/functions.js"></script>
+		<!-- 导入JS文件开始 -->
+
+		<!-- 导入自定义JS文件开始 -->
+		<script src="js/common/email-component.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/common/check-data.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/content/url.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/common/format.js" type="text/javascript" charset="utf-8"></script>
+		<!-- 导入自定义JS文件结束 -->
+
+		<!-- 自定义JS代码开始 -->
+		<script type="text/javascript">
+			// 加载左侧菜单页面
+			$("#sidebar").load("left-menu.html");
+
+			$(function() {
+				// 激活菜单
+				$("#employeeMenu").addClass("active");
+
+				// 从浏览器缓存中获得所有的部门信息
+				var departmentList = JSON.parse(sessionStorage.getItem("departmentList"));
+				showDepartment($("#selectDepartmentId"));
+				showDepartment($("#departmentId"));
+				
+				window.onload = function(){
+					var loginGrade = JSON.parse(sessionStorage.getItem("loginEmployee")).employeeGrade;
+					
+					if(loginGrade < 2){
+						$(".delete").attr("hidden","hidden");
+						if(loginGrade < 1){
+							$("#insertBtn").hide();
+							$(".status").attr("hidden","hidden");
+						}
+					}
+				}
+				
+				function showDepartment(department){
+					// 将部门信息填充员工部门下拉列表中
+					if (departmentList != null) {
+						for (var i = 0; i < departmentList.length; i++) {
+							// 每次循环创建option节点
+							var option = $("<option value='" + departmentList[i].departmentId + "'>" + departmentList[i].departmentName +
+								"</option>");
+					
+							/*
+							// 每次循环创建option节点
+							var option = $("<option></option>");
+							// 设置option节点的value属性
+							option.attr("value",departmentList[i].departmentId);
+							// 设置option节点显示的文本
+							option.text(departmentList[i].departmentName);
+							*/
+					
+							// 将option节点插入到id属性为selectDepartmentId的元素中
+							department.append(option);
+						}
+					}
+				}
+
+				showTable(1);
+
+				/* 模态框中保存按钮单击事件(id属性为updateLoginEmployeeMessageBtn) */
+				$("#updateLoginEmployeeMessageBtn").click(function() {
+					$(".error1").text("");
+					$(".error2").text("");
+					$(".error3").text("");
+					$(".error4").text("");
+					$(".error5").text("");
+					$(".error6").text("");
+					$(".error7").text("");
+					$(".error8").text("");
+
+					var employeeName = $("#employeeName");
+					if (employeeName.val() == "") {
+						$(".error1").text("员工姓名不能为空！！！");
+						employeeName.focus();
+						return false;
+					}
+
+					var employeePhone = $("#employeePhone");
+					if (employeePhone.val() == "") {
+						$(".error2").text("员工电话不能为空！！！");
+						employeePhone.focus();
+						return false;
+					}
+					
+					if(!checkPhone(employeePhone.val())){
+						$(".error2").text("员工电话格式不正确！！！");
+						employeePhone.focus();
+						return false;
+					}
+					
+					var employeePassword = $("#employeePassword");
+					if (employeePassword.val() == "") {
+						$(".error7").text("员工密码不能为空！！！");
+						employeePassword.focus();
+						return false;
+					}
+
+					var employeeEmail = $("#employeeEmail");
+					if (employeeEmail.val() == "") {
+						$(".error3").text("员工邮箱不能为空！！！");
+						employeeEmail.focus();
+						return false;
+					}
+
+					if (!checkMail(employeeEmail.val())) {
+						$(".error3").text("员工邮箱格式不正确！！！");
+						employeeEmail.select();
+						return false;
+					}
+					
+					var employeePosition = $("#employeePosition");
+					if (employeePosition.val() == "") {
+						$(".error4").text("员工职位不能为空！！！");
+						employeePosition.focus();
+						return false;
+					}
+					
+					var employeeBirthday = $("#employeeBirthday");
+					if (employeeBirthday.val() == "") {
+						$(".error8").text("员工生日不能为空！！！");
+						employeeBirthday.focus();
+						return false;
+					}
+					
+					var employeeAddress = $("#employeeAddress");
+					if (employeeAddress.val() == "") {
+						$(".error5").text("家庭地址不能为空！！！");
+						employeeAddress.focus();
+						return false;
+					}
+					
+					var employeeSalary = $("#employeeSalary");
+					if (!checkNumber(employeeSalary.val())) {
+						$(".error6").text("员工工资不能为空或小于0！");
+						employeeSalary.focus();
+						return false;
+					}
+					
+					// 获得被点击超链接上的文本
+					var btnText = $(this).text();
+					
+					var url = url_prefix_employee;
+					
+					if(btnText == "新建"){
+						url = url + "insert";
+					}else{
+						url = url + "update";
+					}
+					
+					var args = {
+						"employeeId": $("#employeeId").val(),
+						"employeeName": employeeName.val(),
+						"employeeSex": $("#employeeSex").val(),
+						"departmentId":$("#departmentId").val(),
+						"employeePhone": employeePhone.val(),
+						"employeePassword": employeePassword.val(),
+						"employeeEmail": employeeEmail.val(),
+						"employeePosition": employeePosition.val(),
+						"employeeBirthday": $("#employeeBirthday").val().substring(0,10),
+						"employeeAddress": employeeAddress.val(),
+						"employeeSalary": employeeSalary.val(),
+						"employeeGrade": $("#employeeGrade").val(),
+						"employeeIsWorker": $("#employeeIsWorker").val(),
+						"employeeRemark": $("#employeeRemark").val()
+					};
+
+					$.post(url, args, function(result) {
+						if (result.code == 0) {
+							// 手动关闭指定ID的模态框
+							$("#employeeMessageModal").modal("hide");
+							// 调用showTable()方法查询满足条件的员工信息
+							showTable($("#pageNumber").val());
+						} else {
+							alert(result.message);
+						}
+					});
+				});
+
+				/* 查询按钮的单机事件(id属性为selectBtn) */
+				$("#selectBtn").click(function() {
+					//显示满足条件第一页的员工信息
+					showTable(1);
+				});
+
+				/* 显示满足条件的第N页的员工信息 */
+				function showTable(pageNumber) {
+					// 将页码保存到ID位pageNumber的隐藏表单域中
+					$("#pageNumber").val(pageNumber);
+					//alert(pageNumber);
+					var url = url_prefix_employee + "selectPages";
+
+					var selectEmployee = $("#selectEmployee").val();
+
+					if (checkInt(selectEmployee)) {
+						var selectEmployeeId = selectEmployee;
+					} else {
+						var selectEmployeeName = selectEmployee;
+					}
+
+					var args = {
+						"employeeName": selectEmployeeName,
+						"employeeId": selectEmployeeId,
+						"departmentId": $("#selectDepartmentId").val(),
+						"pageNumber": pageNumber
+					};
+
+					$.get(url, args, function(result) {
+						// 获得tbody
+						var tbody = $("#employeeSelectBody");
+						// 移除tbody中所有的tr
+						tbody.find("tr").remove();
+
+						//alert(result.code);
+						if (result.code == 0) {
+							// 查询成功，将员工的信息显示在页面的表格中
+							// 获得分页信息
+							var pages = result.resultData.pages;
+							// 在分页信息中获得员工信息
+							var list = pages.list;
+
+							// 获得当前页面起始行的行号
+							var startRow = pages.startRow;
+
+							// 使用循环将员工信息显示在表格中
+							for (var i = 0; i < list.length; i++) {
+								// 获得数组中的员工信息
+								var employee = list[i];
+								// 创建tr
+								var tr = $("<tr></tr>");
+								// 创建td
+								var td = $("<td " + gradeDetermination(1) + "></td>");
+
+								// 向tr中添加td
+								tr.append($("<td>" + (startRow++) + "</td>"));
+								tr.append($("<td>" + employee.employeeId + "</td>"));
+								tr.append($("<td><a href='" + employee.employeeId + "' class='updateEmployeeHref'>" + employee.employeeName +
+									"</a></td>"));
+								tr.append($("<td>" + (employee.employeeSex == 0 ? "男" : "女") + "</td>"));
+								//tr.append($("<td>" + employee.departmentId + "</td>"));
+								for (var j = 0; j < departmentList.length; j++) {
+									var department = departmentList[j];
+									if (employee.departmentId == department.departmentId) {
+										tr.append($("<td>" + department.departmentName + "</td>"));
+										break;
+									}
+								}
+								tr.append($("<td>" + employee.employeePhone + "</td>"));
+								tr.append($("<td><p class='text-hidden' title='" + employee.employeeEmail +
+									"'>" + employee.employeeEmail + "</p></td>"));
+								tr.append($("<td>" + employee.employeePosition + "</td>"));
+								tr.append($("<td>" + employee.employeeTime.substring(0, 10) + "</td>"));
+								tr.append($("<td><p class='text-hidden' title='" + employee.employeeAddress +
+									"'>" + employee.employeeAddress + "</p></td>"));
+								tr.append($("<td>￥" + (gradeHidden(1) == 1 ? "******" : formatNumberToCurrency(employee.employeeSalary)) + "</td>"));
+
+								// 员工状态
+								var employeeStatus = employee.employeeStatus;
+								td.append($("<a href='" + employee.employeeId +
+									"' class='updateEmployeeStatusHref'>" + (employeeStatus == 0 ? "未禁用" : "已禁用") + "</a>"));
+								td.append($("<span " + gradeDetermination(2) + " > | <a href='" + employee.employeeId +
+									"' class='deleteEmployee' style='color : red;'>删除</a></span>"));
+								//tr.append($("<td>" + employee.employeeStatus + "</td>"));
+								tr.append(td);
+								tr.append($("<td><p class='text-hidden' title='" + employee.employeeRemark +
+									"'>" + employee.employeeRemark + "</p></td>"));
+								// 将tr添加到tbody中
+								tbody.append(tr);
+							}
+
+							/* 为修改员工状态超链接绑定单击事件 */
+							$(".updateEmployeeStatusHref").on("click", function() {
+								// 获得被点击超链接上的文本
+								var text = $(this).text();
+
+								var employeeStatus = (text == '已禁用') ? 0 : 1;
+
+								if (confirm("确定要修改当前员工的状态吗？")) {
+									// 获得被点击超链接href属性的值
+									var employeeId = $(this).attr("href");
+									//alert(employeeId);
+									// 无法修改自己的状态
+									var loginEmployeeId = JSON.parse(sessionStorage.getItem("loginEmployee")).employeeId;
+									if (loginEmployeeId == employeeId) {
+										alert("无法修改当前登录账号的状态！！！");
+										return false;
+									}
+
+									var url = url_prefix_employee + "update";
+
+									var args = {
+										"employeeId": employeeId,
+										"employeeStatus": employeeStatus
+									};
+
+									$.post(url, args, function(result) {
+										if (result.code == 0) {
+											showTable(pageNumber);
+										} else {
+											alert(result.message);
+										}
+									});
+								}
+								return false;
+							});
+							
+							/* 为删除员工超链接绑定单击事件 */
+							$(".deleteEmployee").on("click", function() {
+							
+								if (confirm("确定要删除当前员工吗？\n此操作不可逆！！！")) {
+									// 获得被点击超链接href属性的值
+									var employeeId = $(this).attr("href");
+									//alert(employeeId);
+									// 无法删除自己
+									var loginEmployeeId = JSON.parse(sessionStorage.getItem("loginEmployee")).employeeId;
+									if (loginEmployeeId == employeeId) {
+										alert("无法删除当前登录账号！！！");
+										return false;
+									}
+							
+									var url = url_prefix_employee + "delete";
+							
+									var args = {
+										"employeeId": employeeId
+									};
+							
+									$.get(url, args, function(result) {
+										if (result.code == 0) {
+											showTable(pageNumber);
+										} else {
+											alert(result.message);
+										}
+									});
+								}
+								return false;
+							});
+
+							/* 为修改员工超链接绑定单击事件 */
+							$(".updateEmployeeHref").on("click", function() {
+								if(loginGrade < 1){
+									return false;
+								}
+								$("#employeeMessageModalTitle").text("修改员工信息");
+								$("#updateLoginEmployeeMessageBtn").text("保存");
+								// 获得被点击超链接href属性的值
+								var employeeId = $(this).attr("href");
+								// 创建url
+								var url = url_prefix_employee + "selectById";
+								// 创建需要传递的参数
+								var args = {
+									"employeeId": employeeId
+								};
+								// 想服务器发出get模式的请求，并获得响应的结果
+								$.get(url, args, function(result) {
+									if (result.code == 0) {
+										// 手动打开指定ID的模态框
+										$("#employeeMessageModal").modal("show");
+										$(".error1").text("");
+										$(".error2").text("");
+										$(".error3").text("");
+										$(".error4").text("");
+										$(".error5").text("");
+										$(".error6").text("");
+										$(".error7").text("");
+										$(".error8").text("");
+										// 将员工信息显示在模态框中
+										var employee = result.resultData.employeeMessage;
+										$("#employeeName").val(employee.employeeName);
+										$("#employeeSex").val(employee.employeeSex);
+										$("#departmentId").val(employee.departmentId);
+										$("#employeePhone").val(employee.employeePhone);
+										$("#employeePassword").val(employee.employeePassword);
+										$("#employeeEmail").val(employee.employeeEmail);
+										$("#employeePosition").val(employee.employeePosition);
+										$("#employeeBirthday").val(employee.employeeBirthday.substring(0, 10));
+										$("#employeeAddress").val(employee.employeeAddress);
+										$("#employeeSalary").val(formatNumberToCurrency(employee.employeeSalary));
+										$("#employeeGrade").val(employee.employeeGrade);
+										$("#employeeIsWorker").val(employee.employeeIsWorker);
+										$("#employeeRemark").val(employee.employeeRemark);
+										$("#employeeId").val(employee.employeeId);
+									} else {
+										alert(result.message);
+									}
+								});
+								return false;
+							});
+
+							//------------------------------分页按钮--------------------------------
+							// 获得显示分页按钮的容器(ul)
+							var pagination = $(".pagination");
+							// 在显示分页按钮的容器中查找所有的li，并移除
+							pagination.find("li").remove();
+
+							// 是否需要显示分页按钮
+							if (pages.pages > 1) {
+								/* 上一页 */
+								/* 如果当前为第一页，则上一页按钮无效 */
+								if (pages.isFirstPage) {
+									pagination.append($('<li><a><i class="fa fa-angle-left" style="color: #FFFFFF;"></i></a></li>'));
+								} else {
+									pagination.append($(
+										'<li><a href="' + pages.prePage +
+										'" class="pageButtonHref"><i class="fa fa-angle-left" style="color: #FFFFFF;"></i></a></li>'
+									));
+								}
+								/* 普通分页按钮 */
+								// 获得分页按钮的数组
+								var navigatepageNums = pages.navigatepageNums;
+								for (var i = 0; i < navigatepageNums.length; i++) {
+									// 当前页的分页按钮无效
+									if (navigatepageNums[i] == pageNumber) {
+										pagination.append($('<li class="active"><a style="color: #FFFFFF;">' + navigatepageNums[i] + '</a></li>'));
+									} else {
+										pagination.append($('<li><a href="' + navigatepageNums[i] +
+											'" class="pageButtonHref" style="color: #FFFFFF;">' + navigatepageNums[
+												i] + '</a></li>'));
+									}
+								}
+
+								/* 下一页 */
+								/* 如果当前为最后一页，则下一页按钮无效 */
+								if (pages.isLastPage) {
+									pagination.append($('<li><a><i class="fa fa-angle-right" style="color: #FFFFFF;"></i></a></li>'));
+								} else {
+									pagination.append($(
+										'<li><a href="' + pages.nextPage +
+										'" class="pageButtonHref"><i class="fa fa-angle-right" style="color: #FFFFFF;"></i></a></li>'
+									));
+								}
+
+								/* 为动态创建的分页按钮绑定单击事件 */
+								$(".pageButtonHref").on("click", function() {
+									// 获得被点击超链接href属性的值
+									var num = $(this).attr("href");
+									// 查询满足条件的第N页的员工信息
+									showTable(num);
+									// 阻止超链接发出请求
+									return false;
+								});
+
+							}
+						} else {
+							// 查询失败，没有查询到员工信息
+							// 1、创建tr
+							var tr = $("<tr class='text-center'></tr>");
+							// 2、创建td
+							var td = $("<td colspan='13'>" + result.message + "</td>");
+							// 3、将td添加到tr中
+							tr.append(td);
+							// 4、将tr添加到tbody中
+							tbody.append(tr);
+						}
+					});
+				}
+				
+				/* 添加按钮的单机事件(id属性为insertBtn) */
+				$("#insertBtn").click(function(){
+					// 手动打开指定ID的模态框
+					$("#employeeMessageModal").modal("show");
+					$("#employeeMessageModalTitle").text("新建员工信息");
+					$("#updateLoginEmployeeMessageBtn").text("新建");
+					$("#employeeName").val("");
+					$("#employeeSex").prop('selectedIndex', 0);
+					$("#departmentId").prop('selectedIndex', 0);
+					$("#employeePhone").val("");
+					$("#employeePassword").val("");
+					$("#employeeEmail").val("");
+					$("#employeePosition").val("");
+					$("#employeeBirthday").val("");
+					$("#employeeAddress").val("");
+					$("#employeeSalary").val("");
+					$("#employeeGrade").prop('selectedIndex', 0);
+					$("#employeeIsWorker").prop('selectedIndex', 0);
+					$("#employeeRemark").val("");
+					$(".error1").text("");
+					$(".error2").text("");
+					$(".error3").text("");
+					$(".error4").text("");
+					$(".error5").text("");
+					$(".error6").text("");
+					$(".error7").text("");
+					$(".error8").text("");
+				})
+			});
+		</script>
+		<!-- 自定义JS代码结束 -->
+	</body>
+</html>

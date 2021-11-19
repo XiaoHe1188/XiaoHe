@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- 
+		 作者：张元涛
+		 功能：材料查询页面
+		 -->
+		<meta charset="utf-8">
+		<title>小型家装管理系统</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+		<meta name="format-detection" content="telephone=no">
+		<meta name="description" content="Violate Responsive Admin Template">
+		<meta name="keywords" content="Super Admin, Admin, Template, Bootstrap">
+
+		<!-- 导入CSS文件开始 -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/animate.min.css" rel="stylesheet">
+		<link href="css/font-awesome.min.css" rel="stylesheet">
+		<link href="css/form.css" rel="stylesheet">
+		<link href="css/calendar.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<link href="css/icons.css" rel="stylesheet">
+		<link href="css/generics.css" rel="stylesheet">
+		<link href="css/lightbox.css" rel="stylesheet">
+		<!-- 导入CSS文件结束 -->
+		<!-- 导入自定义CSS文件开始 -->
+		<link rel="stylesheet" type="text/css" href="css/gmd-style.css" />
+		<!-- 导入自定义CSS文件结束 -->
+		<!-- 设置站点图标 -->
+		<link href="img/favicon.ico" rel="icon" />
+	</head>
+	<body id="skin-tectile">
+
+		<!-- 页面顶部开始 -->
+		<header id="header" class="media">
+			<!-- 显示/隐藏菜单 -->
+			<a href="" id="menu-toggle"></a>
+			<!-- LOGO标题 -->
+			<a class="logo pull-left" href="scheme.html">小型家装管理系统 1.0</a>
+
+			<div class="media-body">
+				<div class="media" id="top-menu">
+					<div id="time" class="pull-right">
+						<span id="hours"></span>
+						:
+						<span id="min"></span>
+						:
+						<span id="sec"></span>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- 页面顶部结束 -->
+		<div class="clearfix"></div>
+
+		<!-- 页面中部开始 -->
+		<section id="main" class="p-relative" role="main">
+			<!-- 页面左侧开始 -->
+			<aside id="sidebar">
+
+			</aside>
+			<!-- 页面左侧结束 -->
+
+			<!-- 页面右侧开始 -->
+			<section id="content" class="container">
+				<!-- 路径导航开始 -->
+				<ol class="breadcrumb hidden-xs">
+					<li><a href="#">材料信息</a></li>
+					<li class="active">查询材料</li>
+				</ol>
+				<!-- 路径导航结束 -->
+
+				<!-- 页面子标题 -->
+				<h4 class="page-title">查询材料</h4>
+
+				<!-- 页面主体开始 -->
+				<div class="block-area" id="text-input">
+
+					<!-- 查询条件开始 -->
+					<h3 class="block-title">查询条件</h3>
+
+					<div class="row">
+						<div class="col-lg-2">
+							<input type="text" class="form-control input-sm" placeholder="材料编号/材料名称"
+								id="selectMaterialsName" autofocus="autofocus" />
+						</div>
+						<div class="col-lg-2">
+							<select class="form-control input-sm" id="selectProvider">
+								<option value="-1">供应商</option>
+							</select>
+						</div>
+						<div class="col-lg-2">
+							<select class="form-control input-sm" id="selectKind">
+								<option value="-1">材料种类</option>
+							</select>
+						</div>
+						<div class="col-lg-3">
+							<button type="button" class="btn btn-sm" id="selectBtn">查询</button>
+							<button type="button" class="btn btn-sm" id="insertBtn">添加</button>
+							<button type="button" class="btn btn-sm" id="providerBtn">供应商</button>
+							<button type="button" class="btn btn-sm" id="kindBtn">材料种类</button>
+						</div>
+					</div>
+					<!-- 查询条件结束 -->
+
+					<!-- 查询结果开始 -->
+					<div class="row m-t-10" id="materialsMessageBody">
+						<!-- 材料信息开始 -->
+						<!-- <div class="col-sm-6 col-md-2">
+							<div class="thumbnail tile"> -->
+						<!-- 材料图片开始 -->
+						<!-- <a href="../images/猫咪.jpg" data-rel="gallery" class="pirobox_gall img-popup m-5" title="材料名称">
+									<img src="../images/猫咪.jpg" style="width: 95%;" />
+								</a> -->
+						<!-- 材料图片结束 -->
+						<!-- 材料其它信息开始 -->
+						<!-- <div class="p-10"> -->
+						<!-- 材料名称开始 -->
+						<!-- <p class="text-center">
+										<a href="#updateMaterialsMessageModal" data-toggle="modal">
+											<strong>XXXX XXXX XXXX 材料名称 XXXX XXXX XXXX</strong>
+										</a>
+									</p> -->
+						<!-- 材料名称结束 -->
+
+						<!-- 材料售价与进价开始 -->
+						<!-- <p class="text-center">
+										售价：<span>￥1,999.00</span>
+										进价<span>￥999.00</span>
+									</p> -->
+						<!-- 材料售价与进价结束 -->
+						<!-- 材料种类开始 -->
+						<!-- <p class="text-center">
+										材料种类:<span>XXXX XXXX XXXX</span>
+									</p> -->
+						<!-- 材料种类结束 -->
+						<!-- </div> -->
+						<!-- 材料其它信息结束 -->
+						<!-- </div> -->
+						<!-- </div> -->
+						<!-- 材料信息结束 -->
+					</div>
+					<!-- 查询结果结束 -->
+
+					<!-- 分页按钮开始 -->
+					<div class="col-lg-12 text-center">
+						<ul class="pagination">
+							<!-- <li><a href="#" style="color: #FFFFFF;"><i class="fa fa-angle-left" style="color: #FFFFFF;"></i></a></li>
+							<li><a href="#" style="color: #FFFFFF;">1</a></li>
+							<li><a href="#" style="color: #FFFFFF;">2</a></li>
+							<li><a href="#" style="color: #FFFFFF;">3</a></li>
+							<li><a href="#" style="color: #FFFFFF;">4</a></li>
+							<li><a href="#" style="color: #FFFFFF;">5</a></li>
+							<li><a href="#" style="color: #FFFFFF;"><i class="fa fa-angle-right"></i></a></li> -->
+						</ul>
+					</div>
+					<!-- 分页按钮结束 -->
+				</div>
+				<!-- 页面主体结束 -->
+			</section>
+			<!-- 页面右侧结束 -->
+		</section>
+		<!-- 页面中部结束 -->
+
+		<!-- 保存页码的隐藏表单域 -->
+		<input type="hidden" id="pageNumber" />
+
+		<!-- 修改材料信息模态框的开始 -->
+		<div class="modal fade" id="updateMaterialsMessageModal" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<!-- 模态框顶部开始 -->
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="modalTitle">编辑材料信息</h4>
+					</div>
+					<!-- 模态框顶部结束 -->
+
+					<!-- 模态框中部开始 -->
+					<div class="modal-body">
+						<!-- 用于保存修改材料编号的隐藏表单域 -->
+						<input type="hidden" id="updateMaterialsId" />
+						<div class="row">
+							<div class="col-lg-2 text-right" style="padding-top: 6px;">材料名称：</div>
+							<div class="col-lg-8">
+								<input type="text" class="form-control input-sm" id="materialsName"
+									value="XXXXX XXXXX XXXXX XXXXX" />
+								<div class="error1">
+								</div>
+							</div>
+						</div>
+
+						<div class="row m-t-5">
+							<div class="col-lg-2 text-right" style="padding-top: 6px;">材料售价：</div>
+							<div class="col-lg-8">
+								<input type="text" class="form-control input-sm" id="materialsCost" value="1999.00" />
+								<div class="error2">
+								</div>
+							</div>
+						</div>
+
+						<div class="row m-t-5" id="materialsPriceDiv">
+							<div class="col-lg-2 text-right" style="padding-top: 6px;">材料进价：</div>
+							<div class="col-lg-8">
+								<input type="text" class="form-control input-sm" id="materialsPrice" value="99.00" />
+								<div class="error3">
+								</div>
+							</div>
+						</div>
+
+						<div class="row m-t-5">
+							<div class="col-lg-2 text-right" style="padding-top: 6px;">供应商：</div>
+							<div class="col-lg-8">
+								<select class="form-control input-sm" id="materialsProvider">
+								</select>
+							</div>
+						</div>
+
+						<div class="row m-t-5">
+							<div class="col-lg-2 text-right" style="padding-top: 6px;">材料种类：</div>
+							<div class="col-lg-8">
+								<select class="form-control input-sm" id="materialsKind">
+								</select>
+							</div>
+						</div>
+
+						<div class="row m-t-5">
+							<div class="col-lg-2 text-right" style="padding-top: 6px;">材料备注：</div>
+							<div class="col-lg-8">
+								<textarea rows="5" class="form-control input-sm" id="materialsRemark"></textarea>
+							</div>
+						</div>
+					</div>
+					<!-- 模态框中部结束 -->
+
+					<!-- 模态框底部开始 -->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-sm" id="updateMaterialsMessageBtn">保存</button>
+						<button type="button" class="btn btn-sm" data-dismiss="modal">关闭</button>
+					</div>
+					<!-- 模态框底部结束 -->
+				</div>
+			</div>
+		</div>
+		<!-- 修改材料信息模态框的结束 -->
+
+		<!-- 修改材料图片模态框开始 -->
+		<div class="modal fade" id="updateMaterialsImageModal" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<!-- 模态框顶部开始 -->
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title">编辑材料图片</h4>
+					</div>
+					<!-- 模态框顶部结束 -->
+
+					<!-- 模态框中部开始 -->
+					<div class="modal-body">
+						<!-- 保存材料编号的隐藏表单域 -->
+						<input type="hidden" id="updateMaterialsPhotoId" />
+						<!-- 保存原图片名称的隐藏表单域 -->
+						<input type="hidden" id="updateMaterialsOldPhoto" />
+						<form method="post" id="updateMaterialsPhotoForm" enctype="multipart/form-data">
+							<div class="fileupload fileupload-exists" data-provides="fileupload">
+								<div id="updateMaterialsPhoto" class="fileupload-preview thumbnail form-control"
+									style="width: 100%;">
+									<img src="img/猫咪.jpg" />
+								</div>
+								<div>
+									<span class="btn btn-file btn-alt btn-sm">
+										<span class="fileupload-new">选择图片</span>
+										<span class="fileupload-exists">替换</span>
+										<input id="materialsPhotoInput" type="file" name="materialsPhoto" accept="image/*" />
+									</span>
+									<a href="#" class="btn fileupload-exists btn-sm" data-dismiss="fileupload">移除</a>
+								</div>
+							</div>
+						</form>
+					</div>
+					<!-- 模态框中部结束 -->
+
+					<!-- 模态框底部开始 -->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-sm" id="updateMaterialsPhotoBtn">保存</button>
+						<button type="button" class="btn btn-sm" data-dismiss="modal">关闭</button>
+					</div>
+					<!-- 模态框底部结束 -->
+				</div>
+			</div>
+		</div>
+		<!-- 修改材料图片模态框结束 -->
+
+		<!-- 供应商信息模态框的开始 -->
+		<div class="modal fade" id="providerListModal" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog modal-lg" style="width: 1300px;">
+				<div class="modal-content">
+					<!-- 模态框顶部开始 -->
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" style="float: left; margin-top: 5px;">供应商信息</h4>
+						<button style="margin-left: 15px;" type="button" class="btn btn-sm"
+							id="insertProviderBtn">添加</button>
+					</div>
+					<!-- 模态框顶部结束 -->
+
+					<!-- 模态框中部开始 -->
+					<div class="modal-body">
+						<!-- 用于保存供应商当前页数的隐藏表单域 -->
+						<input type="hidden" id="providerListPageNumber" value="1" />
+						<table class="table table-bordered table-hover tile">
+							<thead>
+								<tr>
+									<th style="width:5%;">序号</th>
+									<th style="width:5%;">编号</th>
+									<th style="width:10%;">供应商名称</th>
+									<th style="width:10%;">负责人</th>
+									<th style="width:10%;">电话</th>
+									<th style="width:10%;">邮箱</th>
+									<th>地址</th>
+									<th style="width:15%;">备注</th>
+									<th style="width:10%;">操作</th>
+								</tr>
+							</thead>
+							<tbody id="providerListSelectBody">
+								<tr class="text-center">
+									<td colspan="13">没有满足条件的供应商信息！！！</td>
+								</tr>
+								<!-- <tr>
+									<td>1</td>
+									<td>001</td>
+									<td>供应商名称</td>
+									<td>小鹤</td>
+									<td>13855556666</td>
+									<td>0123456789@qq.com</td>
+									<td>北京市海淀区双榆树数码大厦A座北京市海淀区双榆树数码大厦A座</td>
+									<td>供应商备注</td>
+								</tr> -->
+							</tbody>
+						</table>
+					</div>
+					<!-- 模态框中部结束 -->
+
+					<!-- 模态框底部开始 -->
+					<div class="modal-footer">
+						<!-- 分页按钮开始 -->
+						<div class="col-lg-12 text-center">
+							<ul class="pagination" id="providerListPagination">
+								<!-- <li><a href="#" style="color: #FFFFFF;"><i class="fa fa-angle-left" style="color: #FFFFFF;"></i></a></li>
+								<li><a href="#" style="color: #FFFFFF;">1</a></li>
+								<li><a href="#" style="color: #FFFFFF;">2</a></li>
+								<li><a href="#" style="color: #FFFFFF;">3</a></li>
+								<li><a href="#" style="color: #FFFFFF;">4</a></li>
+								<li><a href="#" style="color: #FFFFFF;">5</a></li>
+								<li><a href="#" style="color: #FFFFFF;"><i class="fa fa-angle-right"></i></a></li> -->
+							</ul>
+						</div>
+						<!-- 分页按钮结束 -->
+					</div>
+					<!-- 模态框底部结束 -->
+				</div>
+			</div>
+		</div>
+		<!-- 供应商信息模态框的结束 -->
+
+		<!-- 修改供应商信息模态框的开始 -->
+		<div class="modal fade" id="updateProviderMessageModal" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content" style="background: rgba(0, 0, 0, 1);">
+					<!-- 模态框顶部开始 -->
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="providerModalTitle">编辑供应商信息</h4>
+					</div>
+					<!-- 模态框顶部结束 -->
+
+					<!-- 模态框中部开始 -->
+					<div class="modal-body">
+						<!-- 用于保存修改供应商编号的隐藏表单域 -->
+						<input type="hidden" id="updateProviderId" />
+						<div class="row">
+							<div class="col-lg-2 text-center" style="padding-top: 6px;">供应商名称：</div>
+							<div class="col-lg-8">
+								<input type="text" class="form-control input-sm" id="providerName" />
+								<div class="error4">
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-lg-2 text-center" style="padding-top: 6px;">负责人：</div>
+							<div class="col-lg-8">
+								<input type="text" class="form-control input-sm" id="providerPrincipal" />
+								<div class="error5">
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-lg-2 text-center" style="padding-top: 6px;">联系电话：</div>
+							<div class="col-lg-8">
+								<input type="text" class="form-control input-sm" id="providerPhone" />
+								<div class="error6">
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-lg-2 text-center" style="padding-top: 6px;">联系邮箱：</div>
+							<div class="col-lg-8">
+								<input type="email" class="form-control input-sm" id="providerEmail" />
+								<div class="error7">
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-lg-2 text-center" style="padding-top: 6px;">供应商地址：</div>
+							<div class="col-lg-8">
+								<input type="text" class="form-control input-sm" id="providerAddress" />
+								<div class="error8">
+								</div>
+							</div>
+						</div>
+
+						<div class="row m-t-5">
+							<div class="col-lg-2 text-center" style="padding-top: 6px;">备注：</div>
+							<div class="col-lg-8">
+								<textarea rows="5" class="form-control input-sm" id="providerRemark"></textarea>
+							</div>
+						</div>
+					</div>
+					<!-- 模态框中部结束 -->
+
+					<!-- 模态框底部开始 -->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-sm" id="updateProviderMessageBtn">保存</button>
+						<button type="button" class="btn btn-sm" data-dismiss="modal">关闭</button>
+					</div>
+					<!-- 模态框底部结束 -->
+				</div>
+			</div>
+		</div>
+		<!-- 修改供应商信息模态框的结束 -->
+
+		<!-- 材料种类模态框的开始 -->
+		<div class="modal fade" id="kindListModal" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog" style="width: 1000px;">
+				<div class="modal-content">
+					<!-- 模态框顶部开始 -->
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" style="float: left; margin-top: 5px;">材料种类</h4>
+						<button style="margin-left: 15px;" type="button" class="btn btn-sm"
+							id="insertKindBtn">添加</button>
+					</div>
+					<!-- 模态框顶部结束 -->
+
+					<!-- 模态框中部开始 -->
+					<div class="modal-body">
+						<!-- 用于保存材料种类当前页数的隐藏表单域 -->
+						<input type="hidden" id="kindListPageNumber" value="1" />
+						<table class="table table-bordered table-hover tile">
+							<thead>
+								<tr>
+									<th style="width:5%;">序号</th>
+									<th style="width:5%;">编号</th>
+									<th style="width:20%;">材料种类</th>
+									<th>备注</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody id="kindListSelectBody">
+								<tr class="text-center">
+									<td colspan="13">没有满足条件的材料种类名称！！！</td>
+								</tr>
+								<!-- <tr>
+									<td>1</td>
+									<td>001</td>
+									<td>材料种类名称</td>
+									<td>材料种类名称备注</td>
+								</tr> -->
+							</tbody>
+						</table>
+					</div>
+					<!-- 模态框中部结束 -->
+
+					<!-- 模态框底部开始 -->
+					<div class="modal-footer">
+						<!-- 分页按钮开始 -->
+						<div class="col-lg-12 text-center">
+							<ul class="pagination" id="kindListPagination">
+								<!-- <li><a href="#" style="color: #FFFFFF;"><i class="fa fa-angle-left" style="color: #FFFFFF;"></i></a></li>
+								<li><a href="#" style="color: #FFFFFF;">1</a></li>
+								<li><a href="#" style="color: #FFFFFF;">2</a></li>
+								<li><a href="#" style="color: #FFFFFF;">3</a></li>
+								<li><a href="#" style="color: #FFFFFF;">4</a></li>
+								<li><a href="#" style="color: #FFFFFF;">5</a></li>
+								<li><a href="#" style="color: #FFFFFF;"><i class="fa fa-angle-right"></i></a></li> -->
+							</ul>
+						</div>
+						<!-- 分页按钮结束 -->
+					</div>
+					<!-- 模态框底部结束 -->
+				</div>
+			</div>
+		</div>
+		<!-- 材料种类模态框的结束 -->
+
+		<!-- 修改材料种类模态框的开始 -->
+		<div class="modal fade" id="updateKindMessageModal" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content" style="background: #000000;">
+					<!-- 模态框顶部开始 -->
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="kindModalTitle">编辑材料种类</h4>
+					</div>
+					<!-- 模态框顶部结束 -->
+
+					<!-- 模态框中部开始 -->
+					<div class="modal-body">
+						<!-- 用于保存修改材料种类的隐藏表单域 -->
+						<input type="hidden" id="updateKindId" />
+						<div class="row">
+							<div class="col-lg-2 text-center" style="padding-top: 6px;">种类名称：</div>
+							<div class="col-lg-8">
+								<input type="text" class="form-control input-sm" id="kindName" />
+								<div class="error9">
+								</div>
+							</div>
+						</div>
+
+						<div class="row m-t-5">
+							<div class="col-lg-2 text-center" style="padding-top: 6px;">备注：</div>
+							<div class="col-lg-8">
+								<textarea rows="5" class="form-control input-sm" id="kindRemark"></textarea>
+							</div>
+						</div>
+					</div>
+					<!-- 模态框中部结束 -->
+
+					<!-- 模态框底部开始 -->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-sm" id="updateKindMessageBtn">保存</button>
+						<button type="button" class="btn btn-sm" data-dismiss="modal">关闭</button>
+					</div>
+					<!-- 模态框底部结束 -->
+				</div>
+			</div>
+		</div>
+		<!-- 修改材料种类模态框的结束 -->
+
+		<!-- 导入JS文件开始 -->
+		<script src="js/jquery.min.js"></script> <!-- jQuery Library -->
+		<script src="js/jquery-ui.min.js"></script> <!-- jQuery UI -->
+		<script src="js/jquery.easing.1.3.js"></script> <!-- jQuery Easing - Requirred for Lightbox + Pie Charts-->
+
+		<script src="js/bootstrap.min.js"></script>
+
+		<script src="js/scroll.min.js"></script> <!-- Custom Scrollbar -->
+
+		<script src="js/fileupload.min.js"></script> <!-- File Upload -->
+		<script src="js/pirobox.min.js"></script> <!-- Lightbox -->
+		<script src="js/calendar.min.js"></script> <!-- Calendar -->
+		<script src="js/feeds.min.js"></script> <!-- News Feeds -->
+		<script src="js/functions.js"></script>
+		<!-- 导入JS文件开始 -->
+
+		<!-- 导入自定义JS文件开始 -->
+		<script src="js/common/check-data.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/content/url.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/content/providerAndKind.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/common/format.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/content/pageButtonUtil.js" type="text/javascript" charset="utf-8"></script>
+		<!-- 导入自定义JS文件结束 -->
+
+		<!-- 自定义JS代码开始 -->
+		<script type="text/javascript">
+			// 加载左侧菜单页面
+			$("#sidebar").load("left-menu.html");
+
+			$(function() {
+				// 激活菜单
+				$("#materialsMenu").addClass("active");
+
+				// 初始化供应商下拉列表
+				providerInit($("#selectProvider"));
+				providerInit($("#materialsProvider"));
+				// 初始化材料种类下拉列表
+				kindInit($("#selectKind"));
+				kindInit($("#materialsKind"));
+				
+				window.onload = function(){
+					var loginGrade = JSON.parse(sessionStorage.getItem("loginEmployee")).employeeGrade;
+					
+					if(loginGrade < 1){
+						$("#insertBtn").hide();
+						$("#providerBtn").hide();
+						$("#kindBtn").hide();
+						$("#updateMaterialsMessageBtn").hide();
+						$("#materialsPriceDiv").hide();
+					}
+				}
+
+				showMaterialsMessage(1);
+
+				// --------------------------设置查询按钮单击事件开始--------------------------
+				$("#selectBtn").click(function() {
+					// 显示满足条件第1页的材料信息
+					showMaterialsMessage(1);
+				});
+				// --------------------------设置查询按钮单击事件结束--------------------------
+
+				// --------------------------设置添加按钮单击事件开始--------------------------
+				$("#insertBtn").click(function() {
+					// 手动打开修改商品信息的模态框
+					$("#updateMaterialsMessageModal").modal("show");
+					// 修改模态框信息
+					$("#modalTitle").text("新建材料信息");
+					$("#updateMaterialsMessageBtn").text("新建");
+					// 清空模态框中的信息
+					$("#materialsName").val("");
+					$("#materialsCost").val("");
+					$("#materialsPrice").val("");
+					$("#materialsProvider").prop('selectedIndex', 0);
+					$("#materialsKind").prop('selectedIndex', 0);
+					$("#materialsRemark").val("");
+					$("#updateMaterialsId").val("");
+					$(".error1").text("");
+					$(".error2").text("");
+					$(".error3").text("");
+				});
+				// --------------------------设置添加按钮单击事件结束--------------------------
+
+				// -----------------------显示满足条件的第N页材料信息开始-----------------------
+				function showMaterialsMessage(pageNumber) {
+					// 将页码保存到id属性为pageNumber的隐藏表单域中
+					$("#pageNumber").val(pageNumber);
+
+					// 获得显示材料信息的容器
+					var materialsMessageBody = $("#materialsMessageBody");
+					// 在显示材料容器中查找所有的div，并移除
+					materialsMessageBody.find("div").remove();
+
+					var selectMaterials = $("#selectMaterialsName").val();
+
+					if (checkInt(selectMaterials)) {
+						var selectMaterialsId = selectMaterials;
+					} else {
+						var selectMaterialsName = selectMaterials;
+					}
+
+					// 创建url
+					var url = url_prefix_materials + "selectMaterials";
+					// 创建传递参数
+					var args = {
+						"materialsId": selectMaterialsId,
+						"materialsName": selectMaterialsName,
+						"providerId": $("#selectProvider").val(),
+						"kindId": $("#selectKind").val(),
+						"pageNumber": pageNumber
+					}
+					// 向服务器发出POST模式的请求，并获得响应的结果
+					$.post(url, args, function(result) {
+						if (result.code == 0) {
+							// 获得查询出的材料信息
+							var materialsList = result.resultData.pages.list;
+							// 获得登录员工的信息
+							var loginEmployee = JSON.parse(sessionStorage.getItem("loginEmployee"));
+
+							// 使用循环将材料的信息添加到页面中
+							for (var i = 0; i < materialsList.length; i++) {
+								var materials = materialsList[i];
+
+								// 从浏览器缓存中获得所有的材料种类信息
+								var kindList = JSON.parse(sessionStorage.getItem("kindList"));
+
+								for (var j = 0; j < kindList.length; j++) {
+									var kind = kindList[j];
+									if (materials.kindId == kind.kindId) {
+										var kindName = kind.kindName;
+										break;
+									}
+								}
+
+								// 创建材料信息的节点
+								var msg = $('<div class="col-sm-6 col-md-2">' +
+									'<div class="thumbnail tile">' +
+									// 材料图片
+									'<a name="' + (materials.materialsId + '#' + materials.materialsPhoto) +
+									'" href="#updateMaterialsImageModal" data-toggle="modal" class="pirobox_gall img-popup m-5 materialsPhotoHref" title="' +
+									materials.materialsName + '">' +
+									'<img src="' + (url_prefix_image + materials.materialsPhoto) +
+									'" style="width: 95%;" />' +
+									'</a>' +
+									// 材料其它信息
+									'<div class="p-10">' +
+									// 材料名称
+									'<p class="text-center text-hidden">' +
+									'<a href="#updateMaterialsMessageModal" name=\'' + JSON.stringify(
+										materials) +
+									'\' class="updateMaterialsMessageHref" data-toggle="modal" title="' +
+									materials.materialsName + '">' +
+									'<strong>' + materials.materialsName + '</strong>' +
+									'</a>' +
+									'</p>' +
+									// 材料价格
+									'<p class="text-center">' +
+									'售价：￥' + formatNumberToCurrency(materials.materialsCost) +
+									'<br><span ' + gradeDetermination(1) + '>进价：￥' + formatNumberToCurrency(materials.materialsPrice) +
+									'</span></p>' +
+									// 材料种类
+									'<p class="text-center">' +
+									'种类：' + kindName +
+									(loginEmployee.employeeGrade == 2 ?
+										"&nbsp;&nbsp;<a style='color:red;'href='" + materials.materialsId +
+										"'materialsPhoto='" + materials.materialsPhoto +
+										"' class='deleteMaterialsHref'>删除</a>" : "") +
+									'</p>' +
+									'</div>' +
+									'</div>' +
+									'</div>'
+								);
+								// 将材料信息添加到显示材料信息的容器中
+								materialsMessageBody.append(msg);
+							}
+
+							// 设置删除商品超链接单机事件开始deleteMaterialsHref
+							$(".deleteMaterialsHref").on("click", function() {
+
+								if (confirm("确定要删除当前材料吗？\n此操作不可逆！！！")) {
+									// 获得被点击超链接href属性的值
+									var materialsId = $(this).attr("href");
+									var materialsPhoto = $(this).attr("materialsPhoto");
+
+									var url = url_prefix_materials + "delete";
+
+									var args = {
+										"materialsId": materialsId
+									};
+
+									$.get(url, args, function(result) {
+										if (result.code == 0) {
+
+											var url = url_prefix_file + "delete/2";
+
+											var args = {
+												"fileName": materialsPhoto
+											}
+
+											$.get(url, args, function(result) {
+												if (result.code == 0) {
+													showMaterialsMessage(pageNumber);
+												} else {
+													alert(result.message);
+												}
+											});
+										} else {
+											alert(result.message);
+										}
+									});
+								}
+								return false;
+							});
+							// 设置删除商品超链接单机事件结束
+							
+							// 设置图片超链接单击事件开始
+							$(".materialsPhotoHref").click(function() {
+								// 获得被点击超链接name属性的值
+								var href = $(this).attr("name");
+
+								// 以#为标记分隔href变量中的值，获得材料编号与材料原图片的名称
+								var index = href.indexOf("#");
+								var materialsId = href.substring(0, index);
+								var materialsOldPhoto = href.substring(index + 1);
+
+								// 将材料编号添加到修改材料图片模态框的隐藏表单域中
+								$("#updateMaterialsPhotoId").val(materialsId);
+								// 移除修改材料模态框中的图片
+								$("#updateMaterialsPhoto").find("img").remove();
+								// 重新向修改材料图片模态框中添加图片
+								$("#updateMaterialsPhoto").append("<img src='" + (url_prefix_image +
+									materialsOldPhoto) + "'/>");
+								//$("#updateMaterialsPhoto").find("img").attr("src", url_prefix_image + materialsOldPhoto);
+								$("input[name='materialsPhoto']").val("");
+
+								// 将材料原图片名称设置到修改材料图片模态框的隐藏表单域中
+								$("#updateMaterialsOldPhoto").val(materialsOldPhoto);
+							});
+							// 设置图片超链接单击事件结束
+
+							// 设置材料名称超链接的单击事件开始
+							$(".updateMaterialsMessageHref").on("click", function() {
+
+								// 修改模态框信息
+								$("#modalTitle").text("修改材料信息");
+								$("#updateMaterialsMessageBtn").text("保存");
+								$(".error1").text("");
+								$(".error2").text("");
+								$(".error3").text("");
+
+								// 获得被点击超链接name属性的值
+								var materials = JSON.parse($(this).attr("name"));
+								// 将材料信息的数据设置到模态框中对应的控件内
+								$("#materialsName").val(materials.materialsName);
+								$("#materialsCost").val(materials.materialsCost);
+								$("#materialsPrice").val(materials.materialsPrice);
+								$("#materialsProvider").val(materials.providerId);
+								$("#materialsKind").val(materials.kindId);
+								$("#materialsRemark").val(materials.materialsRemark);
+								$("#updateMaterialsId").val(materials.materialsId);
+							});
+							// 设置材料名称超链接的单击事件结束
+
+							// 获得显示分页按钮的容器
+							var pageButtonBody = $(".pagination");
+							// 获得分页信息
+							var pages = result.resultData.pages;
+							// 显示分页按钮
+							showPageButton(pageButtonBody, pages, showMaterialsMessage);
+						} else {
+							alert(result.message);
+						};
+					})
+				}
+				// -----------------------显示满足条件的第N页材料信息结束-----------------------
+
+				// -----------------------修改材料信息共通的方法开始-----------------------
+				// args：修改材料的信息
+				// pageNumber：页码
+				function updateMaterialsCommon(args, pageNumber, type) {
+					var url = url_prefix_materials + (type == "保存" ? "update" : "insert");
+
+					$.post(url, args, function(result) {
+						if (result.code == 0) {
+							alert(result.message);
+							showMaterialsMessage(pageNumber);
+							// 手动关闭修改材料信息模态框
+							$("#updateMaterialsMessageModal").modal("hide");
+							// 手动关闭修改图片信息模态框
+							$("#updateMaterialsImageModal").modal("hide");
+						} else {
+							alert(result.message);
+						}
+					});
+				}
+				// -----------------------修改材料信息共通的方法结束-----------------------
+
+				/* 材料信息模态框中保存按钮单击事件(id属性为updateMaterialsMessageBtn) */
+				$("#updateMaterialsMessageBtn").click(function() {
+					$(".error1").text("");
+					$(".error2").text("");
+					$(".error3").text("");
+
+					var materialsName = $("#materialsName");
+					if (materialsName.val() == "") {
+						$(".error1").text("材料名称不能为空！！！");
+						materialsName.focus();
+						return false;
+					}
+
+					var materialsCost = $("#materialsCost");
+					if (materialsCost.val() == "") {
+						$(".error2").text("材料售价不能为空！！！");
+						materialsCost.focus();
+						return false;
+					}
+
+					if (!checkNumber(materialsCost.val())) {
+						$(".error2").text("材料售价只能为数字！！！");
+						materialsCost.select();
+						return false;
+					}
+
+					var materialsPrice = $("#materialsPrice");
+					if (materialsPrice.val() == "") {
+						$(".error3").text("材料进价不能为空！！！");
+						materialsPrice.focus();
+						return false;
+					}
+
+					if (!checkNumber(materialsPrice.val())) {
+						$(".error3").text("材料进价只能为数字！！！");
+						materialsPrice.select();
+						return false;
+					}
+
+					if (parseFloat(materialsCost.val()) < parseFloat(materialsPrice.val())) {
+						$(".error3").text("材料进价必须小于等于材料售价！！！");
+						materialsPrice.select();
+						return false;
+					}
+
+					var args = {
+						"materialsId": $("#updateMaterialsId").val(),
+						"materialsName": materialsName.val(),
+						"materialsPrice": materialsPrice.val(),
+						"materialsCost": materialsCost.val(),
+						"providerId": $("#materialsProvider").val(),
+						"kindId": $("#materialsKind").val(),
+						"materialsRemark": $("#materialsRemark").val()
+					};
+
+					var type = $("#updateMaterialsMessageBtn").text();
+
+					// 调用修改材料信息的共通方法
+					updateMaterialsCommon(args, $("#pageNumber").val(), type);
+				});
+
+				// ---------------------修改图片模态框保存按钮单击事件的方法开始---------------------
+				$("#updateMaterialsPhotoBtn").click(function() {
+					// 判断用户是否修改了图片
+					if ($("input[name='materialsPhoto']").val() == "") {
+						alert("没有修改图片！！！");
+						return;
+					}
+					// 上传新的图片
+					$.ajax({
+						url: url_prefix_file + "materialsUpload",
+						type: "POST",
+						dataType: "json",
+						cache: false,
+						data: new FormData($("#updateMaterialsPhotoForm")[0]),
+						processData: false,
+						contentType: false,
+						success: function(result) {
+							//alert(result.code);
+							if (result.code == 0) {
+								// 文件上传成功，根据材料原图片的名称删除服务器的图片文件
+								// 获得材料新图片的名字
+								var materialsNewPhoto = result.resultData.fileName + result
+									.resultData.extendedName;
+								// 获得材料原图片的名字
+								var materialsOldPhoto = $("#updateMaterialsOldPhoto").val();
+
+								var url = url_prefix_file + "delete/2";
+
+								var args = {
+									"fileName": materialsOldPhoto
+								}
+
+								// 向服务器发出get模式的请求，并获得响应的结果
+								$.get(url, args, function(result) {
+									if (result.code == 0) {
+										// 删除文件成功，修改指定编号的材料图片信息
+										// 获得需要修改材料的编号
+										var materialsId = $("#updateMaterialsPhotoId").val();
+
+										var type = "保存";
+
+										var args = {
+											"materialsId": materialsId,
+											"materialsPhoto": materialsNewPhoto
+										};
+										updateMaterialsCommon(args, $("#pageNumber").val(),
+											type);
+									} else {
+										// 删除文件失败
+										alert(result.message);
+									}
+								});
+							} else {
+								// 上传文件失败
+								alert(result.message);
+							}
+						}
+					});
+				});
+				// ---------------------修改图片模态框保存按钮单击事件的方法结束---------------------
+
+				/* 供应商按钮的单击事件(id属性为providerBtn) */
+				$("#providerBtn").click(function() {
+					// 手动打开指定ID的模态框
+					$("#providerListModal").modal("show");
+					showProviderListTable(1);
+				})
+
+				// 供应商模态框中添加供应商按钮的单击事件
+				$("#insertProviderBtn").click(function() {
+					// 手动打开指定ID的模态框
+					$("#updateProviderMessageModal").modal("show");
+
+					// 修改模态框信息
+					$("#providerModalTitle").text("新建供应商信息");
+					$("#updateProviderMessageBtn").text("新建");
+
+					// 将模态框中对应的控件清空
+					$("#providerName").val("");
+					$("#providerPrincipal").val("");
+					$("#providerPhone").val("");
+					$("#providerEmail").val("");
+					$("#providerAddress").val("");
+					$("#providerRemark").val("");
+					$("#updateProviderId").val("");
+					$(".error4").text("");
+					$(".error5").text("");
+					$(".error6").text("");
+					$(".error7").text("");
+					$(".error8").text("");
+				});
+
+				// 点击保存/添加供应商信息按钮的点击事件
+				$("#updateProviderMessageBtn").click(function() {
+					var providerName = $("#providerName");
+					if (providerName.val() == "") {
+						$(".error4").text("供应商名称不能为空！！！");
+						providerName.focus();
+						return false;
+					}
+
+					var providerPrincipal = $("#providerPrincipal");
+					if (providerPrincipal.val() == "") {
+						$(".error5").text("供应商负责人不能为空！！！");
+						providerPrincipal.focus();
+						return false;
+					}
+
+					var providerPhone = $("#providerPhone");
+					if (providerPhone.val() == "") {
+						$(".error6").text("供应商电话不能为空！！！");
+						providerPhone.focus();
+						return false;
+					}
+					if (!checkPhone(providerPhone.val())) {
+						$(".error6").text("供应商电话格式不正确！！！");
+						providerPhone.focus();
+						return false;
+					}
+
+					var providerEmail = $("#providerEmail");
+					if (providerEmail.val() == "") {
+						$(".error7").text("供应商邮箱不能为空！！！");
+						providerEmail.focus();
+						return false;
+					}
+					if (!checkMail(providerEmail.val())) {
+						$(".error7").text("供应商邮箱格式不正确！！！");
+						providerEmail.select();
+						return false;
+					}
+
+					var providerAddress = $("#providerAddress");
+					if (providerAddress.val() == "") {
+						$(".error8").text("供应商地址不能为空！！！");
+						providerAddress.focus();
+						return false;
+					}
+
+					var status = $("#updateProviderMessageBtn").text();
+					var args = {
+						"providerName": providerName.val(),
+						"providerPrincipal": providerPrincipal.val(),
+						"providerPhone": providerPhone.val(),
+						"providerEmail": providerEmail.val(),
+						"providerAddress": providerAddress.val(),
+						"providerRemark": $("#providerRemark").val(),
+						"providerId": (status == "保存" ? ($("#updateProviderId").val()) : "")
+					}
+					providerAndKindCommon(args, ($("#providerListPageNumber").val()), 1, status);
+					return false;
+				});
+
+				// -----------------------修改或新建供应商和材料种类共通方法开始-----------------------
+				// args：修改材料的信息
+				// pageNumber：页码
+				// status：状态(修改/添加)
+				// type：类型(供应商/材料种类)
+				function providerAndKindCommon(args, pageNumber, type, status) {
+					var url = url_prefix_materials + (status == "保存" ? "update" : "insert") + (type == 1 ? "Provider" :
+						"Kind");
+
+					$.post(url, args, function(result) {
+						if (result.code == 0) {
+							alert(result.message);
+							if (type == 1) {
+								showProviderListTable(pageNumber);
+							} else {
+								showKindListTable(pageNumber);
+							}
+							updateProviderAndKind($("#selectProvider"), $("#selectKind"))
+							updateProviderAndKind($("#materialsProvider"), $("#materialsKind"));
+							// 手动关闭修改供应商信息模态框
+							$("#updateProviderMessageModal").modal("hide");
+							// 手动关闭修改材料种类模态框
+							$("#updateKindMessageModal").modal("hide");
+						} else {
+							alert(result.message);
+						}
+					});
+				}
+				// -----------------------修改或新建供应商和材料种类共通方法开始-----------------------
+
+				// 显示第N页供应商信息
+				function showProviderListTable(providerListPageNumber) {
+					// 将页码保存到ID为providerListPageNumber的隐藏表单域中
+					$("#providerListPageNumber").val(providerListPageNumber);
+					//alert(providerListPageNumber);
+					var url = url_prefix_materials + "selectProvider";
+
+					var args = {
+						"pageNumber": providerListPageNumber
+					};
+
+					$.get(url, args, function(result) {
+						// 获得tbody
+						var tbody = $("#providerListSelectBody");
+						// 移除tbody中所有的tr
+						tbody.find("tr").remove();
+
+						//alert(result.code);
+						if (result.code == 0) {
+							// 查询成功，将供应商信息显示在模态框的表格中
+							// 获得分页信息
+							var pages = result.resultData.pages;
+							// 在分页信息中获得供应商信息
+							var list = pages.list;
+
+							// 获得当前页面起始行的行号
+							var startRow = pages.startRow;
+
+							// 使用循环将供应商信息显示在表格中
+							for (var i = 0; i < list.length; i++) {
+								// 获得数组中的供应商信息
+								var provider = list[i];
+								// 创建tr
+								var tr = $("<tr></tr>");
+								// 创建td
+								var td = $("<td></td>");
+
+								// 向tr中添加td
+								tr.append($("<td>" + (startRow++) + "</td>"));
+								tr.append($("<td>" + provider.providerId + "</td>"));
+								tr.append($("<td><p class='text-hidden' title='" + provider.providerName +
+									"'><a href='#updateProviderMessageModal' name=\'" + JSON.stringify(
+										provider) +
+									"\' class='updateProviderMessageModal' >" + provider.providerName +
+									"</a></p></td>"));
+								tr.append($("<td><p class='text-hidden' title='" + provider.providerPrincipal +
+									"'>" + provider.providerPrincipal + "</p></td>"));
+								tr.append($("<td>" + provider.providerPhone + "</td>"));
+								tr.append($("<td><p class='text-hidden' title='" + provider.providerEmail +
+									"'>" + provider.providerEmail + "</p></td>"));
+								tr.append($("<td><p class='text-hidden' title='" + provider.providerAddress +
+									"'>" + provider.providerAddress + "</p></td>"));
+								tr.append($("<td><p class='text-hidden' title='" + provider.providerRemark +
+									"'>" + provider.providerRemark + "</p></td>"));
+								tr.append($("<td><a class='deleteProviderBtn' href='" + provider.providerId +
+									"' style='color:red'>删除</a></td>"));
+								// 将tr添加到tbody中
+								tbody.append(tr);
+							}
+
+							/* 为修改供应商信息名称的超链接绑定单击事件 */
+							$(".updateProviderMessageModal").on("click", function() {
+
+								$("#updateProviderMessageModal").modal("show");
+
+								// 修改模态框信息
+								$("#providerModalTitle").text("修改供应商信息");
+								$("#updateProviderMessageBtn").text("保存");
+
+								// 获得被点击超链接name属性的值
+								var provider = JSON.parse($(this).attr("name"));
+								// 将材料信息的数据设置到模态框中对应的控件内
+								$("#providerName").val(provider.providerName);
+								$("#providerPrincipal").val(provider.providerPrincipal);
+								$("#providerPhone").val(provider.providerPhone);
+								$("#providerEmail").val(provider.providerEmail);
+								$("#providerAddress").val(provider.providerAddress);
+								$("#providerRemark").val(provider.providerRemark);
+								$("#updateProviderId").val(provider.providerId);
+								$(".error4").text("")
+								$(".error5").text("")
+								$(".error6").text("")
+								$(".error7").text("")
+								$(".error8").text("")
+								return false;
+							});
+
+							// 为删除供应商信息超链接绑定单击事件
+							$(".deleteProviderBtn").on("click", function() {
+								if (confirm("确定要删除当前供应商信息吗？\n此操作不可逆！！！")) {
+									// 获得被点击超链接href属性的值
+									var providerId = $(this).attr("href");
+
+									var url = url_prefix_materials + "deleteProvider";
+
+									var args = {
+										"providerId": providerId
+									};
+
+									$.get(url, args, function(result) {
+										if (result.code == 0) {
+											showProviderListTable(providerListPageNumber);
+											updateProviderAndKind($("#selectProvider"), $(
+												"#selectKind"))
+											updateProviderAndKind($("#materialsProvider"), $(
+												"#materialsKind"));
+										} else {
+											alert(result.message);
+										}
+									});
+								}
+								return false;
+							})
+
+							//------------------------------分页按钮--------------------------------
+							// 获得显示分页按钮的容器(ul)
+							var pagination = $("#providerListPagination");
+							// 在显示分页按钮的容器中查找所有的li，并移除
+							pagination.find("li").remove();
+
+							// 是否需要显示分页按钮
+							if (pages.pages > 1) {
+								/* 上一页 */
+								/* 如果当前为第一页，则上一页按钮无效 */
+								if (pages.isFirstPage) {
+									pagination.append($(
+										'<li><a><i class="fa fa-angle-left" style="color: #FFFFFF;"></i></a></li>'
+									));
+								} else {
+									pagination.append($(
+										'<li><a href="' + pages.prePage +
+										'" class="pageButtonHref"><i class="fa fa-angle-left" style="color: #FFFFFF;"></i></a></li>'
+									));
+								}
+								/* 普通分页按钮 */
+								// 获得分页按钮的数组
+								var navigatepageNums = pages.navigatepageNums;
+								for (var i = 0; i < navigatepageNums.length; i++) {
+									// 当前页的分页按钮无效
+									if (navigatepageNums[i] == providerListPageNumber) {
+										pagination.append($('<li class="active"><a style="color: #FFFFFF;">' +
+											navigatepageNums[i] + '</a></li>'));
+									} else {
+										pagination.append($('<li><a href="' + navigatepageNums[i] +
+											'" class="pageButtonHref" style="color: #FFFFFF;">' +
+											navigatepageNums[
+												i] + '</a></li>'));
+									}
+								}
+
+								/* 下一页 */
+								/* 如果当前为最后一页，则下一页按钮无效 */
+								if (pages.isLastPage) {
+									pagination.append($(
+										'<li><a><i class="fa fa-angle-right" style="color: #FFFFFF;"></i></a></li>'
+									));
+								} else {
+									pagination.append($(
+										'<li><a href="' + pages.nextPage +
+										'" class="pageButtonHref"><i class="fa fa-angle-right" style="color: #FFFFFF;"></i></a></li>'
+									));
+								}
+
+								/* 为动态创建的分页按钮绑定单击事件 */
+								$(".pageButtonHref").on("click", function() {
+									// 获得被点击超链接href属性的值
+									var num = $(this).attr("href");
+									// 查询第N页的供应商信息
+									showProviderListTable(num);
+									// 阻止超链接发出请求
+									return false;
+								});
+							}
+						} else {
+							// 查询失败，没有查询到供应商信息
+							// 1、创建tr
+							var tr = $("<tr class='text-center'></tr>");
+							// 2、创建td
+							var td = $("<td colspan='13'>" + result.message + "</td>");
+							// 3、将td添加到tr中
+							tr.append(td);
+							// 4、将tr添加到tbody中
+							tbody.append(tr);
+						}
+					});
+				}
+
+				/* 材料种类按钮的单击事件(id属性为kindBtn) */
+				$("#kindBtn").click(function() {
+					// 手动打开指定ID的模态框
+					$("#kindListModal").modal("show");
+					showKindListTable(1);
+				})
+
+				// 材料种类模态框中添加材料种类按钮的单击事件
+				$("#insertKindBtn").click(function() {
+					// 手动打开指定ID的模态框
+					$("#updateKindMessageModal").modal("show");
+
+					// 修改模态框信息
+					$("#kindModalTitle").text("新建材料种类信息");
+					$("#updateKindMessageBtn").text("新建");
+
+					// 将模态框中对应的控件清空
+					$("#kindName").val("");
+					$("#kindRemark").val("");
+					$("#updateKindId").val("");
+					$(".error9").text("");
+				});
+
+				// 点击保存/添加材料种类信息按钮的点击事件
+				$("#updateKindMessageBtn").click(function() {
+					var kindName = $("#kindName");
+					if (kindName.val() == "") {
+						$(".error9").text("材料种类名称不能为空！！！");
+						kindName.focus();
+						return false;
+					}
+
+					var status = $("#updateKindMessageBtn").text();
+					var args = {
+						"kindName": kindName.val(),
+						"kindRemark": $("#kindRemark").val(),
+						"kindId": (status == "保存" ? ($("#updateKindId").val()) : "")
+					}
+					providerAndKindCommon(args, ($("#kindListPageNumber").val()), 2, status);
+					return false;
+				});
+
+				// 显示第N页材料种类信息
+				function showKindListTable(kindListPageNumber) {
+					// 将页码保存到ID为kindListPageNumber的隐藏表单域中
+					$("#kindListPageNumber").val(kindListPageNumber);
+					//alert(kindListPageNumber);
+					var url = url_prefix_materials + "selectKind";
+
+					var args = {
+						"pageNumber": kindListPageNumber
+					};
+
+					$.get(url, args, function(result) {
+						// 获得tbody
+						var tbody = $("#kindListSelectBody");
+						// 移除tbody中所有的tr
+						tbody.find("tr").remove();
+
+						//alert(result.code);
+						if (result.code == 0) {
+							// 查询成功，将材料种类信息显示在模态框的表格中
+							// 获得分页信息
+							var pages = result.resultData.pages;
+							// 在分页信息中获得材料种类信息
+							var list = pages.list;
+
+							// 获得当前页面起始行的行号
+							var startRow = pages.startRow;
+
+							// 使用循环将材料种类信息显示在表格中
+							for (var i = 0; i < list.length; i++) {
+								// 获得数组中的材料种类信息
+								var kind = list[i];
+								// 创建tr
+								var tr = $("<tr></tr>");
+								// 创建td
+								var td = $("<td></td>");
+
+								// 向tr中添加td
+								tr.append($("<td>" + (startRow++) + "</td>"));
+								tr.append($("<td>" + kind.kindId + "</td>"));
+								tr.append($("<td><a href='#updateKindMessageModal' name=\'" + JSON.stringify(
+										kind) +
+									"\' class='updateKindMessageModal' >" + kind.kindName +
+									"</a></td>"));
+								tr.append($("<td><p class='text-hidden' title='" + kind.kindRemark +
+									"'>" + kind.kindRemark + "</p></td>"));
+								tr.append($("<td><a class='deleteKindBtn' href='" + kind.kindId +
+									"' style='color:red'>删除</a></td>"));
+								// 将tr添加到tbody中
+								tbody.append(tr);
+							}
+
+							/* 为修改材料种类信息名称的超链接绑定单击事件 */
+							$(".updateKindMessageModal").on("click", function() {
+
+								$("#updateKindMessageModal").modal("show");
+
+								// 修改模态框信息
+								$("#kindModalTitle").text("修改材料种类信息");
+								$("#updateKindMessageBtn").text("保存");
+
+								// 获得被点击超链接name属性的值
+								var provider = JSON.parse($(this).attr("name"));
+								// 将材料种类信息的数据设置到模态框中对应的控件内
+								$("#kindName").val(kind.kindName);
+								$("#kindRemark").val(kind.kindRemark);
+								$("#updateKindId").val(kind.kindId);
+								$(".error9").text("")
+								return false;
+							});
+
+							// 为删除材料种类信息超链接绑定单击事件
+							$(".deleteKindBtn").on("click", function() {
+								if (confirm("确定要删除当前材料种类信息吗？\n此操作不可逆！！！")) {
+									// 获得被点击超链接href属性的值
+									var kindId = $(this).attr("href");
+
+									var url = url_prefix_materials + "deleteKind";
+
+									var args = {
+										"kindId": kindId
+									};
+
+									$.get(url, args, function(result) {
+										if (result.code == 0) {
+											updateProviderAndKind($("#selectProvider"), $(
+												"#selectKind"))
+											updateProviderAndKind($("#materialsProvider"), $(
+												"#materialsKind"));
+											showKindListTable(kindListPageNumber);
+										} else {
+											alert(result.message);
+										}
+									});
+								}
+								return false;
+							})
+
+							//------------------------------分页按钮--------------------------------
+							// 获得显示分页按钮的容器(ul)
+							var pagination = $("#kindListPagination");
+							// 在显示分页按钮的容器中查找所有的li，并移除
+							pagination.find("li").remove();
+
+							// 是否需要显示分页按钮
+							if (pages.pages > 1) {
+								/* 上一页 */
+								/* 如果当前为第一页，则上一页按钮无效 */
+								if (pages.isFirstPage) {
+									pagination.append($(
+										'<li><a><i class="fa fa-angle-left" style="color: #FFFFFF;"></i></a></li>'
+									));
+								} else {
+									pagination.append($(
+										'<li><a href="' + pages.prePage +
+										'" class="pageButtonHref"><i class="fa fa-angle-left" style="color: #FFFFFF;"></i></a></li>'
+									));
+								}
+								/* 普通分页按钮 */
+								// 获得分页按钮的数组
+								var navigatepageNums = pages.navigatepageNums;
+								for (var i = 0; i < navigatepageNums.length; i++) {
+									// 当前页的分页按钮无效
+									if (navigatepageNums[i] == kindListPageNumber) {
+										pagination.append($('<li class="active"><a style="color: #FFFFFF;">' +
+											navigatepageNums[i] + '</a></li>'));
+									} else {
+										pagination.append($('<li><a href="' + navigatepageNums[i] +
+											'" class="pageButtonHref" style="color: #FFFFFF;">' +
+											navigatepageNums[
+												i] + '</a></li>'));
+									}
+								}
+
+								/* 下一页 */
+								/* 如果当前为最后一页，则下一页按钮无效 */
+								if (pages.isLastPage) {
+									pagination.append($(
+										'<li><a><i class="fa fa-angle-right" style="color: #FFFFFF;"></i></a></li>'
+									));
+								} else {
+									pagination.append($(
+										'<li><a href="' + pages.nextPage +
+										'" class="pageButtonHref"><i class="fa fa-angle-right" style="color: #FFFFFF;"></i></a></li>'
+									));
+								}
+
+								/* 为动态创建的分页按钮绑定单击事件 */
+								$(".pageButtonHref").on("click", function() {
+									// 获得被点击超链接href属性的值
+									var num = $(this).attr("href");
+									// 查询第N页的供应商信息
+									showKindListTable(num);
+									// 阻止超链接发出请求
+									return false;
+								});
+							}
+						} else {
+							// 查询失败，没有查询到材料种类信息
+							// 1、创建tr
+							var tr = $("<tr class='text-center'></tr>");
+							// 2、创建td
+							var td = $("<td colspan='13'>" + result.message + "</td>");
+							// 3、将td添加到tr中
+							tr.append(td);
+							// 4、将tr添加到tbody中
+							tbody.append(tr);
+						}
+					});
+				}
+			});
+		</script>
+		<!-- 自定义JS代码结束 -->
+	</body>
+</html>

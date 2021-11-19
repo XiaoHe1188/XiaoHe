@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<!--[if IE 9 ]><html class="ie9"><![endif]-->
+<head>
+	<!--
+	 作者：张元涛
+	 功能：员工登录页面
+	 -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+	<meta name="format-detection" content="telephone=no">
+	<meta charset="UTF-8">
+
+	<meta name="description" content="Violate Responsive Employee Template">
+	<meta name="keywords" content="Super Employee, Employee, Template, Bootstrap">
+
+	<title>小鹤家装管理系统</title>
+
+	<!-- CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/form.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<link href="css/animate.css" rel="stylesheet">
+	<link href="css/generics.css" rel="stylesheet">
+	<!-- 设置站点图标 -->
+	<link href="img/favicon.ico" rel="icon" />
+</head>
+<body id="skin-tectile">
+	<div id="login" style="margin-top: 10%;margin-left: 35%;">
+		<header>
+			<h1>小鹤家装管理系统</h1>
+			<p style="font-size: 20px;text-indent: 2em;width: 500px;margin-top: 20px;">
+				欢迎使用小鹤家装管理系统，请登录后查看相应内容,如果忘记了密码，请联系管理员！
+			</p>
+		</header>
+
+		<div class="clearfix"></div>
+
+		<!-- Login -->
+		<form class="box tile animated active" id="box-login">
+			<h2 class="m-t-0 m-b-15">登录信息</h2>
+			<input type="text" id="employeeId" class="login-control m-b-10" autofocus="autofocus" placeholder="员工编号">
+			<input type="password" id="employeePassword" class="login-control" placeholder="密码">
+			<div class="checkbox m-b-20">
+				<label>
+					<input type="checkbox" id="rememberMe">
+					记住账号
+				</label>
+			</div>
+			<button class="btn btn-sm m-r-5" type="button" id="loginBtn">登录</button>
+		</form>
+	</div>
+
+	<!-- Javascript Libraries -->
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script> <!-- jQuery Library -->
+
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+
+	<!--  Form Related -->
+	<script src="js/icheck.js"></script> <!-- Custom Checkbox + Radio -->
+
+	<!-- All JS functions -->
+	<script src="js/functions.js"></script>
+
+	<!-- 导入自定义JS文件开始 -->
+	<script src="js/content/url.js" type="text/javascript" charset="utf-8"></script>
+	<!-- 导入自定义JS文件结束 -->
+
+	<!-- 自定义JS代码开始 -->
+	<script type="text/javascript">
+		$(function() {
+			
+			sessionStorage.setItem("skin", "skin-tectile");
+
+			/* 当页面打开时，在localStorage中查询是否存在名为loginMessage名字的值 */
+			var loginEmployee = JSON.parse(localStorage.getItem("loginMessage"));
+			if (loginEmployee != null) {
+				// 获得了浏览器缓存中保存的登录信息，需要进行自动登录
+				login(loginEmployee.employeeId, loginEmployee.employeePassword);
+			}
+
+			/* 登录按钮的单击事件(id属性为loginBtn)*/
+			$("#loginBtn").click(function() {
+				var employeeId = $("#employeeId");
+				if (employeeId.val() == "") {
+					alert("员工编号不能为空！！！");
+					employeeId.focus();
+					return false;
+				}
+
+				var reg = /^[0-9]{1,6}$/;
+				if (!reg.test(employeeId.val())) {
+					alert("员工编号只能为1-6位的整数！！！");
+					employeeId.select();
+					return false;
+				}
+
+				var employeePassword = $("#employeePassword");
+				if (employeePassword.val() == "") {
+					alert("员工密码不能为空！！！");
+					employeePassword.focus();
+					return false;
+				}
+				//员工登录
+				login(employeeId.val(), employeePassword.val());
+			});
+
+			/**
+			 * 员工登录方法
+			 * @param {Object} employeeId 员工编号
+			 * @param {Object} employeePassword 员工密码
+			 */
+			function login(employeeId, employeePassword) {
+				//1、创建URL
+				var url = url_prefix_employee + "login";
+
+				// 2、创建传递数据
+				var args = {
+					"employeeId": employeeId,
+					"employeePassword": employeePassword
+				};
+
+				// 3、向服务器发出get模式的请求，并获得响应的结果
+				$.get(url, args, function(result) {
+					if (result.code == 0) {
+						//登录成功时，将登录成功员工的信息保存到浏览器的缓存中
+						var employee = result.resultData.loginEmployee;
+
+						// 获得id属性为rememberMe的复选按钮
+						var remember = $("#rememberMe");
+						if (remember.prop("checked")) {
+							// 当前登录的员工需要保存登录的状态
+							// 将登录员工的信息以指定的名字存入localStorage
+							localStorage.setItem("loginMessage", JSON.stringify(employee));
+						};
+
+						//将登录成功员工的信息转换成json字符串后，存入浏览器缓存中
+						sessionStorage.setItem("loginEmployee", JSON.stringify(employee));
+						// 获得所有的部门信息
+						var departmentList = result.resultData.departmentList;
+
+						// 将部门信息存入浏览器缓存中
+						sessionStorage.setItem("departmentList", JSON.stringify(departmentList));
+						// 跳转到方案管理页面
+						location.href = "scheme.html";
+
+					} else {
+						//登录失败
+						alert(result.message);
+						$("#employeePassword").select();
+					}
+				});
+			}
+		});
+	</script>
+	<!-- 自定义JS代码结束 -->
+</body>
+</html>

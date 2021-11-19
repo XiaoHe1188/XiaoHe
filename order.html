@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--
+		 作者：张元涛
+		 功能：管理订单信息与订单明细信息页面
+		 -->
+		<meta charset="utf-8">
+		<title>小型家装管理系统</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+		<meta name="format-detection" content="telephone=no">
+		<meta name="description" content="Violate Responsive Admin Template">
+		<meta name="keywords" content="Super Admin, Admin, Template, Bootstrap">
+
+		<!-- 导入CSS文件开始 -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/animate.min.css" rel="stylesheet">
+		<link href="css/font-awesome.min.css" rel="stylesheet">
+		<link href="css/form.css" rel="stylesheet">
+		<link href="css/calendar.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<link href="css/icons.css" rel="stylesheet">
+		<link href="css/generics.css" rel="stylesheet">
+		<!-- 导入CSS文件结束 -->
+		<!-- 导入自定义CSS文件开始 -->
+		<link rel="stylesheet" type="text/css" href="css/gmd-style.css" />
+		<!-- 导入自定义CSS文件结束 -->
+		<!-- 设置站点图标 -->
+		<link href="img/favicon.ico" rel="icon" />
+	</head>
+	<body id="skin-tectile">
+
+		<!-- 页面顶部开始 -->
+		<header id="header" class="media">
+			<!-- 显示/隐藏菜单 -->
+			<a href="" id="menu-toggle"></a>
+			<!-- LOGO标题 -->
+			<a class="logo pull-left" href="index.html">小型家装管理系统 1.0</a>
+
+			<div class="media-body">
+				<div class="media" id="top-menu">
+					<div id="time" class="pull-right">
+						<span id="hours"></span>
+						:
+						<span id="min"></span>
+						:
+						<span id="sec"></span>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- 页面顶部结束 -->
+		<div class="clearfix"></div>
+
+		<!-- 页面中部开始 -->
+		<section id="main" class="p-relative" role="main">
+			<!-- 页面左侧开始 -->
+			<aside id="sidebar">
+
+			</aside>
+			<!-- 页面左侧结束 -->
+
+			<!-- 页面右侧开始 -->
+			<section id="content" class="container">
+				<!-- 路径导航开始 -->
+				<ol class="breadcrumb hidden-xs">
+					<li class="active">订单信息</li>
+				</ol>
+				<!-- 路径导航结束 -->
+
+				<!-- 页面子标题 -->
+				<h4 class="page-title">订单信息</h4>
+
+				<!-- 页面主体开始 -->
+				<div class="block-area" id="text-input">
+
+					<!-- 查询条件开始 -->
+					<h3 class="block-title">查询条件</h3>
+
+					<div class="row">
+						<div class="col-lg-2">
+							<input type="text" class="form-control input-sm" id="consumerName" placeholder="顾客姓名" />
+						</div>
+						<div class="col-lg-2">
+							<input type="text" class="form-control input-sm" id="employeeName" placeholder="经办人姓名" />
+						</div>
+						<div class="col-lg-2">
+							<select class="form-control input-sm" id="orderStatus">
+								<option value="">订单状态</option>
+								<option value="未开启">未开启</option>
+								<option value="进行中">进行中</option>
+								<option value="休息中">休息中</option>
+								<option value="已结束">已结束</option>
+							</select>
+						</div>
+						<div class="col-lg-2">
+							<div class="input-icon datetime-pick date-only">
+								<input data-format="yyyy-MM-dd" type="text" class="form-control input-sm"
+									id="orderTimeMin" placeholder="下单时间下限" />
+								<span class="add-on">
+									<i class="sa-plus"></i>
+								</span>
+							</div>
+						</div>
+						<div class="col-lg-2">
+							<div class="input-icon datetime-pick date-only">
+								<input data-format="yyyy-MM-dd" type="text" class="form-control input-sm"
+									id="orderTimeMax" placeholder="下单时间上限" />
+								<span class="add-on">
+									<i class="sa-plus"></i>
+								</span>
+							</div>
+						</div>
+						<div class="col-lg-2">
+							<button type="button" class="btn btn-sm" id="selectBtn">查询</button>
+							<button type="button" class="btn btn-sm" id="clearBtn">清空</button>
+						</div>
+					</div>
+					<!-- 查询条件结束 -->
+
+					<!-- 查询结果开始 -->
+					<h3 class="block-title">查询结果</h3>
+
+					<table class="table tile table-hover table-bordered">
+						<thead>
+							<th width="3%">序号</th>
+							<th width="4%">订单编号</th>
+							<th width="4%">顾客姓名</th>
+							<th width="7%">顾客电话</th>
+							<th width="4%">经办人</th>
+							<th width="7%">经办人电话</th>
+							<th width="6%">订单总金额</th>
+							<th width="5%">下单时间</th>
+							<th width="8%">预计交单日期</th>
+							<th width="8%">实际交单日期</th>
+							<th width="6%">订单状态</th>
+							<th>订单备注</th>
+							<th class="operation" width="5%">操作</th>
+						</thead>
+						<tbody id="orderTbody">
+							<!-- <tr>
+								<td>1</td>
+								<td>订单编号</td>
+								<td>顾客姓名</td>
+								<td><p class="text-hidden" title="139XXXXXXXX">139XXXXXXXX</p></td>
+								<td>经办人姓名</td>
+								<td><p class="text-hidden" title="139XXXXXXXX">139XXXXXXXX</p></td>
+								<td>￥9,999,999.00</td>
+								<td>XXXX-XX-XX XX:XX</td>
+								<td>XXXX-XX-XX XX:XX</td>
+								<td>XXXX-XX-XX XX:XX</td>
+								<td><p class="text-hidden" title="订单状态">订单状态</p></td>
+								<td><p class="text-hidden" title="订单备注">订单备注</p></td>
+								<td style="color: red;">删除</td>
+							</tr> -->
+							<tr class="text-center">
+								<td colspan="13">没有查询到满足条件的订单信息！！！</td>
+							</tr>
+						</tbody>
+					</table>
+					<!-- 查询结果结束 -->
+
+					<!-- 分页按钮开始 -->
+					<div class="col-lg-12 text-center">
+						<ul class="pagination" id="orderPageButtonBody">
+							<!-- <li><a href="#" style="color: #FFFFFF;"><i class="fa fa-angle-left" style="color: #FFFFFF;"></i></a></li>
+							<li><a href="#" style="color: #FFFFFF;">1</a></li>
+							<li><a href="#" style="color: #FFFFFF;">2</a></li>
+							<li><a href="#" style="color: #FFFFFF;">3</a></li>
+							<li><a href="#" style="color: #FFFFFF;">4</a></li>
+							<li><a href="#" style="color: #FFFFFF;">5</a></li>
+							<li><a href="#" style="color: #FFFFFF;"><i class="fa fa-angle-right"></i></a></li> -->
+						</ul>
+					</div>
+					<!-- 分页按钮结束 -->
+
+				</div>
+				<!-- 页面主体结束 -->
+
+			</section>
+			<!-- 页面右侧结束 -->
+		</section>
+		<!-- 页面中部结束 -->
+
+		<!-- 显示订单明细模态框开始 -->
+		<div class="modal fade" id="showOrderDetailsModal" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<!-- 保存对应订单编号的隐藏表单域 -->
+					<input type="hidden" id="assignOrderId" value="" />
+					<!-- 模态框顶部开始 -->
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title">订单明细信息</h4>
+					</div>
+					<!-- 模态框顶部结束 -->
+
+					<!-- 模态框中部开始 -->
+					<div class="modal-body m-b-25">
+						<table class="table tile table-hover table-bordered">
+							<thead>
+								<tr>
+									<th width="5%">序号</th>
+									<th width="8%">订单明细编号</th>
+									<th width="8%">订单材料种类</th>
+									<th width="8%">分订单金额</th>
+									<th width="8%">工人姓名</th>
+									<th width="6%">工人时长(日)</th>
+									<th width="8%">工人总价</th>
+									<th width="8%">材料总价</th>
+									<th width="8%">分订单状态</th>
+									<th>分订单备注</th>
+									<th width="8%">操作</th>
+								</tr>
+							</thead>
+							<tbody id="orderDetailsTbody">
+								<!-- <tr>
+									<td>序号</td>
+									<td>订单明细编号</td>
+									<td>订单材料种类</td>
+									<td>分订单金额</td>
+									<td工人姓名</td>
+									<td工人时长</td>
+									<td>工人总价</td>
+									<td>材料总价</td>
+									<td>分订单状态</td>
+									<td>分订单备注</td>
+									<td>操作</td>
+								</tr> -->
+								<tr class="text-center">
+									<td colspan="13">没有查询到订单明细信息！！！</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<!-- 分页按钮开始 -->
+						<div class="col-lg-12 text-center">
+							<ul class="pagination" id="orderDetailsPageButtonBody">
+								<!-- <li><a href="#" style="color: #FFFFFF;"><i class="fa fa-angle-left" style="color: #FFFFFF;"></i></a></li>
+								<li><a href="#" style="color: #FFFFFF;">1</a></li>
+								<li><a href="#" style="color: #FFFFFF;">2</a></li>
+								<li><a href="#" style="color: #FFFFFF;">3</a></li>
+								<li><a href="#" style="color: #FFFFFF;">4</a></li>
+								<li><a href="#" style="color: #FFFFFF;">5</a></li>
+								<li><a href="#" style="color: #FFFFFF;"><i class="fa fa-angle-right"></i></a></li> -->
+							</ul>
+						</div>
+						<!-- 分页按钮结束 -->
+
+					</div>
+					<!-- 模态框中部结束 -->
+
+					<!-- 模态框底部开始 -->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-sm" data-dismiss="modal">关闭</button>
+					</div>
+					<!-- 模态框底部结束 -->
+				</div>
+			</div>
+		</div>
+		<!-- 显示订单明细模态框结束 -->
+
+		<!-- 显示订单明细材料模态框开始 -->
+		<div class="modal fade" id="showOrderDetailsMaterialsModal" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog" style="width: 1000px;">
+				<div class="modal-content">
+					<!-- 保存对应订单明细编号的隐藏表单域 -->
+					<input type="hidden" id="assignOrderDetailsId" value="" />
+					<!-- 模态框顶部开始 -->
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title">订单明细材料信息</h4>
+					</div>
+					<!-- 模态框顶部结束 -->
+
+					<!-- 模态框中部开始 -->
+					<div class="modal-body m-b-25">
+						<table class="table tile table-hover table-bordered">
+							<thead>
+								<tr>
+									<th width="5%">序号</th>
+									<th width="10%">明细材料编号</th>
+									<th width="10%">材料名称</th>
+									<th width="10%">材料数量</th>
+									<th>备注</th>
+									<th class="operation" width="10%">操作</th>
+								</tr>
+							</thead>
+							<tbody id="orderDetailsMaterialsTbody">
+								<!-- <tr>
+									<td>序号</td>
+									<td>明细材料编号</td>
+									<td>材料名称</td>
+									<td>材料数量</td>
+									<td>备注</td>
+									<td>修改/删除</td>
+								</tr> -->
+								<tr class="text-center">
+									<td colspan="13">没有查询到订单明细材料信息！！！</td>
+								</tr>
+							</tbody>
+						</table>
+
+					</div>
+					<!-- 模态框中部结束 -->
+
+					<!-- 模态框底部开始 -->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-sm" id="updateOrderMaterials">修改</button>
+						<button type="button" class="btn btn-sm" data-dismiss="modal">关闭</button>
+					</div>
+					<!-- 模态框底部结束 -->
+				</div>
+			</div>
+		</div>
+		<!-- 显示订单明细材料模态框结束 -->
+
+		<!-- 保存页码的隐藏表单域 -->
+		<input type="hidden" id="pageNumber" value="1" />
+
+		<!-- 导入JS文件开始 -->
+		<script src="js/jquery.min.js"></script> <!-- jQuery Library -->
+		<script src="js/jquery-ui.min.js"></script> <!-- jQuery UI -->
+		<script src="js/jquery.easing.1.3.js"></script> <!-- jQuery Easing - Requirred for Lightbox + Pie Charts-->
+
+		<script src="js/bootstrap.min.js"></script>
+
+		<script src="js/scroll.min.js"></script> <!-- Custom Scrollbar -->
+		<script src="js/datetimepicker.min.js"></script> <!-- Date & Time Picker -->
+
+		<script src="js/calendar.min.js"></script> <!-- Calendar -->
+		<script src="js/feeds.min.js"></script> <!-- News Feeds -->
+		<script src="js/functions.js"></script>
+		<!-- 导入JS文件开始 -->
+
+		<!-- 导入自定义JS文件开始 -->
+		<script src="js/content/url.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/common/format.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/content/pageButtonUtil.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/content/providerAndKind.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/content/employeeMessages.js" type="text/javascript" charset="utf-8"></script>
+		<!-- 导入自定义JS文件结束 -->
+
+		<!-- 导入自定义JS代码开始 -->
+		<script type="text/javascript">
+			// 加载左侧菜单页面
+			$("#sidebar").load("left-menu.html");
+
+			$(function() {
+				// 激活菜单
+				$("#orderMenu").addClass("active");
+			});
+			$("#clearBtn").click(function() {
+				$("#consumerName").val("");
+				$("#employeeName").val("");
+				$("#orderStatus").val("");
+				$("#orderTimeMin").val("");
+				$("#orderTimeMax").val("");
+				showOrderMessage(1);
+			});
+			
+			window.onload = function(){
+				var loginGrade = JSON.parse(sessionStorage.getItem("loginEmployee")).employeeGrade;
+				
+				if(loginGrade < 1){
+					$("#updateOrderMaterials").hide();
+					$(".operation").attr("hidden","hidden");
+				}
+			}
+
+			showOrderMessage(1);
+
+			//------------------------------查询按钮单击事件的开始------------------------------
+			$("#selectBtn").click(function() {
+				//alert();
+				showOrderMessage(1);
+			});
+			//------------------------------查询按钮单击事件的结束------------------------------
+
+			//-------------------------查询满足条件的第N页订单信息的开始-------------------------
+			function showOrderMessage(pageNumber) {
+				// 将页码添加到id为pageNumber的隐藏表单域中
+				$("#pageNumber").val(pageNumber);
+
+				// 获得显示订单信息的Tbody
+				var orderTbody = $("#orderTbody");
+				// 在tbody中查找所有的tr，并移除
+				orderTbody.find("tr").remove();
+
+				// 创建url
+				var url = url_prefix_order + "selectOrder";
+				// 创建传递的参数
+				var args = {
+					"consumerName": $("#consumerName").val(),
+					"employeeName": $("#employeeName").val(),
+					"orderStatus": $("#orderStatus").val(),
+					"orderTimeMin": $("#orderTimeMin").val(),
+					"orderTimeMax": $("#orderTimeMax").val(),
+					"pageNumber": pageNumber
+				}
+				// 向服务器发出post模式的请求，并获得响应的结果
+				$.post(url, args, function(result) {
+					if (result.code == 0) {
+						// 查询到了满足条件的信息
+						// 获得查询出的订单信息
+						var orderList = result.resultData.pages.list;
+						// 获得当前页中起始行的行号
+						var startRow = result.resultData.pages.startRow;
+
+						for (var i = 0; i < orderList.length; i++) {
+							var order = orderList[i];
+							var orderId = order.orderId;
+							var tr = $("<tr></tr>");
+							tr.append("<td>" + (startRow + i) + "</td>");
+							tr.append("<td><a href='#' class='orderDetailsModalHref'>" + order
+								.orderId + "</a></td>");
+							tr.append("<td>" + order.consumer.consumerName + "</td>");
+							tr.append("<td>" + order.consumer.consumerPhone + "</td>");
+							tr.append("<td>" + order.employee.employeeName + "</td>");
+							tr.append("<td>" + order.employee.employeePhone + "</td>");
+							tr.append("<td>" + formatNumberToCurrency(order.orderTotal) + "元</td>");
+							tr.append("<td>" + order.orderTime.substring(0, 10) + "</td>");
+							tr.append("<td><div class='input-icon datetime-pick date-only'>" +
+								"<input id='orderScheduledTime" + orderId + "' data-format='yyyy-MM-dd'" +
+								" type='text' class='form-control input-sm' value='" +
+								(order.orderScheduledTime == null ? order.orderStatus : order.orderScheduledTime.substring(0, 10)) +
+								"' /><span class='add-on'><i class='sa-plus'></i></span></div></td>");
+							tr.append("<td><div class='input-icon datetime-pick date-only'>" +
+								"<input id='orderDate" + orderId + "' data-format='yyyy-MM-dd' " +
+								" type='text' class='form-control input-sm' value='" +
+								(order.orderDate == null ? order.orderStatus : order.orderDate.substring(0, 10)) +
+								"' /><span class='add-on'><i class='sa-plus'></i></span></div></td>");
+							tr.append("<td><select class='form-control input-sm' id='orderStatus" +
+								(orderId) + "'><option value='未开启'>未开启</option>" +
+								"<option value='进行中'>进行中</option><option value='休息中'>休息中</option>" +
+								"<option value='已结束'>已结束</option></select></td>");
+							tr.append("<td><input type='text' class='form-control input-sm text-hidden' title='" +
+								order.orderRemark + "' id='orderRemark" + (orderId) +
+								"' value='" + order.orderRemark + "'/></td>");
+							tr.append("<td " + gradeDetermination(1) + "><a class='updateOrder' href='" + orderId +
+								"'>修改</a>/<a class='deleteOrder' style='color:red' href='" + orderId +
+								"'>删除</a></td>");
+							orderTbody.append(tr);
+							$("#orderStatus" + orderId).val(order.orderStatus);
+						}
+
+						// 设置订单明细超链接单机事件的开始
+						$(".orderDetailsModalHref").on("click", function() {
+							// 获得被点击超链接name属性的值
+							var orderId = $(this).text();
+							// 查询第一页的订单明细
+							showOrderDetailsMessage(orderId, 1);
+							return false;
+						});
+						// 设置订单明细超链接单机事件的结束
+
+						// 更新订单信息的单机事件
+						$(".updateOrder").on("click", function() {
+							var orderId = $(this).attr("href");
+							var orderDate = $("#orderDate" + orderId).val();
+							var orderStatus = $("#orderStatus" + orderId).val();
+							if (orderStatus != "已结束" && orderDate != "未开启" && orderDate != "进行中" && orderDate !=
+								"休息中") {
+								alert("订单未结束！不能设置实际交单时间！！！");
+								return false;
+							}
+							if (orderDate == "未开启" || orderDate == "进行中" || orderDate == "休息中" || orderDate ==
+								"已结束") {
+								orderDate = null;
+							}
+
+							var args = {
+								"orderId": orderId,
+								"orderDate": orderDate,
+								"orderStatus": orderStatus,
+								"orderRemark": $("#orderRemark" + orderId).val(),
+								"orderScheduledTime": $("#orderScheduledTime" + orderId).val()
+							}
+
+							var url = url_prefix_order + "updateOrder";
+
+							$.post(url, args, function(result) {
+								alert(result.message);
+								location.reload();
+							})
+							return false;
+						})
+
+						$(".deleteOrder").on("click", function() {
+							if (confirm("确定要删除该条订单信息吗？\n此操作不可逆！！！")) {
+								var orderId = $(this).attr("href");
+
+								var args = {
+									"orderId": orderId
+								}
+
+								var url = url_prefix_order + "deleteOrder";
+
+								$.get(url, args, function(result) {
+									if (result.code == 0) {
+										alert(result.message);
+										showOrderMessage($("#pageNumber").val());
+									} else {
+										alert(result.message);
+									}
+								})
+							}
+							return false;
+						})
+
+						// 在页面中添加分页按钮
+						// 获得订单分页按钮的容器
+						var orderPageButtonBody = $("#orderPageButtonBody");
+						// 获得分页的信息
+						var pages = result.resultData.pages;
+						// 在页面中添加分页按钮
+						showPageButton(orderPageButtonBody, pages, showOrderMessage);
+					} else {
+						// 没有查询到满足条件的信息
+						orderTbody.append("<tr class='text-center'><td colspan='13'>" + result.message + "</td></tr>");
+					}
+				});
+			}
+			//-------------------------查询满足条件的第N页订单信息的结束-------------------------
+
+			//-------------------------查询第N页订单明细的开始-------------------------
+			/**
+			 * @param {Object} orderId 订单编号
+			 * @param {Object} pageNumber 页码
+			 */
+			function showOrderDetailsMessage(orderId, pageNumber) {
+				// 创建url
+				var url = url_prefix_order + "selectOrderDetails";
+				// 创建传递的参数
+				var args = {
+					"orderId": orderId,
+					"pageNumber": pageNumber
+				}
+				// 向服务器发出的请求，并获得响应的结果
+				$.get(url, args, function(result) {
+					if (result.code == 0) {
+						$("#showOrderDetailsModal").modal("show");
+						$("#assignOrderId").val(orderId);
+						// 获得显示订单明细信息的tbody
+						var tbody = $("#orderDetailsTbody");
+						// 在tbody中查找所有的tr，并移除
+						tbody.find("tr").remove();
+						tbody.find("span").remove();
+						// 获得查询结果中的订单明细信息
+						var orderDetailsList = result.resultData.pages.list;
+						tbody.append("<span id='orderDetailsListSpan' type='hidden' name=\'" + JSON.stringify(
+							orderDetailsList) + "\'></span>")
+						// 获得当前页中起始行的行号
+						var startRow = result.resultData.pages.startRow;
+						var kindList = JSON.parse(sessionStorage.getItem("kindList"));
+						// 使用循环将订单明细信息显示在tbody中
+						for (var i = 0; i < orderDetailsList.length; i++) {
+							var orderDetails = orderDetailsList[i];
+							var tr = $("<tr></tr>");
+							tr.append("<td>" + (startRow + i) + "</td>");
+							tr.append(
+								"<td><a href='#' class='orderDetailsMaterialsModalHref'>" +
+								(orderDetails.orderDetailsId) + "</a></td>");
+							for (var j = 0; j < kindList.length; j++) {
+								if (orderDetails.kindId == kindList[j].kindId) {
+									var kindName = kindList[j].kindName;
+								}
+							}
+							tr.append("<td>" + kindName + "</td>");
+							tr.append("<td>" + formatNumberToCurrency(orderDetails.orderDetailsTotal) + "元</td>");
+							tr.append("<td><select " + (gradeHidden(1) == 1 ? "disabled='disabled'" : "") + " class='form-control input-sm' id='employeeMessage" + (startRow + i) +
+								"'></select></td>");
+							tr.append("<td><input " + (gradeHidden(1) == 1 ? "disabled='disabled'" : "") + " type='number' id='employeeTime" + (startRow + i) +
+								"' class='form-control input-sm' value='" +
+								orderDetails.orderDetailsEmployeeTime + "' /></td>");
+							tr.append("<td>" + formatNumberToCurrency(orderDetails.orderDetailsEmployeePrice) +
+								"元</td>");
+							tr.append("<td>" + formatNumberToCurrency(orderDetails.orderDetailsPrice) + "元</td>");
+							tr.append("<td><select class='form-control input-sm' id='orderDetailsStatus" +
+								(startRow + i) +
+								"'><option value='未开启'>未开启</option><option value='进行中'>进行中</option><option value='休息中'>休息中" +
+								"</option><option value='已结束'>已结束</option></select></td>");
+							tr.append("<td><input " + (gradeHidden(1) == 1 ? "disabled='disabled'" : "") + " type='text' class='form-control input-sm text-hidden' title='" +
+								orderDetails.orderDetailsRemark + "' id='orderDetailsRemark" + (startRow + i) +
+								"' value='" + orderDetails.orderDetailsRemark + "'/></td>");
+							tr.append("<td><a href='" + orderDetails.orderDetailsId +
+								"' startRow='" + (startRow + i) +
+								"' class='updateDetails'>修改</a><span " + gradeDetermination(1) + ">/<a class='deleteDetails' style='color:red;' href='" +
+								orderDetails.orderDetailsId +"'>删除</a></span></td>");
+							tbody.append(tr);
+							$("#orderDetailsStatus" + (startRow + i)).val(orderDetails.orderDetailsStatus);
+							showEmployeeMessages($("#employeeMessage" + (startRow + i)), orderDetails.employeeId);
+						}
+
+						$(".updateDetails").on("click", function() {
+							var orderDetailsId = $(this).attr("href");
+							var startRow = $(this).attr("startRow");
+							var orderDetailsListSpan = JSON.parse($("#orderDetailsListSpan").attr("name"));
+
+							var orderTotal = 0;
+							var orderDetailsTotal = 0;
+							var orderDetailsEmployeePrice = 0;
+
+							for (var x = 0; x < orderDetailsListSpan.length; x++) {
+								var orderDetails = orderDetailsListSpan[x];
+								if (orderDetailsId == orderDetails.orderDetailsId) {
+									for (var z = 0; z < employeeList.length; z++) {
+										if ($("#employeeMessage" + startRow).val() == employeeList[z]
+											.employeeId) {
+											var employeeSalary = employeeList[z].employeeSalary;
+											break;
+										}
+									}
+									orderDetailsEmployeePrice = employeeSalary * ($("#employeeTime" + startRow)
+										.val());
+									orderDetailsTotal = orderDetailsEmployeePrice + orderDetails
+										.orderDetailsPrice
+									orderDetails.orderDetailsTotal = orderDetailsTotal;
+								}
+								orderTotal = orderTotal + orderDetails.orderDetailsTotal;
+							}
+
+							var args = {
+								"orderId": $("#assignOrderId").val(),
+								"orderTotal": orderTotal,
+								"orderDetailsId": orderDetailsId,
+								"employeeId": $("#employeeMessage" + startRow).val(),
+								"orderDetailsEmployeeTime": $("#employeeTime" + startRow).val(),
+								"orderDetailsStatus": $("#orderDetailsStatus" + startRow).val(),
+								"orderDetailsRemark": $("#orderDetailsRemark" + startRow).val(),
+								"orderDetailsTotal": orderDetailsTotal,
+								"orderDetailsEmployeePrice": orderDetailsEmployeePrice
+							}
+
+							var url = url_prefix_order + "updateOrderDetails";
+
+							$.post(url, args, function(result) {
+								if (result.code == 0) {
+									alert(result.message);
+									showOrderMessage($("#pageNumber").val());
+									showOrderDetailsMessage($("#assignOrderId").val(), 1);
+								} else {
+									alert(result.message);
+								}
+							})
+							return false;
+						})
+
+						$(".deleteDetails").on("click", function() {
+							if (confirm("确定要删除该条明细信息吗？\n此操作不可逆！！！")) {
+								var orderDetailsId = $(this).attr("href");
+
+								var args = {
+									"orderId": $("#assignOrderId").val(),
+									"orderDetailsId": orderDetailsId
+								}
+
+								var url = url_prefix_order + "deleteOrderDetails";
+
+								$.get(url, args, function(result) {
+									if (result.code == 0) {
+										alert(result.message);
+										showOrderMessage($("#pageNumber").val());
+										showOrderDetailsMessage($("#assignOrderId").val(), 1);
+									} else {
+										alert(result.message);
+									}
+								})
+							}
+							return false;
+						})
+
+						// 获得显示订单明细分页按钮的容器
+						var orderDetailsPageButtonBody = $("#orderDetailsPageButtonBody");
+						// 获得分页信息
+						var pages = result.resultData.pages;
+						//显示分页按钮
+						showPageButton1(orderDetailsPageButtonBody, pages, showOrderDetailsMessage, orderId);
+
+						// 设置订单明细超链接单机事件的开始
+						$(".orderDetailsMaterialsModalHref").on("click", function() {
+							// 获得被点击超链接name属性的值
+							var orderDetailsId = $(this).text();
+							// 查询第一页的订单明细材料信息
+							showOrderDetailsMaterialsMessage($("#assignOrderId").val(), orderDetailsId, 1);
+							return false;
+						});
+						// 设置订单明细超链接单机事件的结束
+					} else {
+						alert(result.message);
+					}
+				});
+			}
+			//-------------------------查询第N页订单明细的结束-------------------------
+
+			//-------------------------查询第N页订单明细材料的开始-------------------------
+			/**
+			 * @param {Object} orderId		  订单编号
+			 * @param {Object} orderDetailsId 订单明细编号
+			 * @param {Object} pageNumber	  页码
+			 */
+			function showOrderDetailsMaterialsMessage(orderId, orderDetailsId, pageNumber) {
+				// 创建url
+				var url = url_prefix_order + "selectOrderDetailsMaterials";
+				// 创建传递的参数
+				var args = {
+					"orderId": orderId,
+					"orderDetailsId": orderDetailsId,
+					"pageNumber": pageNumber
+				}
+				// 向服务器发出的请求，并获得响应的结果
+				$.get(url, args, function(result) {
+					if (result.code == 0) {
+						$("#showOrderDetailsMaterialsModal").modal("show");
+						$("#assignOrderDetailsId").val(orderDetailsId);
+						// 获得显示订单明细信息的tbody
+						var tbody = $("#orderDetailsMaterialsTbody");
+						// 在tbody中查找所有的tr，并移除
+						tbody.find("tr").remove();
+						// 获得查询结果中的订单明细信息
+						var orderDetailsMaterialsList = result.resultData.pages.list;
+						tbody.append("<span id='materialsListSpan' name=\'" + JSON.stringify(
+								orderDetailsMaterialsList) +
+							"\'>");
+						// 获得当前页中起始行的行号
+						var startRow = result.resultData.pages.startRow;
+						// 使用循环将订单明细材料信息显示在tbody中
+						for (var i = 0; i < orderDetailsMaterialsList.length; i++) {
+							var orderDetailsMaterials = orderDetailsMaterialsList[i];
+							var tr = $("<tr id='startRow" + (startRow + i) + "' ></tr>");
+							tr.append("<td style='padding:14px;'>" + (startRow + i) + "</td>");
+							tr.append("<td style='padding:14px;' id='materialsId" + (startRow + i) + "'>" +
+								orderDetailsMaterials.orderDetailsMaterialsId +
+								"</td>");
+							tr.append("<td class='text-hidden' style='padding:14px 0 0 0;'>" + orderDetailsMaterials
+								.materials.materialsName + "</td>");
+							tr.append("<td><input type='number' id='materialsNumber" + (startRow + i) +
+								"' class='form-control input-sm' value='" +
+								orderDetailsMaterials.orderDetailsMaterialsNumber + "' /></td>");
+							tr.append("<td><input type='text'id='materialsRemark" + (startRow + i) +
+								"' class='form-control input-sm text-hidden' title='" +
+								orderDetailsMaterials
+								.orderDetailsMaterialsRemark + "' value='" +
+								orderDetailsMaterials.orderDetailsMaterialsRemark + "'></td>");
+							tr.append("<td " + gradeDetermination(1) + " style='padding:14px;'><a class='startRow' startRow ='" + (startRow + i) +
+								"' style='color:red;' href='" +
+								orderDetailsMaterials.orderDetailsMaterialsId +
+								"'>移除</a></td>");
+							tbody.append(tr);
+						}
+
+						$(".startRow").on("click", function() {
+							if (confirm("确定要删除该条材料信息吗？\n此操作不可逆！！！")) {
+								var orderMaterialsId = $(this).attr("href");
+								var materialsStartRow = $(this).attr("startRow");
+
+								var args = {
+									"orderId": $("#assignOrderId").val(),
+									"orderDetailsId": $("#assignOrderDetailsId").val(),
+									"orderDetailsMaterialsId": orderMaterialsId
+								}
+
+								var url = url_prefix_order + "deleteOrderDetailsMaterials";
+
+								$.post(url, args, function(result) {
+									if (result.code == 0) {
+										alert(result.message);
+										$("#startRow" + materialsStartRow).remove();
+										showOrderMessage($("#pageNumber").val());
+										showOrderDetailsMessage($("#assignOrderId").val(), 1);
+									} else {
+										alert(result.message);
+									}
+								})
+							}
+							return false;
+						})
+					} else {
+						alert(result.message);
+					}
+				});
+			}
+			//-------------------------查询第N页订单明细材料的结束-------------------------
+
+			// 为修改材料信息创建单击事件
+			$("#updateOrderMaterials").on("click", function() {
+				var materialsNumber = $("#orderDetailsMaterialsTbody").find("tr").length;
+				var orderTotal = 0;
+				var detailsTotal = 0;
+				var orderDetailsPrice = 0;
+				var orderDetailsMaterials = "";
+				var orderDetailsList = JSON.parse($("#orderDetailsListSpan").attr("name"));
+				var orderDetailsMaterialsList = JSON.parse($("#materialsListSpan").attr("name"));
+				for (var y = 0; y < materialsNumber; y++) {
+					orderDetailsPrice = orderDetailsPrice + ((orderDetailsMaterialsList[y].materials
+							.materialsPrice) *
+						$("#materialsNumber" + (y + 1)).val());
+					orderDetailsMaterials = orderDetailsMaterials +
+						"{\"orderDetailsMaterialsId\" : " + $("#materialsId" + (y + 1))
+						.text() + ",";
+					orderDetailsMaterials = orderDetailsMaterials +
+						"\"orderDetailsMaterialsNumber\" : " + $("#materialsNumber" + (y +
+							1)).val() + ",";
+					orderDetailsMaterials = orderDetailsMaterials +
+						"\"orderDetailsMaterialsRemark\" : \"" + $("#materialsRemark" + (
+							y +
+							1)).val() + "\"},";
+				}
+				for (var x = 0; x < orderDetailsList.length; x++) {
+					if ($("#assignOrderDetailsId").val() == orderDetailsList[x].orderDetailsId) {
+						orderDetailsList[x].orderDetailsPrice = orderDetailsPrice;
+						detailsTotal = orderDetailsList[x].orderDetailsEmployeePrice +
+							orderDetailsPrice;
+						orderDetailsList[x].orderDetailsTotal = detailsTotal;
+					}
+					orderTotal = orderTotal + orderDetailsList[x].orderDetailsTotal;
+				}
+				var args = "{";
+				args = args + "\"orderId\" : " + $("#assignOrderId").val() + ",";
+				args = args + "\"orderTotal\" : " + orderTotal + ",";
+				args = args + "\"orderDetailsList\" : [{";
+				args = args + "\"orderDetailsId\" : " + $("#assignOrderDetailsId").val() + ",";
+				args = args + "\"orderDetailsTotal\" : " + detailsTotal + ",";
+				args = args + "\"orderDetailsPrice\" : " + orderDetailsPrice + ",";
+				args = args + "\"orderDetailsMaterials\" : [" + orderDetailsMaterials;
+
+				args = args.substring(0, args.length - 1);
+				args = args + "]}]}";
+
+				console.log(args);
+				return false;
+
+				var sendUrl = url_prefix_order + "updateOrderDetailsMaterials";
+
+				$.ajax({
+					type: "post",
+					url: sendUrl,
+					async: true,
+					data: args,
+					dataType: "json",
+					contentType: "application/json",
+					success: function(result) {
+						if (result.code == 0) {
+							alert(result.message);
+							$("#orderDetailsMaterialsModal").modal("hide");
+							showOrderDetailsMessage($("#assignOrderId").val(), 1);
+							showOrderMessage($("#pageNumber").val());
+						} else {
+							alert(result.message);
+						}
+					}
+				})
+			})
+		</script>
+		<!-- 导入自定义JS代码结束 -->
+		<script src="js/datetimepicker.min.js"></script> <!-- Date & Time Picker -->
+	</body>
+</html>
